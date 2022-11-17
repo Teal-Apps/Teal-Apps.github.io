@@ -18,6 +18,7 @@ function onYouTubeIframeAPIReady()
 				// playerVars: { 'controls' : 0 },	// removes controls
         events: { 'onStateChange': onyoutubechange, 
 				'onReady': onPlayerReady }
+	youtube.playVideo();
       });
 }
 function onPlayerReady(event) 
