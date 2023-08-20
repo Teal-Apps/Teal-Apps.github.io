@@ -29,19 +29,48 @@ const tomorrow = [24.15,22.46,21.11,19.61,20.53,19.71,19.54,19.24,20.1,18.75,22.
 const xValues = ["0:00","0:30","1:00","1:30","2:00","2:30","3:00","3:30","4:00","4:30","5:00","5:30","6:00",
 "6:30","7:00","7:30","8:00","8:30","9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00",
 "13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30",
-"20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30"];
+"20:00","20:30","21:00","21:30","22:00","22:30","23:00?","23:30?"];
 
-var barColours = ["black","black","black","black","black","black","black","black","black","black","black",
-"black","teal","teal","teal","teal","teal","teal","teal","teal","teal","teal","teal","teal","teal","teal",
-"teal","teal","teal","teal","teal","teal","teal","teal","teal","teal","black","black","black","black",
-"black","black","black","black","black","black","black","black","black"];
+  
+var fix = 30.0; // this is the fixed price we would have paid
+var night = "midnightblue";
+var day = "steelblue";
+var red = "orangered";
+  
+var barColoursToday = [(today[0]>fix)?red:night,(today[1]>fix)?red:night,(today[2]>fix)?red:night,
+(today[3]>fix)?red:night,(today[4]>fix)?red:night,(today[5]>fix)?red:night,(today[6]>fix)?red:night,
+(today[7]>fix)?red:night,(today[8]>fix)?red:night,(today[9]>fix)?red:night,(today[10]>fix)?red:night,
+(today[11]>fix)?red:night,(today[12]>fix)?red:day,(today[13]>fix)?red:day,(today[14]>fix)?red:day,
+(today[15]>fix)?red:day,(today[16]>fix)?red:day,(today[17]>fix)?red:day,(today[18]>fix)?red:day,
+(today[19]>fix)?red:day,(today[20]>fix)?red:day,(today[21]>fix)?red:day,(today[22]>fix)?red:day,
+(today[23]>fix)?red:day,(today[24]>fix)?red:day,(today[25]>fix)?red:day,(today[26]>fix)?red:day,
+(today[27]>fix)?red:day,(today[28]>fix)?red:day,(today[29]>fix)?red:day,(today[30]>fix)?red:day,
+(today[31]>fix)?red:day,(today[32]>fix)?red:day,(today[33]>fix)?red:day,(today[34]>fix)?red:day,
+(today[35]>fix)?red:day,(today[36]>fix)?red:night,(today[37]>fix)?red:night,(today[38]>fix)?red:night,
+(today[39]>fix)?red:night,(today[40]>fix)?red:night,(today[41]>fix)?red:night,(today[42]>fix)?red:night,
+(today[43]>fix)?red:night,(today[44]>fix)?red:night,(today[45]>fix)?red:night,(today[46]>fix)?red:night,
+(today[47]>fix)?red:night];
+  
+var barColoursTomorrow = [(tomorrow[0]>fix)?red:night,(tomorrow[1]>fix)?red:night,(tomorrow[2]>fix)?red:night,
+(tomorrow[3]>fix)?red:night,(tomorrow[4]>fix)?red:night,(tomorrow[5]>fix)?red:night,(tomorrow[6]>fix)?red:night,
+(tomorrow[7]>fix)?red:night,(tomorrow[8]>fix)?red:night,(tomorrow[9]>fix)?red:night,(tomorrow[10]>fix)?red:night,
+(tomorrow[11]>fix)?red:night,(tomorrow[12]>fix)?red:day,(tomorrow[13]>fix)?red:day,(tomorrow[14]>fix)?red:day,
+(tomorrow[15]>fix)?red:day,(tomorrow[16]>fix)?red:day,(tomorrow[17]>fix)?red:day,(tomorrow[18]>fix)?red:day,
+(tomorrow[19]>fix)?red:day,(tomorrow[20]>fix)?red:day,(tomorrow[21]>fix)?red:day,(tomorrow[22]>fix)?red:day,
+(tomorrow[23]>fix)?red:day,(tomorrow[24]>fix)?red:day,(tomorrow[25]>fix)?red:day,(tomorrow[26]>fix)?red:day,
+(tomorrow[27]>fix)?red:day,(tomorrow[28]>fix)?red:day,(tomorrow[29]>fix)?red:day,(tomorrow[30]>fix)?red:day,
+(tomorrow[31]>fix)?red:day,(tomorrow[32]>fix)?red:day,(tomorrow[33]>fix)?red:day,(tomorrow[34]>fix)?red:day,
+(tomorrow[35]>fix)?red:day,(tomorrow[36]>fix)?red:night,(tomorrow[37]>fix)?red:night,(tomorrow[38]>fix)?red:night,
+(tomorrow[39]>fix)?red:night,(tomorrow[40]>fix)?red:night,(tomorrow[41]>fix)?red:night,(tomorrow[42]>fix)?red:night,
+(tomorrow[43]>fix)?red:night,(tomorrow[44]>fix)?red:night,(tomorrow[45]>fix)?red:night,(tomorrow[46]>fix)?red:night,
+(tomorrow[47]>fix)?red:night];
 
 new Chart("today", {
   type: "bar",
   data: {
     labels: xValues,
     datasets: [{
-      backgroundColor: barColours,
+      backgroundColor: barColoursToday,
       data: today
     }]
   },
@@ -55,7 +84,7 @@ new Chart("tomorrow", {
   data: {
     labels: xValues,
     datasets: [{
-      backgroundColor: barColours,
+      backgroundColor: barColoursTomorrow,
       data: tomorrow
     }]
   },
