@@ -22,14 +22,15 @@
 <a href=# onClick="window.location.reload();">Reset all</a>
 
 <table>
-<td> 1 <td> Elgar <td> Spirit&nbsp;of&nbsp;the&nbsp;lord 
-<td> <a id=no1 href=# onclick="loadvideo(1,'Elgar - Spirit of the lord', 'IwV2eDyKZkw');piano1['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> 1 <td> Elgar <td> The spirit&nbsp;of&nbsp;the&nbsp;lord 
+<td> <a id=no1 href=# onclick="loadvideo(1,'Elgar - The spirit of the lord', 'IwV2eDyKZkw');piano1['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(1,piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(1,piano1);"><b>+</b></a>
 <td> <b id=star1>></b>
  <audio id=piano1 onended="no2.click();">!!! Your browser does not support this audio player !!!
 <source src="https://www.dropbox.com/scl/fi/brpjsox6xvl5hxj77nfn6/Elgar-The-spirit-of-the-lord-alto2-acc.mp3?rlkey=cyd345z3g7tewf3yehy70fhtd&dl=1&raw=1" type="audio/mpeg"></audio>
 <td rowspan=13>
-	<h3 id=playing>Elgar - Spirit of the lord</h3>
+	<h3 id=playing>Elgar - The spirit of the lord</h3>
+	<font id=video size=1><a target=_blank href='https://www.youtube.com/watch?v=IwV2eDyKZkw'>https://www.youtube.com/watch?v=IwV2eDyKZkw</a></font><br>
 	<font size=1>(this is embedded from YouTube and covered by YouTube licence)</font><br>
 	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>		
 <tr>
@@ -48,7 +49,7 @@
 <source src="&dl=1&raw=1" type="audio/mpeg"></audio>
 <tr>
 <td> 4 <td> Carr <td> I&nbsp;offer&nbsp;you&nbsp;love 
-<td> <a id=no4 href=# onclick="loadvideo(4,'Carr - I offer you love','xxxxxxxxxxx');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
+<td> <a id=no4 href=# onclick="loadvideo(4,'Carr - I offer you love','4');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
 <td> <a href=# onclick="leiser(4,piano4);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol4>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(4,piano4);"><b>+</b></a>
 <td> <b id=star4> </b>
  <audio id=piano4 onended="no5.click();">!!! Your browser does not support this audio player !!!
@@ -90,7 +91,7 @@
 <source src="&dl=1&raw=1" type="audio/mpeg"></audio>
 <tr>
 <td> 10 <td> Gjeilo <td> Dark&nbsp;and&nbsp;luminous&nbsp;night 
-<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dard and  luminous night','QTPGHQ-kLIw');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous night','QTPGHQ-kLIw');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(10,piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
 <td> <b id=star10> </b>
  <audio id=piano10 onended="no11.click();">!!! Your browser does not support this audio player !!!
@@ -104,7 +105,7 @@
 <source src="https://www.dropbox.com/scl/fi/ftxpsn69o5ly97ba9cwmj/Gjeilo-Across-the-vast-eternal-sky-alto2-acc-2db.mp3?rlkey=co52hc0f2pii64ag0azrx84fw&dl=1&raw=1" type="audio/mpeg"></audio><br>
 <tr>
 <td> 12 <td> Carr <td> Go&nbsp;lovely&nbsp;rose 
-<td> <a id=no12 href=# onclick="loadvideo(12,'Carr - Go lovely rose','xxxxxxxxxxx');piano12['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a id=no12 href=# onclick="loadvideo(12,'Carr - Go lovely rose','12');piano12['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(12,piano12);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol12>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(12,piano12);"><b>+</b></a>
 <td> <b id=star12> </b>
  <audio id=piano12 onended="no13.click();">!!! Your browser does not support this audio player !!!
@@ -236,6 +237,22 @@ function loadvideo(track, title, youtubeid)
 
 	// set title above video
 	document.getElementById('playing').innerHTML = title;
+
+	if (youtubeid == '4') // I offer you love
+	{
+		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.goodmusicpublishing.co.uk/products/GM312/i-offer-you-love'>https://www.goodmusicpublishing.co.uk/products/GM312/i-offer-you-love</a>";
+		youtubeid = 'xxxxxxxxxxx';
+	}
+	else if (youtubeid == '12') // go lovely rose
+	{
+		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose'>https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose</a>";
+		youtubeid = 'xxxxxxxxxxx';
+	}	
+	else
+	{
+		//display link for video
+		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
+	}
 
 	youtube.loadVideoById(youtubeid);
 	youtube.setVolume(0);
