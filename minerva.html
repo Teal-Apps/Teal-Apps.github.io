@@ -46,7 +46,7 @@
 <td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
 <td> <b id=star3> </b>
  <audio id=piano3 onended="no4.click();">!!! Your browser does not support this audio player !!!
-<source src="&dl=1&raw=1" type="audio/mpeg"></audio>
+<source src="https://www.dropbox.com/scl/fi/qn7hjyc03db8mfu7kla8d/Aulin-Pie-Jesu-domine-alto2-acc.mp3?rlkey=dbtmxgsmdk0ruaeu333iwfrpq&dl=1&raw=1" type="audio/mpeg"></audio>
 <tr>
 <td> 4 <td> Carr <td> I&nbsp;offer&nbsp;you&nbsp;love 
 <td> <a id=no4 href=# onclick="loadvideo(4,'Carr - I offer you love','4');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
@@ -130,7 +130,7 @@ For problems or comments email: andrea@tealapps.com <br>
 <script>
 
 var youtube;
-var youtubevol = 0;  // tried with 1 but sounds double
+var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
 
 
@@ -152,9 +152,11 @@ function onYouTubeIframeAPIReady()
 }
 
 
-// should play youtube video with piano overlay to learn 
+
 function loadvideo(track, title, youtubeid)
 {
+youtubeid='x' // for Andrea not to play youtube only
+
 	if (track == currentlyplaying)
 	{
 		// just unpause video
