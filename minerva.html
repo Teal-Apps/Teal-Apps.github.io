@@ -102,7 +102,7 @@
 <tr>
 
 <td> 10 <td> Gjeilo <td> Dark&nbsp;and&nbsp;luminous&nbsp;night 
-<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous nightQTPGHQ-kLIw','R5WQVsg9Sew&list=OLAK5uy_l3F-IqPGCNl3Sz1Bn2qIMl6XoCO0xkvSg');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous night', '1q8TGE6xRRg');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(10,piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
 <td> <b id=star10> </b>
  <audio id=piano10 onended="no11.click();">!!! Your browser does not support this audio player !!!
@@ -134,7 +134,7 @@
 <tr>
 
 
-<td>Trial:
+<td>To try:
 <tr>
 
 <td> 14 <td> Carr <td> I&nbsp;offer&nbsp;you&nbsp;love 
@@ -229,17 +229,14 @@ function loadvideo(track, title, youtubeid)
 	{
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose'>https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose</a>";
 		youtubeid = 'xxxxxxxxxxx';
-	}	
+	}
 	else
 	{
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 	}
 
-	// was this but couldn't load playlist
-	// youtube.loadVideoById(youtubeid);
-	
-	youtube.loadVideoByUrl('https://www.youtube.com/watch?v=' || youtubeid);
+	youtube.loadVideoById(youtubeid);
 	youtube.setVolume(youtubevol);
 
 	currentlyplaying = track;
@@ -249,6 +246,7 @@ function loadvideo(track, title, youtubeid)
 function onPlayerReady(event) 
 {
 }
+
 
 // this seems to be needed, no idea why....
 function onyoutubechange(event) 
