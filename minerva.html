@@ -102,7 +102,7 @@
 <tr>
 
 <td> 10 <td> Gjeilo <td> Dark&nbsp;and&nbsp;luminous&nbsp;night 
-<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous night', '1q8TGE6xRRg');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous night', '1q8TGE6xRRg', 8);piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(10,piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
 <td> <b id=star10> </b>
  <audio id=piano10 onended="no11.click();">!!! Your browser does not support this audio player !!!
@@ -190,7 +190,7 @@ function onYouTubeIframeAPIReady()
 
 
 
-function loadvideo(track, title, youtubeid)
+function loadvideo(track, title, youtubeid, startat = 0)
 {
 	if (track == currentlyplaying)
 	{
@@ -236,7 +236,7 @@ function loadvideo(track, title, youtubeid)
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 	}
 
-	youtube.loadVideoById(youtubeid);
+	youtube.loadVideoById(youtubeid, startat);
 	youtube.setVolume(youtubevol);
 
 	currentlyplaying = track;
@@ -292,7 +292,7 @@ function restartall()
   	piano7.currentTime = 0;
   	piano8.currentTime = 0;
   	piano9.currentTime = 0;
-  	piano10.currentTime = 8; // Dark night, start 8 secs in since I used a different video
+  	piano10.currentTime = 0;
   	piano11.currentTime = 0;
   	piano12.currentTime = 0;
   	piano13.currentTime = 0;
