@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META NAME="robots" CONTENT="noindex">
+<link rel="icon" type="image/png" href="music-favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="music-favicon-16x16.png" sizes="16x16">           
+</head>
+
+<title>Minerva - Autumn 2023</title>
+
+<body style="font-size:100%;font-family:arial,sans-serif">
+
+<style>
+   a {text-decoration:none}
+   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:16px; padding-right:16px;
+		padding-top:10px; padding-bottom:10px}
+   audio {width:20em; height:2em}
+   iframe {pointer-events:none}
+</style>
+
+<h2>Minerva - <i>Alto 2</i></h2>
+<a href=# onClick="window.location.reload();">Reset all</a>
+
+<table>
+
+
+<td> 1 <td> Carr <td> I offer you love
+<td> <a id=no1 href=# onclick="loadvideo(1,'Carr - I offer you love', 'UrgdgCwfIu4');piano1['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(1,piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(1,piano1);"><b>+</b></a>
+<td> <b id=star1>||</b>
+ <audio id=piano1 onended="no2.click();">!!! Your browser does not support this audio player !!!
+<source src="https://www.dropbox.com/scl/fi/lg8vm40fedgpbzieng5m1/Carr-I-offer-you-love-choir-alto2.mp3?rlkey=kgb4vqzufi2trwyhpgdqo03a9&dl=1&raw=1" type="audio/mpeg"></audio>
+
+<td rowspan=13>
+	<h3 id=playing>Carr - I offer you love</h3>
+	<font id=video size=1><a target=_blank href='https://www.youtube.com/watch?v=UrgdgCwfIu4'>https://www.youtube.com/watch?v=UrgdgCwfIu4</a></font><br>
+	<font size=1>(this is embedded from YouTube and covered by YouTube licence)</font><br>
+	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>		
+<tr>
+
+<td> 2 <td> Gjeilo <td> Dark and luminous night
+<td> <a id=no2 href=# onclick="loadvideo(2,'Gjeilo - Dark and luminous night','1q8TGE6xRRg');piano2['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(2,piano2);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol2>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(2,piano2);"><b>+</b></a>
+<td> <b id=star2> </b>
+ <audio id=piano2 onended="no3.click();">!!! Your browser does not support this audio player !!!
+<source src="https://www.dropbox.com/scl/fi/acakilacuhgqdgyu2pk7u/Gjeilo-Dark-and-luminous-night-alto2.mp3?rlkey=4qxamkdvvfalrvrjxd90mm6y8&dl=1&raw=1" type="audio/mpeg"></audio><br>
+<tr>
+
+<td> 3 <td> Carr <td> Go lovely rose
+<td> <a id=no3 href=# onclick="loadvideo(3,'Carr - Go lovely rose','XK_nVMF2cEk');piano3['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
+<td> <b id=star3> </b>
+ <audio id=piano3 onended="no1.click();">!!! Your browser does not support this audio player !!!
+<source src="https://www.dropbox.com/scl/fi/uvq8wkd14llk2osh7qb7m/Carr-Go-lovely-rose-choir-alto2.mp3?rlkey=ildkxewinwyqlk1ahaivk3s5i&dl=1&raw=1" type="audio/mpeg"></audio><br>
+<tr>
+
+<td> 4 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 5 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 6 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 7 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 8 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 9 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 10 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 11 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 12 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 13 <td> <td> <td>  <td> <td> <td> <tr>
+
+
+</table>
+<br>
+
+For problems or comments email: andrea@tealapps.com <br>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+
+<script>
+
+var youtube;
+var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
+var currentlyplaying = 1; //default to first
+var maxinlist = 3; 
+
+
+// called by youtube when script finished loading
+function onYouTubeIframeAPIReady() 
+{
+	youtube = new YT.Player('youtube', 
+			{
+			width: 420,
+          			height: 315,
+			volume: youtubevol,
+          			videoId: 'UrgdgCwfIu4',
+			//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
+          			events: { 'onStateChange': onyoutubechange, 
+				'onReady': onPlayerReady }
+        		});
+
+	youtube.pauseVideo();
+}
+
+
+
+function loadvideo(track, title, youtubeid, startat = 0)
+{
+	if (track == currentlyplaying)
+	{
+		// just unpause video
+		youtube.playVideo();
+		youtube.setVolume(youtubevol);
+
+		// set current star (now an arrow)
+		document.getElementById('star'+track).innerHTML = '>';
+
+		return;
+	}		
+
+	stopall(); // pause all others first
+	youtube.pauseVideo(); // including current video
+
+	// reset all music to start from the beginning
+	restartall();
+	
+	// remove all 'currently playing' stars
+	for (i=1; i<=maxinlist; i++)
+		document.getElementById('star'+i).innerHTML = '';
+	
+	// set current star (now an arrow)
+	document.getElementById('star'+track).innerHTML = '>';
+
+	// set title above video
+	document.getElementById('playing').innerHTML = title;
+
+	//display link for video
+	document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
+	
+	youtube.loadVideoById(youtubeid, startat);
+	youtube.setVolume(youtubevol);
+
+	currentlyplaying = track;
+}
+
+
+function onPlayerReady(event) 
+{
+}
+
+
+// this seems to be needed, no idea why....
+function onyoutubechange(event) 
+{
+	return false;
+}
+
+
+function stopall()
+{
+	piano1['pause']();
+  	piano2['pause']();
+  	piano3['pause']();
+//  	piano4['pause']();
+//  	piano5['pause']();
+//  	piano6['pause']();
+//  	piano7['pause']();
+//  	piano8['pause']();
+//  	piano9['pause']();
+//  	piano10['pause']();
+//  	piano11['pause']();
+//  	piano12['pause']();
+//  	piano13['pause']();
+
+//	piano14['pause']();
+//	piano15['pause']();
+
+  	youtube.pauseVideo();
+
+  	// set current to pause sign
+  	document.getElementById('star'+currentlyplaying).innerHTML = '||';
+}
+
+
+function restartall()
+{
+  	piano1.currentTime = 0;
+  	piano2.currentTime = 0;
+  	piano3.currentTime = 0;
+//  	piano4.currentTime = 0;
+//  	piano5.currentTime = 0;
+//  	piano6.currentTime = 0;
+//  	piano7.currentTime = 0;
+//  	piano8.currentTime = 0;
+//  	piano9.currentTime = 0;
+//  	piano10.currentTime = 0;
+//  	piano11.currentTime = 0;
+//  	piano12.currentTime = 0;
+//  	piano13.currentTime = 0;
+
+//	piano14.currentTime = 0;
+//	piano15.currentTime = 0;
+}
+
+
+function leiser(track, pianox)
+{
+	// divide in 0-9 so that it doesn't disturb the display with double-digits
+
+	pianox.volume = pianox.volume - 0.11;
+
+	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
+}
+
+
+function lauter(track, pianox)
+{
+	pianox.volume = pianox.volume + 0.11;
+
+	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
+}
+
+
+
+</script>
+
+
+</body>
+</html>
