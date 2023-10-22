@@ -45,17 +45,24 @@
  <audio id=piano2 onended="no3.click();">!!! Your browser does not support this audio player !!!
 <source src="https://www.dropbox.com/scl/fi/66gv9z8ubxi3y8v54xyxy/Gjeilo-Dark-and-luminous-night-alto1.mp3?rlkey=1511y8dvg9qms0gnytdnx3imj&dl=1&raw=1" type="audio/mpeg"></audio><br>
 <tr>         
-
-<td> 3 <td> Carr <td> Go lovely rose
-<td> <a id=no3 href=# onclick="loadvideo(3,'Carr - Go lovely rose','XK_nVMF2cEk');piano3['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+	
+<td> 3 <td> Gjeilo <td> Across&nbsp;the&nbsp;vast&nbsp;eternal&nbsp;sky 
+<td> <a id=no3 href=# onclick="loadvideo(3,'Gjeilo - Across the vast eternal sky','70OoFZzEOTY');piano3['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
 <td> <b id=star3> </b>
- <audio id=piano3 onended="no1.click();">!!! Your browser does not support this audio player !!!
+ <audio id=piano3 onended="no4.click();">!!! Your browser does not support this audio player !!!
+<source src="https://www.dropbox.com/scl/fi/fodu3ifah445j4xvogx96/Gjeilo-Across-the-vast-eternal-sky-alto1.mp3?rlkey=zthzfpjfm4k5kb0ap3e92ses3&dl=1&raw=1" type="audio/mpeg"></audio><br>
+<tr>
+	
+<td> 4 <td> Carr <td> Go lovely rose
+<td> <a id=no4 href=# onclick="loadvideo(4,'Carr - Go lovely rose','XK_nVMF2cEk');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(4,piano4);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol4>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(4,piano4);"><b>+</b></a>
+<td> <b id=star4> </b>
+ <audio id=piano4 onended="no1.click();">!!! Your browser does not support this audio player !!!
 <source src="https://www.dropbox.com/scl/fi/5lo3y79kd7eztqpan22p0/Carr-Go-lovely-rose-choir-alto1.mp3?rlkey=dtwz6kpr3ad3cuha288z0h9mu&dl=1&raw=1" type="audio/mpeg"></audio><br>
 <tr>
 
-<td> 4 <td> <td> <i>(will&nbsp;add&nbsp;more&nbsp;later)</i> <td>  <td> <td> <td> <tr>
-<td> 5 <td> <td> <td>  <td> <td> <td> <tr>
+<td> 5 <td> <td> <i>(will&nbsp;add&nbsp;more&nbsp;later)</i> <td>  <td> <td> <td> <tr>
 <td> 6 <td> <td> <td>  <td> <td> <td> <tr>
 <td> 7 <td> <td> <td>  <td> <td> <td> <tr>
 <td> 8 <td> <td> <td>  <td> <td> <td> <tr>
@@ -80,7 +87,7 @@ For problems or comments email: andrea@tealapps.com <br>
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 3; 
+var maxinlist = 4; 
 
 
 // called by youtube when script finished loading
@@ -159,7 +166,7 @@ function stopall()
 	piano1['pause']();
   	piano2['pause']();
   	piano3['pause']();
-//  	piano4['pause']();
+  	piano4['pause']();
 //  	piano5['pause']();
 //  	piano6['pause']();
 //  	piano7['pause']();
@@ -185,7 +192,7 @@ function restartall()
   	piano1.currentTime = 0;
   	piano2.currentTime = 0;
   	piano3.currentTime = 0;
-//  	piano4.currentTime = 0;
+  	piano4.currentTime = 0;
 //  	piano5.currentTime = 0;
 //  	piano6.currentTime = 0;
 //  	piano7.currentTime = 0;
