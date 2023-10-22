@@ -158,8 +158,11 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	// set title above video
 	document.getElementById('playing').innerHTML = title;
 
-	//display link for video
-	document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
+	if (youtubeid == 'xxxxxxxxxxx')
+		document.getElementByID('video').innerHTML = "I did not find a recording, please email me if you find one (in the same key)."
+	else
+		//display link for video
+		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 	
 	youtube.loadVideoById(youtubeid, startat);
 	youtube.setVolume(youtubevol);
