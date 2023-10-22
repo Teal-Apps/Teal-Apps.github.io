@@ -32,7 +32,7 @@
 	
 <td rowspan=13>
 	<h3 id=playing>Sibelius - Be still my soul</h3>
-	<font id=video size=1><a target=_blank href='https://www.youtube.com/watch?v=xxxxxxxxxx'>https://www.youtube.com/watch?v=xxxxxxxxxxx</a></font><br>
+	<font id=video size=1><a target=_blank href='https://www.youtube.com/watch?v=xxxxxxxxxxx'>https://www.youtube.com/watch?v=xxxxxxxxxxx</a></font><br>
 	<font size=1>(this is embedded from YouTube and covered by YouTube licence)</font><br>
 	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>		
 <tr>
@@ -159,7 +159,7 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	document.getElementById('playing').innerHTML = title;
 
 	if (youtubeid == 'xxxxxxxxxxx')
-		document.getElementByID('video').innerHTML = "I did not find a recording, please email me if you find one (in the same key)."
+		document.getElementById('video').innerHTML = "I did not find a recording, please email me if you find one (in the same key)."
 	else
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
