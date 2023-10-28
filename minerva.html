@@ -199,17 +199,9 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	// set title above video
 	document.getElementById('playing').innerHTML = title;
 
-	if (youtubeid == '12') // go lovely rose
-	{
-		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose'>https://www.goodmusicpublishing.co.uk/products/GM363/go-lovely-rose</a>";
-		youtubeid = 'xxxxxxxxxxx';
-	}
-	else
-	{
-		//display link for video
-		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
-	}
-
+	//display link for video
+	document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
+	
 	youtube.loadVideoById(youtubeid, startat);
 	youtube.setVolume(youtubevol);
 
