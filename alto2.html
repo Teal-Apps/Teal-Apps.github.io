@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <META NAME="robots" CONTENT="noindex">
+<meta charset="utf-8">
 <link rel="icon" type="image/png" href="music-favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="music-favicon-16x16.png" sizes="16x16">           
-</head>
 
 <title>Minerva - Autumn 2023</title>
-
-<body style="font-size:100%;font-family:arial,sans-serif">
 
 <style>
    a {text-decoration:none}
@@ -17,23 +15,29 @@
    audio {width:20em; height:2em}
    iframe {pointer-events:none}
 </style>
+</head>
+
+
+<body style="font-size:100%;font-family:arial,sans-serif">
 
 <h2>Minerva - <i>Alto 2</i></h2>
 <a href=# onClick="window.location.reload();">Reset all</a>
 
-<table>
+<table> 
 
-<td> 1 <td> Elgar <td> The spirit of the lord 
+<tr>
+<td> 1 <td> Elgar <td> The spirit of the lord
 <td> <a id=no1 href=# onclick="loadvideo(1,'Elgar - The spirit of the lord', 'IwV2eDyKZkw');piano1['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(1,piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(1,piano1);"><b>+</b></a>
 <td> <b id=star1>||</b>
- <audio id=piano1 onended="no2.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/tpopskoawz368pqymttsa/Elgar-The-spirit-of-the-lord-alto2.mp3?rlkey=ntt2hqsr7tgztx9t83fqk0rlw&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano1 onended="no2.click();">
+<source src="https://www.dropbox.com/scl/fi/tpopskoawz368pqymttsa/Elgar-The-spirit-of-the-lord-alto2.mp3?rlkey=ntt2hqsr7tgztx9t83fqk0rlw&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 
 <td rowspan=13>
 	<h3 id=playing>Elgar - The spirit of the lord</h3>
-	<font id=video size=1><a target=_blank href='https://www.youtube.com/watch?v=IwV2eDyKZkw'>https://www.youtube.com/watch?v=IwV2eDyKZkw</a></font><br>
-	<font size=1>(this is embedded from YouTube and covered by YouTube licence)</font><br>
+	<small id=video><a target=_blank href='https://www.youtube.com/watch?v=IwV2eDyKZkw'>https://www.youtube.com/watch?v=IwV2eDyKZkw</a></small><br>
+	<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>
 	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>		
 <tr>
 
@@ -41,92 +45,102 @@
 <td> <a id=no2 href=# onclick="loadvideo(2,'Sibelius - Be still my soul','xxxxxxxxxxx');piano2['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(2,piano2);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol2>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(2,piano2);"><b>+</b></a>
 <td> <b id=star2> </b>
- <audio id=piano2 onended="no3.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/r6mkdtf0f5d50uphj8pz6/Sibelius-Be-still-my-soul-alto.mp3?rlkey=dgm1ym9yyro4uijs6mnaz75kp&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano2 onended="no3.click();">
+<source src="https://www.dropbox.com/scl/fi/r6mkdtf0f5d50uphj8pz6/Sibelius-Be-still-my-soul-alto.mp3?rlkey=dgm1ym9yyro4uijs6mnaz75kp&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 3 <td> Aulin <td> Pie Jesu domine 
 <td> <a id=no3 href=# onclick="loadvideo(3,'Aulin - Pie Jesu domine','xxxxxxxxxxx');piano3['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
 <td> <b id=star3> </b>
- <audio id=piano3 onended="no4.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/0fhjj872bjotem4ecjms4/Aulin-Pie-Jesu-domine-alto2.mp3?rlkey=adfxgvtzxbigcjs054lxtd7lw&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano3 onended="no4.click();">
+<source src="https://www.dropbox.com/scl/fi/0fhjj872bjotem4ecjms4/Aulin-Pie-Jesu-domine-alto2.mp3?rlkey=adfxgvtzxbigcjs054lxtd7lw&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 	
 <td> 4 <td> Carr <td> I offer you love 
 <td> <a id=no4 href=# onclick="loadvideo(4,'Carr - I offer you love','UrgdgCwfIu4');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
 <td> <a href=# onclick="leiser(4,piano4);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol4>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(4,piano4);"><b>+</b></a>
 <td> <b id=star4> </b>
- <audio id=piano4 onended="no5.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/lg8vm40fedgpbzieng5m1/Carr-I-offer-you-love-choir-alto2.mp3?rlkey=kgb4vqzufi2trwyhpgdqo03a9&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano4 onended="no5.click();">
+<source src="https://www.dropbox.com/scl/fi/lg8vm40fedgpbzieng5m1/Carr-I-offer-you-love-choir-alto2.mp3?rlkey=kgb4vqzufi2trwyhpgdqo03a9&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 5 <td> Gardiner <td> Evening hymn 
 <td> <a id=no5 href=# onclick="loadvideo(5,'Gardiner - Evening hymn','D_JOHE7nJrw');piano5['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
 <td> <a href=# onclick="leiser(5,piano5);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol5>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(5,piano5);"><b>+</b></a>
 <td> <b id=star5> </b>
- <audio id=piano5 onended="no6.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/ijaulgffcog4zd7wvrh9i/Gardiner-Evening-Hymn-alto2.mp3?rlkey=bwyap1vj05yhew3qkbyer3z8n&dl=1&raw=1" type="audio/mpeg"></audio><br>
+ <audio id=piano5 onended="no6.click();">
+<source src="https://www.dropbox.com/scl/fi/ijaulgffcog4zd7wvrh9i/Gardiner-Evening-Hymn-alto2.mp3?rlkey=bwyap1vj05yhew3qkbyer3z8n&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 6 <td> Sibelius <td> The tryst 
 <td> <a id=no6 href=# onclick="loadvideo(6,'Sibelius - The tryst','9xHG0ZL12ss');piano6['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(6,piano6);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol6>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(6,piano6);"><b>+</b></a>
 <td> <b id=star6> </b>
- <audio id=piano6 onended="no7.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/qib2d8ruicv95frc3y8we/Sibelius-The-tryst-alto2.mp3?rlkey=jtkldlme6qg30b0ov0iv6zg96&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano6 onended="no7.click();">
+<source src="https://www.dropbox.com/scl/fi/qib2d8ruicv95frc3y8we/Sibelius-The-tryst-alto2.mp3?rlkey=jtkldlme6qg30b0ov0iv6zg96&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 7 <td> Sibelius <td> Was it a dream 
 <td> <a id=no7 href=# onclick="loadvideo(7,'Sibelius - Was it a dream','AUUUodzYJyA');piano7['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(7,piano7);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol7>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(7,piano7);"><b>+</b></a>
 <td> <b id=star7> </b>
- <audio id=piano7 onended="no8.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/s28gkiyhkoixk9zfpjm6s/Sibelius-Was-it-a-dream-alto.mp3?rlkey=u2z21x850qahhjmyfgrmw2fuv&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano7 onended="no8.click();">
+<source src="https://www.dropbox.com/scl/fi/s28gkiyhkoixk9zfpjm6s/Sibelius-Was-it-a-dream-alto.mp3?rlkey=u2z21x850qahhjmyfgrmw2fuv&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 8 <td> Mealor <td> Peace 
 <td> <a id=no8 href=# onclick="loadvideo(8,'Mealor - Peace','v1Y8aV9nuQw');piano8['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(8,piano8);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol8>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(8,piano8);"><b>+</b></a>
 <td> <b id=star8> </b>
- <audio id=piano8 onended="no9.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/jm7cqixkw0ib1tnb8hg7k/Mealor-Peace-alto2.mp3?rlkey=tmasjskneosudog5upbijbryb&dl=1&raw=1" type="audio/mpeg"></audio><br>
+ <audio id=piano8 onended="no9.click();">
+<source src="https://www.dropbox.com/scl/fi/jm7cqixkw0ib1tnb8hg7k/Mealor-Peace-alto2.mp3?rlkey=tmasjskneosudog5upbijbryb&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 9 <td> Carr <td> No mother 
 <td> <a id=no9 href=# onclick="loadvideo(9,'Carr - No mother','xxxxxxxxxxx');piano9['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(9,piano9);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol9>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(9,piano9);"><b>+</b></a>
 <td> <b id=star9> </b>
- <audio id=piano9 onended="no10.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/a72bg3ru0djx553n500ok/Carr-No-mother-alto2.mp3?rlkey=0sazsqbh6hae6avgp0hpdsk0x&dl=1&raw=1" type="audio/mpeg"></audio>
+ <audio id=piano9 onended="no10.click();">
+<source src="https://www.dropbox.com/scl/fi/a72bg3ru0djx553n500ok/Carr-No-mother-alto2.mp3?rlkey=0sazsqbh6hae6avgp0hpdsk0x&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 10 <td> Gjeilo <td> Dark and luminous night 
 <td> <a id=no10 href=# onclick="loadvideo(10,'Gjeilo - Dark and  luminous night', '1q8TGE6xRRg');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(10,piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
 <td> <b id=star10> </b>
- <audio id=piano10 onended="no11.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/4xh75q19ssmi5e4zfibn6/Gjeilo-Dark-and-luminous-night-alto2.mp3?rlkey=uljf85d57gsiayzvf9movbjxe&dl=1&raw=1" type="audio/mpeg"></audio><br>
+ <audio id=piano10 onended="no11.click();">
+<source src="https://www.dropbox.com/scl/fi/4xh75q19ssmi5e4zfibn6/Gjeilo-Dark-and-luminous-night-alto2.mp3?rlkey=uljf85d57gsiayzvf9movbjxe&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 11 <td> Gjeilo <td> Across&nbsp;the&nbsp;vast&nbsp;eternal&nbsp;sky 
 <td> <a id=no11 href=# onclick="loadvideo(11,'Gjeilo - Across the vast eternal sky','70OoFZzEOTY');piano11['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(11,piano11);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol11>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(11,piano11);"><b>+</b></a>
 <td> <b id=star11> </b>
- <audio id=piano11 onended="no12.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/gna3udo2qkpqgaf518wiw/Gjeilo-Across-the-vast-eternal-sky-alto2.mp3?rlkey=efljqs7df4ux0f21wyh013axu&dl=1&raw=1" type="audio/mpeg"></audio><br>
+ <audio id=piano11 onended="no12.click();">
+<source src="https://www.dropbox.com/scl/fi/gna3udo2qkpqgaf518wiw/Gjeilo-Across-the-vast-eternal-sky-alto2.mp3?rlkey=efljqs7df4ux0f21wyh013axu&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 	
 <td> 12 <td> Carr <td> Go lovely rose 
 <td> <a id=no12 href=# onclick="loadvideo(12,'Carr - Go lovely rose','XK_nVMF2cEk');piano12['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(12,piano12);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol12>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(12,piano12);"><b>+</b></a>
 <td> <b id=star12> </b>
- <audio id=piano12 onended="no1.click();">!!! Your browser does not support this audio player !!!
-<source src="https://www.dropbox.com/scl/fi/uvq8wkd14llk2osh7qb7m/Carr-Go-lovely-rose-choir-alto2.mp3?rlkey=ildkxewinwyqlk1ahaivk3s5i&dl=1&raw=1" type="audio/mpeg"></audio><br>
+ <audio id=piano12 onended="no1.click();">
+<source src="https://www.dropbox.com/scl/fi/uvq8wkd14llk2osh7qb7m/Carr-Go-lovely-rose-choir-alto2.mp3?rlkey=ildkxewinwyqlk1ahaivk3s5i&dl=1&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
 <tr>
 
 <td> 13 <td> <td> <td> <td> <td> <td> 
-<tr>
 
 </table>
 <br>
@@ -171,6 +185,7 @@ function loadvideo(track, title, youtubeid, startat = 0)
 		// just unpause video
 		youtube.playVideo();
 		youtube.setVolume(youtubevol);
+		youtube.mute();
 
 		// set current star (now an arrow)
 		document.getElementById('star'+track).innerHTML = '>';
@@ -195,13 +210,14 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	document.getElementById('playing').innerHTML = title;
 
 	if (youtubeid == 'xxxxxxxxxxx')
-		document.getElementById('video').innerHTML = "<i>I could not find a recording, please email me if you find one (in the same key).</i>"
+		document.getElementById('video').innerHTML = "<i style="color:red">I could not find a recording, please email me if you find one (in the same key).</i>"
 	else
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 
 	youtube.loadVideoById(youtubeid, startat);
 	youtube.setVolume(youtubevol);
+	youtube.mute();
 
 	currentlyplaying = track;
 }
