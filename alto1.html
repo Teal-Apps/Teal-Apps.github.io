@@ -208,7 +208,7 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	document.getElementById('playing').innerHTML = title;
 
 	if (youtubeid == 'xxxxxxxxxxx')
-		document.getElementById('video').innerHTML = "<i style="color:red">I could not find a recording, please email me if you find one (in the same key).</i>"
+		document.getElementById('video').innerHTML = "<i style='color:red'>I could not find a recording, please email me if you find one (in the same key).</i>"
 	else
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
