@@ -53,7 +53,7 @@
 <td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
 <td> <b id=star3> </b>
  <audio id=piano3 onended="no4.click();">
-<source src="https://www.dropbox.com/scl/fi/mmruvto5gzipk8knvm33o/Aulin-Pie-Jesu-domine-alto1.mp3?rlkey=pbkg4an4tx084zeuz85a6axzq&dl=0&raw=1" type="audio/mpeg">
+<source src="https://www.dropbox.com/scl/fi/95p6b7pbbhy3xaqd4b9an/Aulin-Pie-Jesu-domine-alto1.mp3?rlkey=w9im6ns4cgwui092jksbp3w50&dl=0&raw=1" type="audio/mpeg">
 !!! Your browser does not support this audio player !!!</audio>
 <tr>
 	
@@ -80,7 +80,7 @@
 <td> <a href=# onclick="leiser(6,piano6);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol6>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(6,piano6);"><b>+</b></a>
 <td> <b id=star6> </b>
  <audio id=piano6 onended="no7.click();">
-<source src="https://www.dropbox.com/scl/fi/pwjbgfqx3mc1bu0ui0c4h/Sibelius-The-tryst-alto1.mp3?rlkey=hy5lu2ud2lo0g8og7ptkhlced&dl=0&raw=1" type="audio/mpeg">
+<source src="https://www.dropbox.com/scl/fi/0tvfrcr7iicznljru4838/Sibelius-The-tryst-alto1.mp3?rlkey=3veqhjt929sxg88fytpz042vm&dl=0&raw=1" type="audio/mpeg">
 !!! Your browser does not support this audio player !!!</audio>
 <tr>
 
@@ -133,13 +133,19 @@
 <td> <a id=no12 href=# onclick="loadvideo(12,'Carr - Go lovely rose','XK_nVMF2cEk');piano12['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
 <td> <a href=# onclick="leiser(12,piano12);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol12>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(12,piano12);"><b>+</b></a>
 <td> <b id=star12> </b>
- <audio id=piano12 onended="no1.click();">
+ <audio id=piano12 onended="no13.click();">
 <source src="https://www.dropbox.com/scl/fi/5lo3y79kd7eztqpan22p0/Carr-Go-lovely-rose-choir-alto1.mp3?rlkey=dtwz6kpr3ad3cuha288z0h9mu&dl=0&raw=1" type="audio/mpeg">
 !!! Your browser does not support this audio player !!!</audio>
 <tr>
-
-<td> 13 <td> <td> <td> <td> <td> <td> 
-
+	
+<td> 13 <td> Carr <td> Amazing grace
+<td> <a id=no13 href=# onclick="loadvideo(13,'Carr - Amazing grace','xxxxxxxxxxx');piano13['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(13,piano13);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol13>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(13,piano13);"><b>+</b></a>
+<td> <b id=star13> </b>
+ <audio id=piano13 onended="no1.click();">
+<source src="https://www.dropbox.com/scl/fi/h3u4raf9lo6zhpor9ycz8/Carr-Amazing-grace-alto1.mp3?rlkey=yey6q7shtwhxyvg57dz8npid2&dl=0&raw=1" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+	
 </table>
 <br>
 
@@ -156,7 +162,7 @@ You can also try with https if you haven't already: <a href="https://www.tealapp
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 12;
+var maxinlist = 13;
 
 
 // called by youtube when script finished loading
@@ -249,7 +255,7 @@ function stopall()
   	piano10['pause']();
   	piano11['pause']();
   	piano12['pause']();
-//  	piano13['pause']();
+  	piano13['pause']();
 
   	youtube.pauseVideo();
 
@@ -272,7 +278,7 @@ function restartall()
   	piano10.currentTime = 0;
   	piano11.currentTime = 0;
   	piano12.currentTime = 0;
-//  	piano13.currentTime = 0;
+  	piano13.currentTime = 0;
 }
 
 
