@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<META NAME="robots" CONTENT="noindex">
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="music-favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="music-favicon-16x16.png" sizes="16x16">           
+
+<title>Minerva - Autumn 2023</title>
+
+<style>
+   a {text-decoration:none}
+   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:16px; padding-right:16px;
+		padding-top:10px; padding-bottom:10px}
+   audio {width:20em; height:2em}
+   iframe {pointer-events:none}
+</style>
+</head>
+
+
+<body style="font-size:100%;font-family:arial,sans-serif">
+
+<h2>Minerva </h2>
+<h3><i>Gjeilo - dark and luminous night - rythm practice</i></h3>
+
+<a href=# onClick="window.location.reload();">Reset all</a>
+
+<table> 
+
+<td> <a id=sop1 href=# onclick="load(1);piano1['play']();piano1.playbackRate=1;">soprano 1 (test: choir + alto1)</a> 
+<td> <b id=star1> </b>
+<audio id=piano1>
+<source src=".\Gjeilo - Dark and luminous night - rythm bit.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+
+	         <td rowspan=8 align=center> 	
+		<i>- click on your voice part to start</i><br>
+		<i>- adjust speed below to practice slower</i><br>
+		<br><br>
+		<b>speed</b> <br><br>
+		<a href=# onclick="slower();"><b>&ndash;&#8288;</b></a>&nbsp;<i id=speed>100%</i>&nbsp;<a href=# onclick="faster();"><b>+</b></a><br>
+		<br><br>
+	         	<b>volume</b> <br><br>
+		<a href=# onclick="leiser();"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol>9</i>&nbsp;<a href=# onclick="lauter();"><b>+</b></a><br>
+		<br><br>
+		<a href=# onclick="stopall();">stop</a> 
+		<tr>
+
+<td> <a id=sop2 href=# onclick="load(2);piano2['play']();piano2.playbackRate=2;piano1.playbackRate=2;">soprano 2 (test: accordeon all equal)</a> 
+<td> <b id=star2> </b>
+<audio id=piano2>
+<source src=".\learn track faster - all.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=alt1 href=# onclick="load(3);piano3['play']();piano3.playbackRate=2;piano1.playbackRate=2;">alto 1 (test: accordeon + alto 1 louder, orig=fast)</a> 
+<td> <b id=star3> </b>
+<audio id=piano3>
+<source src=".\learn track faster - alt1.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=alt2 href=# onclick="load(4);piano4['play']();piano4.playbackRate=4;piano1.playbackRate=4;">alto 2 (test: accordeon + alto 2 louder, orig=slow) </a> 
+<td> <b id=star4> </b>
+<audio id=piano4>
+<source src=".\learn track - alt2.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=ten1 href=# onclick="load(5);piano5['play']();piano5.playbackRate=4;piano1.playbackRate=4;">tenor 1</a> 
+<td> <b id=star5> </b>
+<audio id=piano5>
+<source src=".\learn track - ten1.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=ten2 href=# onclick="load(6);piano6['play']();piano6.playbackRate=4;piano1.playbackRate=4;">tenor 2</a> 
+<td> <b id=star6> </b>
+<audio id=piano6>
+<source src=".\learn track - ten2.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=bass1 href=# onclick="load(7);piano7['play']();piano7.playbackRate=4;piano1.playbackRate=4;">bass 1</a> 
+<td> <b id=star7> </b>
+<audio id=piano7>
+<source src=".\learn track - bass1.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+<tr>
+
+<td> <a id=bass2 href=# onclick="load(8);piano8['play']();piano8.playbackRate=4;piano1.playbackRate=4;">bass 2</a> 
+<td> <b id=star8> </b>
+<audio id=piano8>
+<source src=".\learn track - bass2.mp3" type="audio/mpeg">
+!!! Your browser does not support this audio player !!!</audio>
+
+</table>
+
+For problems or comments email: andrea@tealapps.com <br>
+<br>
+
+
+<script>
+
+var currentlyplaying = 1; //default to first
+var maxinlist = 8;
+
+
+function load(track)
+{
+
+// speed reset to 100% display
+document.getElementById('speed').innerHTML = '100%';
+
+	if (track == currentlyplaying)
+	{
+		// set current star (now an arrow)
+		document.getElementById('star'+track).innerHTML = '>';
+
+		return;
+	}		
+
+	stopall(); // pause all others first
+
+	// reset all music to start from the beginning
+	restartall();
+	
+	// remove all 'currently playing' stars
+	for (i=1; i<=maxinlist; i++)
+		document.getElementById('star'+i).innerHTML = '';
+	
+	// set current star (now an arrow)
+	document.getElementById('star'+track).innerHTML = '>';
+
+	currentlyplaying = track;
+}
+
+
+
+function stopall()
+{
+	document.getElementById('star' + currentlyplaying).innerHTML = '';
+
+	piano1['pause']();
+  	piano2['pause']();
+  	piano3['pause']();
+  	piano4['pause']();
+  	piano5['pause']();
+  	piano6['pause']();
+  	piano7['pause']();
+  	piano8['pause']();
+
+	restartall();
+}
+
+
+function restartall()
+{
+  	piano1.currentTime = 0;
+  	piano2.currentTime = 0;
+  	piano3.currentTime = 0;
+  	piano4.currentTime = 0;
+  	piano5.currentTime = 0;
+  	piano6.currentTime = 0;
+  	piano7.currentTime = 0;
+  	piano8.currentTime = 0;
+}
+
+
+function leiser()
+{
+	// divide in 0-9 so that it doesn't disturb the display with double-digits
+
+	piano1.volume = piano1.volume - 0.11;
+
+	piano2.volume = piano1.volume;
+	piano3.volume = piano1.volume;
+	piano4.volume = piano1.volume;
+	piano5.volume = piano1.volume;
+	piano6.volume = piano1.volume;
+	piano7.volume = piano1.volume;
+	piano8.volume = piano1.volume;
+
+	document.getElementById('vol').innerHTML = '' + Math.round(piano1.volume * 9);
+}
+
+
+function lauter()
+{
+	piano1.volume = piano1.volume + 0.11;
+
+	piano2.volume = piano1.volume;
+	piano3.volume = piano1.volume;
+	piano4.volume = piano1.volume;
+	piano5.volume = piano1.volume;
+	piano6.volume = piano1.volume;
+	piano7.volume = piano1.volume;
+	piano8.volume = piano1.volume;
+
+	document.getElementById('vol').innerHTML = '' + Math.round(piano1.volume * 9);
+}
+
+
+function slower()
+{
+var multiplier=1;
+if (currentlyplaying == 1)
+  multiplier=1;
+else if (currentlyplaying ==2)
+  multiplier=2;
+else if (currentlyplaying==3)
+  multiplier=2;
+else
+  multiplier=4;
+	
+
+	piano1.playbackRate = piano1.playbackRate - (0.1 * multiplier);
+	
+	piano2.playbackRate = piano1.playbackRate;
+	piano3.playbackRate = piano1.playbackRate;
+	piano4.playbackRate = piano1.playbackRate;
+	piano5.playbackRate = piano1.playbackRate;
+	piano6.playbackRate = piano1.playbackRate;
+	piano7.playbackRate = piano1.playbackRate;
+	piano8.playbackRate = piano1.playbackRate;
+
+
+	// display as %
+
+	document.getElementById('speed').innerHTML = '' + Math.round(piano1.playbackRate * 100 / multiplier) + '%';
+}
+
+function faster()
+{
+var multiplier=1;
+if (currentlyplaying == 1)
+  multiplier=1;
+else if (currentlyplaying ==2)
+  multiplier=2;
+else if (currentlyplaying==3)
+  multiplier=2;
+else
+  multiplier=4;
+
+	piano1.playbackRate = piano1.playbackRate + (0.1 * multiplier);
+	
+	piano2.playbackRate = piano1.playbackRate;
+	piano3.playbackRate = piano1.playbackRate;
+	piano4.playbackRate = piano1.playbackRate;
+	piano5.playbackRate = piano1.playbackRate;
+	piano6.playbackRate = piano1.playbackRate;
+	piano7.playbackRate = piano1.playbackRate;
+	piano8.playbackRate = piano1.playbackRate;
+
+	// display as %
+
+	document.getElementById('speed').innerHTML = '' + Math.round(piano1.playbackRate * 100 / multiplier) + '%';
+}
+
+
+
+</script>
+
+
+</body>
+</html>
