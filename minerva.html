@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="music-favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="music-favicon-16x16.png" sizes="16x16">           
 
-<title>Minerva - Autumn 2023</title>
+<title>Minerva - St Johns Passion (Bach)</title>
 
 <style>
    a {text-decoration:none}
@@ -20,139 +20,174 @@
 
 <body style="font-size:100%;font-family:arial,sans-serif">
 
-<h2>Minerva - <i>Alto 2</i></h2>
+<h2>Minerva - St John Passion (Bach) - <i>Alto</i></h2>
 <a href=# onClick="window.location.reload();">Reset all</a>
+
+<script>
+var radio=1; 
+</script>
 
 <table> 
 
 <tr>
-<td> 1 <td> Elgar <td> The spirit of the lord 
-<td> <a id=no1 href=# onclick="loadvideo(1,'Elgar - The spirit of the lord', 'IwV2eDyKZkw');piano1['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(1,piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(1,piano1);"><b>+</b></a>
+<td><td><td><b>PART 1</b>
+
+<tr>
+<td> 1 
+<td> <b>Chorus</b> 
+<td> Hail lord and master
+<td> <a id=no1 href=# onclick="loadvideo(1, '#1 Hail lord and master', 'L7uZFGfIDB4'); piano1['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(1, piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(1,piano1);"><b>+</b></a>
 <td> <b id=star1>||</b>
- <audio id=piano1 onended="no2.click();">
-<source src="https://www.dropbox.com/scl/fi/tpopskoawz368pqymttsa/Elgar-The-spirit-of-the-lord-alto2.mp3?rlkey=ntt2hqsr7tgztx9t83fqk0rlw&dl=1&raw=1" type="audio/mpeg">
+<audio id=piano1 onended="if (radio==1) no2.click();">
+<source id=source1 src='https://www.dropbox.com/scl/fi/69tz8zxpye43t7mqqw7gj/Bach-St-John-Passion-01-alto.mp3?rlkey=2fy3nx5j8dn3212cd1tp1heug&dl=0&raw=1'  type="audio/mpeg">
+
 !!! Your browser does not support this audio player !!!</audio>
 
 <td rowspan=13>
-	<h3 id=playing>Elgar - The spirit of the lord</h3>
-	<small id=video><a target=_blank href='https://www.youtube.com/watch?v=IwV2eDyKZkw'>https://www.youtube.com/watch?v=IwV2eDyKZkw</a></small><br>
+	<h3 id=playing>#1 Hail lord and master</h3>
+	<small id=video><a target=_blank href='https://www.youtube.com/watch?v=L7uZFGfIDB4'>https://www.youtube.com/watch?v=L7uZFGfIDB4</a></small><br>
 	<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>
-	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>		
-<tr>
+	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br></div> <br>	
+	<small style='color:red'><i>(please email me if you can't hear the alto part*)</i></small><br>
+	<br>
+	autoplay: (not quite working yet!) <br>
+	<input type=radio id=off value=off onclick="radio=0;"><label for=off>off</label><br>
+	<input type=radio id=on value=on onclick="radio=2;"><label for=on>on</label><br>
+	<input type=radio id=choir checked value=choir onclick="radio=1;"><label for=choir>choir pieces only</label><br>
 
-<td> 2 <td> Sibelius <td> Be still my soul 
-<td> <a id=no2 href=# onclick="loadvideo(2,'Sibelius - Be still my soul','xxxxxxxxxxx');piano2['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(2,piano2);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol2>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(2,piano2);"><b>+</b></a>
-<td> <b id=star2> </b>
- <audio id=piano2 onended="no3.click();">
-<source src="https://www.dropbox.com/scl/fi/r6mkdtf0f5d50uphj8pz6/Sibelius-Be-still-my-soul-alto.mp3?rlkey=dgm1ym9yyro4uijs6mnaz75kp&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-<tr>
 
-<td> 3 <td> Aulin <td> Pie Jesu domine 
-<td> <a id=no3 href=# onclick="loadvideo(3,'Aulin - Pie Jesu domine','xxxxxxxxxxx');piano3['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(3,piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
-<td> <b id=star3> </b>
- <audio id=piano3 onended="no4.click();">
-<source src="https://www.dropbox.com/scl/fi/igfyxrfay0etegiztnw8k/Aulin-Pie-Jesu-domine-alto2.mp3?rlkey=o50ioli8123n8clj8kcexwqo5&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
 <tr>
-	
-<td> 4 <td> Carr <td> I offer you love 
-<td> <a id=no4 href=# onclick="loadvideo(4,'Carr - I offer you love','UrgdgCwfIu4');piano4['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
-<td> <a href=# onclick="leiser(4,piano4);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol4>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(4,piano4);"><b>+</b></a>
-<td> <b id=star4> </b>
- <audio id=piano4 onended="no5.click();">
-<source src="https://www.dropbox.com/scl/fi/lg8vm40fedgpbzieng5m1/Carr-I-offer-you-love-choir-alto2.mp3?rlkey=kgb4vqzufi2trwyhpgdqo03a9&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-<tr>
+<td> 2 
+<td> Recitativo
+<td> Jesus went with his disciples
+<td> <a id=no2 href=# onclick="loadvideo(2, '#2 Jesus went with his discipes', 'VNHdUH1q5mo'); piano2['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(2, piano2);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol2>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(2,piano2);"><b>+</b></a>
+<td> <b id=star2>||</b>
+<audio id=piano2 onended="if (radio==1) no3.click();">
+<source id=source2 src='https://www.dropbox.com/scl/fi/9euu9iahs0zczustdpdwx/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-2-Jesus-Went-with-His-Disciples-Over....mp3?rlkey=kwojodt79w5r682qsszbja09w&dl=0&raw=1'  type="audio/mpeg"></audio>
 
-<td> 5 <td> Gardiner <td> Evening hymn 
-<td> <a id=no5 href=# onclick="loadvideo(5,'Gardiner - Evening hymn','D_JOHE7nJrw');piano5['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a>
-<td> <a href=# onclick="leiser(5,piano5);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol5>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(5,piano5);"><b>+</b></a>
-<td> <b id=star5> </b>
- <audio id=piano5 onended="no6.click();">
-<source src="https://www.dropbox.com/scl/fi/ijaulgffcog4zd7wvrh9i/Gardiner-Evening-Hymn-alto2.mp3?rlkey=bwyap1vj05yhew3qkbyer3z8n&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-<tr>
 
-<td> 6 <td> Sibelius <td> The tryst 
-<td> <a id=no6 href=# onclick="loadvideo(6,'Sibelius - The tryst','9xHG0ZL12ss');piano6['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(6,piano6);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol6>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(6,piano6);"><b>+</b></a>
-<td> <b id=star6> </b>
- <audio id=piano6 onended="no7.click();">
-<source src="https://www.dropbox.com/scl/fi/wn3u1yzkcd5d477n72ppw/Sibelius-The-tryst-alto2.mp3?rlkey=nw1cz6l4gvcmspz90qv9rltfz&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
 <tr>
+<td> 3 
+<td> <b>Chorus</b> 
+<td> Jesus of Nazareth
+<td> <a id=no3 href=# onclick="loadvideo(3, '#3 Jesus of Nazareth', 'lPnBkuggep4'); piano3['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(3, piano3);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol3>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(3,piano3);"><b>+</b></a>
+<td> <b id=star3>||</b>
+<audio id=piano3 onended="if (radio==1) no4.click();">
+<source id=source3 src='https://www.dropbox.com/scl/fi/divxd955a63vomoii0lji/Bach-St-John-Passion-03-alto.mp3?rlkey=58bl9mmqjitqaogz998l2wbqv&dl=0&raw=1'  type="audio/mpeg"></audio>
 
-<td> 7 <td> Sibelius <td> Was it a dream 
-<td> <a id=no7 href=# onclick="loadvideo(7,'Sibelius - Was it a dream','AUUUodzYJyA');piano7['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(7,piano7);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol7>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(7,piano7);"><b>+</b></a>
-<td> <b id=star7> </b>
- <audio id=piano7 onended="no8.click();">
-<source src="https://www.dropbox.com/scl/fi/s28gkiyhkoixk9zfpjm6s/Sibelius-Was-it-a-dream-alto.mp3?rlkey=u2z21x850qahhjmyfgrmw2fuv&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-<tr>
 
-<td> 8 <td> Mealor <td> Peace 
-<td> <a id=no8 href=# onclick="loadvideo(8,'Mealor - Peace','v1Y8aV9nuQw');piano8['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(8,piano8);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol8>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(8,piano8);"><b>+</b></a>
-<td> <b id=star8> </b>
- <audio id=piano8 onended="no9.click();">
-<source src="https://www.dropbox.com/scl/fi/jm7cqixkw0ib1tnb8hg7k/Mealor-Peace-alto2.mp3?rlkey=tmasjskneosudog5upbijbryb&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
 <tr>
+<td> 4
+<td> Recitativo 
+<td> Jesus saith to them
+<td> <a id=no4 href=# onclick="loadvideo(4, '#4 Jesus saith to them', 'P73lGfmNJ0A'); piano4['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(4, piano4);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol4>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(4,piano4);"><b>+</b></a>
+<td> <b id=star4>||</b>
+<audio id=piano4 onended="if (radio==1) no5.click();">
+<source id=source4 src='https://www.dropbox.com/scl/fi/o4w21of5541gslyjts97v/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-4-Jesus-Saith-to-Them.mp3?rlkey=fqjyr4gkvn8r4unqc47ttqy8l&dl=0&raw=1'  type="audio/mpeg"></audio>
 
-<td> 9 <td> Gjeilo <td> Across&nbsp;the&nbsp;vast&nbsp;eternal&nbsp;sky 
-<td> <a id=no9 href=# onclick="loadvideo(9,'Gjeilo - Across the vast eternal sky','70OoFZzEOTY');piano9['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(9,piano9);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol9>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(9,piano9);"><b>+</b></a>
-<td> <b id=star9> </b>
- <audio id=piano9 onended="no10.click();">
-<source src="https://www.dropbox.com/scl/fi/gna3udo2qkpqgaf518wiw/Gjeilo-Across-the-vast-eternal-sky-alto2.mp3?rlkey=efljqs7df4ux0f21wyh013axu&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-<tr>
 
-<td> 10 <td> Carr <td> No mother 
-<td> <a id=no10 href=# onclick="loadvideo(10,'Carr - No mother','xxxxxxxxxxx');piano10['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(10,piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
-<td> <b id=star10> </b>
- <audio id=piano10 onended="no11.click();">
-<source src="https://www.dropbox.com/scl/fi/a72bg3ru0djx553n500ok/Carr-No-mother-alto2.mp3?rlkey=0sazsqbh6hae6avgp0hpdsk0x&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
 <tr>
+<td> 5
+<td> <b>Chorus</b> 
+<td> Jesus of Nazareth
+<td> <a id=no5 href=# onclick="loadvideo(5, '#5 Jesus of Nazareth', 'wQU5Z4kT0QU'); piano5['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(5, piano5);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol5>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(5,piano5);"><b>+</b></a>
+<td> <b id=star5>||</b>
+<audio id=piano5 onended="if (radio==1) no6.click();">
+<source id=source5 src='https://www.dropbox.com/scl/fi/r6pyswkq1pps9ygm2wf2i/Bach-St-John-Passion-05-alto.mp3?rlkey=u7ymxnxjxrivlf08g14o53hr4&dl=0&raw=1'  type="audio/mpeg"></audio>
 
-<td> 11 <td> Carr <td> Go lovely rose 
-<td> <a id=no11 href=# onclick="loadvideo(11,'Carr - Go lovely rose','XK_nVMF2cEk');piano11['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(11,piano11);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol11>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(11,piano11);"><b>+</b></a>
-<td> <b id=star11> </b>
- <audio id=piano11 onended="no12.click();">
-<source src="https://www.dropbox.com/scl/fi/uvq8wkd14llk2osh7qb7m/Carr-Go-lovely-rose-choir-alto2.mp3?rlkey=ildkxewinwyqlk1ahaivk3s5i&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
+
 <tr>
-		
-<td> 12 <td> Carr <td> Amazing grace
-<td> <a id=no12 href=# onclick="loadvideo(12,'Carr - Amazing grace','xxxxxxxxxxx');piano12['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(12,piano12);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol12>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(12,piano12);"><b>+</b></a>
-<td> <b id=star12> </b>
- <audio id=piano12 onended="no13.click();">
-<source src="https://www.dropbox.com/scl/fi/yaacqit7qzc14ap1hoe5w/Carr-Amazing-grace-alto2.mp3?rlkey=nj1sjnm85hfu5jrohfj6qtg9g&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
+<td> 6
+<td> Recitativo 
+<td> Jesus answered them
+<td> <a id=no2 href=# onclick="loadvideo(6, '#6 Jesus answered them', '9_xRx2EJCno'); piano6['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(6, piano6);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol6>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(6,piano6);"><b>+</b></a>
+<td> <b id=star6>||</b>
+<audio id=piano6 onended="if (radio==1) no7.click();">
+<source id=source6 src='https://www.dropbox.com/scl/fi/4tuylnlzji3hc9p58z1zf/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-6-Jesus-Answered-Them.mp3?rlkey=1gr096ut5k5yxam8navvqbxxj&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
 <tr>
-		
-<td> 13 <td> Gjeilo <td> Dark and luminous night 
-<td> <a id=no13 href=# onclick="loadvideo(13,'Gjeilo - Dark and  luminous night', '1q8TGE6xRRg');piano13['play']();">play</a> <td> <a href=# onclick="stopall();">pause</a> 
-<td> <a href=# onclick="leiser(13,piano13);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol13>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(13,piano13);"><b>+</b></a>
-<td> <b id=star13> </b>
- <audio id=piano13 onended="no1.click();">
-<source src="https://www.dropbox.com/scl/fi/4xh75q19ssmi5e4zfibn6/Gjeilo-Dark-and-luminous-night-alto2.mp3?rlkey=uljf85d57gsiayzvf9movbjxe&dl=1&raw=1" type="audio/mpeg">
-!!! Your browser does not support this audio player !!!</audio>
-	
+<td> 7 
+<td> <b>Choral</b>
+<td> O mighty love
+<td> <a id=no7 href=# onclick="loadvideo(7, '#7 O mighty love', 'ygc5562V1Xg'); piano7['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(7, piano7);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol7>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(7,piano7);"><b>+</b></a>
+<td> <b id=star7>||</b>
+<audio id=piano7 onended="if (radio==1) no8.click();">
+<source id=source7 src='https://www.dropbox.com/scl/fi/d582ixugmrrqb7ow8sakb/Bach-St-John-Passion-07-alto.mp3?rlkey=ye531fv35p3paa4ikcvv4pkca&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 8
+<td> Recitativo
+<td> So that the saying might be fulfilled
+<td> <a id=no8 href=# onclick="loadvideo(2, '#8 So that the saying might be fulfilled', 'ecWJmTEf4BE'); piano8['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(8, piano8);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol8>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(8,piano8);"><b>+</b></a>
+<td> <b id=star8>||</b>
+<audio id=piano8 onended="if (radio==1) no9.click();">
+<source id=source8 src='https://www.dropbox.com/scl/fi/3idg74ebeev3b9k8eto3r/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-8-So-That-the-Saying-Might-Be....mp3?rlkey=0xc5rg7ymqx9n2ho8ywg14h80&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 9 
+<td> <b>Choral</b>
+<td> Thy will o god be always done
+<td> <a id=no9 href=# onclick="loadvideo(9, '#9 They will o god be always done', 'CY4VcnEzGYI'); piano9['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(9, piano9);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol9>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(9,piano9);"><b>+</b></a>
+<td> <b id=star9>||</b>
+<audio id=piano9 onended="if (radio==1) no10.click();">
+<source id=source9 src='https://www.dropbox.com/scl/fi/ldyudseqtby6rhb6fado7/Bach-St-John-Passion-09-alto.mp3?rlkey=xngvck1ysptcg69zc9j39s1vs&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 10
+<td> Recitativo
+<td> The band then  
+<td> <a id=no10 href=# onclick="loadvideo(10, '#10 The band then', 'LKFsv4C56cQ'); piano10['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(10, piano10);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol10>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(10,piano10);"><b>+</b></a>
+<td> <b id=star10>||</b>
+<audio id=piano10 onended="if (radio==1) no11.click();">
+<source id=source10 src='https://www.dropbox.com/scl/fi/h5lfhpsn0m0rj3vgv3spe/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-10-The-Band-Then-Together-with-the....mp3?rlkey=pgzy3ax427e6ahc5hm1jcnw5a&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 11
+<td> Aria
+<td> From the bondage of iniquity
+<td> <a id=no11 href=# onclick="loadvideo(2, '#11 From the bondage of iniquity', 'vxCDSBJac'); piano11['play']();">play</a> 
+<td> <a href=# onclick="stopall();">pause</a> 
+<td> <a href=# onclick="leiser(11, piano11);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol11>vol&nbsp;9</i>&nbsp;<a href=# onclick="lauter(11,piano11);"><b>+</b></a>
+<td> <b id=star11>||</b>
+<audio id=piano11 onended="if (radio==1) no1.click();">
+<source id=source11 src='https://www.dropbox.com/scl/fi/ldou9x8ca3ebpvlv9lkk3/St.-John-Passion-BWV-245-Pt.-1-Sung-in-English-No.-11-From-the-Bondage-of-Iniquity.mp3?rlkey=lqg6bk87npd0eqj4dsfksnmkv&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+<tr>
+<td><td><td>more to come....
+
 </table>
 <br>
 
-For problems or comments email: andrea@tealapps.com <br>
+* For problems or comments email: andrea@tealapps.com (this will go to Andrea in the alto2's of Minerva Choir)<br>
+I've tried it on Windows Chrome, MS Edge, Firefox, Android phone and iPhone.<br>
+Someone tried on Safari on an iPad and got it working if you add the extra 's' in https: <a href="https://www.tealapps.com/alto">https://www.tealapps.com/alto</a><br>
 
+	
 
 <script src="https://www.youtube.com/iframe_api"></script>
 
@@ -162,7 +197,7 @@ For problems or comments email: andrea@tealapps.com <br>
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 13;
+var maxinlist = 11;
 
 
 // called by youtube when script finished loading
@@ -173,7 +208,7 @@ function onYouTubeIframeAPIReady()
 			width: 420,
           			height: 315,
 			volume: youtubevol,
-          			videoId: 'IwV2eDyKZkw',
+          			videoId: 'L7uZFGfIDB4',
 			//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
           			events: { 'onStateChange': onyoutubechange, 
 				'onReady': onPlayerReady }
@@ -184,7 +219,7 @@ function onYouTubeIframeAPIReady()
 
 
 
-function loadvideo(track, title, youtubeid, startat = 0)
+function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 {
 	if (track == currentlyplaying)
 	{
@@ -215,9 +250,9 @@ function loadvideo(track, title, youtubeid, startat = 0)
 	// set title above video
 	document.getElementById('playing').innerHTML = title;
 
-	if (youtubeid == 'xxxxxxxxxxx')
-		document.getElementById('video').innerHTML = "<i>I could not find a recording, please email me if you find one (in the same key).</i>"
-	else
+//	if (youtubeid == 'xxxxxxxxxxx')
+//		document.getElementById('video').innerHTML = "<i style='color:blue'>I could not find a recording, please email me if you find one (in the same key).</i>"
+//	else
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 
@@ -254,8 +289,8 @@ function stopall()
   	piano9['pause']();
   	piano10['pause']();
   	piano11['pause']();
-  	piano12['pause']();
-  	piano13['pause']();
+//  	piano12['pause']();
+//  	piano13['pause']();
 
   	youtube.pauseVideo();
 
@@ -277,8 +312,8 @@ function restartall()
   	piano9.currentTime = 0;
   	piano10.currentTime = 0;
   	piano11.currentTime = 0;
-  	piano12.currentTime = 0;
-  	piano13.currentTime = 0;
+//  	piano12.currentTime = 0;
+//  	piano13.currentTime = 0;
 }
 
 
@@ -288,6 +323,12 @@ function leiser(track, pianox)
 
 	pianox.volume = pianox.volume - 0.11;
 
+	if (pianox.volume < 0)
+		pianox.volume = 0;
+
+	if (pianox.volume > 1)
+		pianox.volume = 1;
+
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
 }
 
@@ -295,6 +336,12 @@ function leiser(track, pianox)
 function lauter(track, pianox)
 {
 	pianox.volume = pianox.volume + 0.11;
+
+	if (pianox.volume < 0)
+		pianox.volume = 0;
+
+	if (pianox.volume > 1)
+		pianox.volume = 1;
 
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
 }
