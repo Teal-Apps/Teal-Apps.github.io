@@ -8,108 +8,112 @@
 </head>
 <body>
 <hr>
-<H2>Tuesday 5 December 2023</H2>  <canvas id="today" style="width:100%;height:250px"></canvas> <hr>
+<H2 id=date0>Saturday 3 December 2023</H2>  <canvas id="today" style="width:100%;height:250px"></canvas> <hr>
 
-<H2>Wednesday 6 December 2023</H2>   <canvas id="tomorrow" style="width:100%;height:250px"></canvas><hr>
+<H2 id=date1>Sunday 4 December 2023</H2>   <canvas id="tomorrow" style="width:100%;height:250px"></canvas><hr>
+
 
 <script>
 
-const tomorrow = [18.98,
-20.77,
-18.98,
-18.54,
-18.62,
-18.11,
-18.98,
-18.35,
-19.73,
-18.98,
-20.86,
-18.98,
-27.75,
-29.59,
-30.28,
-39.12,
-33.09,
-34.29,
-31.15,
-30.04,
-32.21,
-30.52,
-29.54,
-27.05,
-28.55,
-27,
-29.95,
-29.39,
-31.39,
-30.91,
-32.46,
-34.78,
-47.63,
-48.74,
-47.77,
-45.62,
-46.47,
-42.85,
-29.46,
-25.6,
-29.95,
-22.53,
-24.15,
-21.73,
-22,
-21.08,
-  0,100];
+var today = [
+setprice(0, 0, '00:00','00:30'),
+setprice(0, 1, '00:30','01:00'),
+setprice(0, 2, '01:00','01:30'),
+setprice(0, 3, '01:30','02:00'),
+setprice(0, 4, '02:00','02:30'),
+setprice(0, 5, '02:30','03:00'),
+setprice(0, 6, '03:00','03:30'),
+setprice(0, 7, '03:30','04:00'),
+setprice(0, 8, '04:00','04:30'),
+setprice(0, 9, '04:30','05:00'),
+setprice(0, 10, '05:00','05:30'),
+setprice(0, 11, '05:30','06:00'),
+setprice(0, 12, '06:00','06:30'),
+setprice(0, 13, '06:30','07:00'),
+setprice(0, 14, '07:00','07:30'),
+setprice(0, 15, '07:30','08:00'),
+setprice(0, 16, '08:00','08:30'),
+setprice(0, 17, '08:30','09:00'),
+setprice(0, 18, '09:00','09:30'),
+setprice(0, 19, '09:30','10:00'),
+setprice(0, 20, '10:00','10:30'),
+setprice(0, 21, '10:30','11:00'),
+setprice(0, 22, '11:00','11:30'),
+setprice(0, 23, '11:30','12:00'),
+setprice(0, 24, '12:00','12:30'),
+setprice(0, 25, '12:30','13:00'),
+setprice(0, 26, '13:00','13:30'),
+setprice(0, 27, '13:30','14:00'),
+setprice(0, 28, '14:00','14:30'),
+setprice(0, 29, '14:30','15:00'),
+setprice(0, 30, '15:00','15:30'),
+setprice(0, 31, '15:30','16:00'),
+setprice(0, 32, '16:00','16:30'),
+setprice(0, 33, '16:30','17:00'),
+setprice(0, 34, '17:00','17:30'),
+setprice(0, 35, '17:30','18:00'),
+setprice(0, 36, '18:00','18:30'),
+setprice(0, 37, '18:30','19:00'),
+setprice(0, 38, '19:00','19:30'),
+setprice(0, 39, '19:30','20:00'),
+setprice(0, 40, '20:00','20:30'),
+setprice(0, 41, '20:30','21:00'),
+setprice(0, 42, '21:00','21:30'),
+setprice(0, 43, '21:30','22:00'),
+setprice(0, 44, '22:00','22:30'),
+setprice(0, 45, '22:30','23:00'),
+setprice(0, 46, '23:00','23:30'),
+setprice(0, 47, '23:30','23:59')];
 
-const today = [
-15.94,
-19.32,
-18.71,
-16.42,
-17.87,
-17.15,
-17.39,
-16.42,
-19.61,
-19.32,
-22.7,
-19.32,
-23.09,
-21.73,
-22.94,
-26.57,
-25.36,
-26.81,
-26.62,
-27.05,
-26.57,
-27.05,
-26.27,
-26.91,
-26.08,
-26.32,
-27.05,
-26.57,
-26.27,
-26.71,
-23.64,
-29.22,
-40.77,
-43.43,
-41.01,
-40.77,
-42.27,
-40.44,
-29.44,
-26.62,
-26.57,
-22.92,
-26.66,
-21.73,
-21.73,
-20.6,
-0,100];
+var tomorrow = [
+setprice(1, 0, '00:00','00:30'),
+setprice(1, 1, '00:30','01:00'),
+setprice(1, 2, '01:00','01:30'),
+setprice(1, 3, '01:30','02:00'),
+setprice(1, 4, '02:00','02:30'),
+setprice(1, 5, '02:30','03:00'),
+setprice(1, 6, '03:00','03:30'),
+setprice(1, 7, '03:30','04:00'),
+setprice(1, 8, '04:00','04:30'),
+setprice(1, 9, '04:30','05:00'),
+setprice(1, 10, '05:00','05:30'),
+setprice(1, 11, '05:30','06:00'),
+setprice(1, 12, '06:00','06:30'),
+setprice(1, 13, '06:30','07:00'),
+setprice(1, 14, '07:00','07:30'),
+setprice(1, 15, '07:30','08:00'),
+setprice(1, 16, '08:00','08:30'),
+setprice(1, 17, '08:30','09:00'),
+setprice(1, 18, '09:00','09:30'),
+setprice(1, 19, '09:30','10:00'),
+setprice(1, 20, '10:00','10:30'),
+setprice(1, 21, '10:30','11:00'),
+setprice(1, 22, '11:00','11:30'),
+setprice(1, 23, '11:30','12:00'),
+setprice(1, 24, '12:00','12:30'),
+setprice(1, 25, '12:30','13:00'),
+setprice(1, 26, '13:00','13:30'),
+setprice(1, 27, '13:30','14:00'),
+setprice(1, 28, '14:00','14:30'),
+setprice(1, 29, '14:30','15:00'),
+setprice(1, 30, '15:00','15:30'),
+setprice(1, 31, '15:30','16:00'),
+setprice(1, 32, '16:00','16:30'),
+setprice(1, 33, '16:30','17:00'),
+setprice(1, 34, '17:00','17:30'),
+setprice(1, 35, '17:30','18:00'),
+setprice(1, 36, '18:00','18:30'),
+setprice(1, 37, '18:30','19:00'),
+setprice(1, 38, '19:00','19:30'),
+setprice(1, 39, '19:30','20:00'),
+setprice(1, 40, '20:00','20:30'),
+setprice(1, 41, '20:30','21:00'),
+setprice(1, 42, '21:00','21:30'),
+setprice(1, 43, '21:30','22:00'),
+setprice(1, 44, '22:00','22:30'),
+setprice(1, 45, '22:30','23:00'),
+setprice(1, 46, '23:00','23:30'),
+setprice(1, 47, '23:30','23:59')];
 
   
 const xValues = ["0:00","0:30","1:00","1:30","2:00","2:30","3:00","3:30","4:00","4:30","5:00","5:30","6:00",
@@ -123,36 +127,17 @@ var night = "midnightblue";
 var day = "steelblue";
 var red = "orangered";
 var white = "white";
+var green = "limegreen";
   
-var barColoursToday = [(today[0]>fix)?red:night,(today[1]>fix)?red:night,(today[2]>fix)?red:night,
-(today[3]>fix)?red:night,(today[4]>fix)?red:night,(today[5]>fix)?red:night,(today[6]>fix)?red:night,
-(today[7]>fix)?red:night,(today[8]>fix)?red:night,(today[9]>fix)?red:night,(today[10]>fix)?red:night,
-(today[11]>fix)?red:night,(today[12]>fix)?red:day,(today[13]>fix)?red:day,(today[14]>fix)?red:day,
-(today[15]>fix)?red:day,(today[16]>fix)?red:day,(today[17]>fix)?red:day,(today[18]>fix)?red:day,
-(today[19]>fix)?red:day,(today[20]>fix)?red:day,(today[21]>fix)?red:day,(today[22]>fix)?red:day,
-(today[23]>fix)?red:day,(today[24]>fix)?red:day,(today[25]>fix)?red:day,(today[26]>fix)?red:day,
-(today[27]>fix)?red:day,(today[28]>fix)?red:day,(today[29]>fix)?red:day,(today[30]>fix)?red:day,
-(today[31]>fix)?red:day,(today[32]>fix)?red:day,(today[33]>fix)?red:day,(today[34]>fix)?red:day,
-(today[35]>fix)?red:day,(today[36]>fix)?red:night,(today[37]>fix)?red:night,(today[38]>fix)?red:night,
-(today[39]>fix)?red:night,(today[40]>fix)?red:night,(today[41]>fix)?red:night,(today[42]>fix)?red:night,
-(today[43]>fix)?red:night,(today[44]>fix)?red:night,(today[45]>fix)?red:night,(today[46]>fix)?red:night,
-white];
+var barColoursToday = [night,night,night,night,night,night,night,night,night,night,night,night,day,day,day,
+day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,night,night,night,night,
+night,night,night,night,night,night,night,night];
   
-var barColoursTomorrow = [(tomorrow[0]>fix)?red:night,(tomorrow[1]>fix)?red:night,(tomorrow[2]>fix)?red:night,
-(tomorrow[3]>fix)?red:night,(tomorrow[4]>fix)?red:night,(tomorrow[5]>fix)?red:night,(tomorrow[6]>fix)?red:night,
-(tomorrow[7]>fix)?red:night,(tomorrow[8]>fix)?red:night,(tomorrow[9]>fix)?red:night,(tomorrow[10]>fix)?red:night,
-(tomorrow[11]>fix)?red:night,(tomorrow[12]>fix)?red:day,(tomorrow[13]>fix)?red:day,(tomorrow[14]>fix)?red:day,
-(tomorrow[15]>fix)?red:day,(tomorrow[16]>fix)?red:day,(tomorrow[17]>fix)?red:day,(tomorrow[18]>fix)?red:day,
-(tomorrow[19]>fix)?red:day,(tomorrow[20]>fix)?red:day,(tomorrow[21]>fix)?red:day,(tomorrow[22]>fix)?red:day,
-(tomorrow[23]>fix)?red:day,(tomorrow[24]>fix)?red:day,(tomorrow[25]>fix)?red:day,(tomorrow[26]>fix)?red:day,
-(tomorrow[27]>fix)?red:day,(tomorrow[28]>fix)?red:day,(tomorrow[29]>fix)?red:day,(tomorrow[30]>fix)?red:day,
-(tomorrow[31]>fix)?red:day,(tomorrow[32]>fix)?red:day,(tomorrow[33]>fix)?red:day,(tomorrow[34]>fix)?red:day,
-(tomorrow[35]>fix)?red:day,(tomorrow[36]>fix)?red:night,(tomorrow[37]>fix)?red:night,(tomorrow[38]>fix)?red:night,
-(tomorrow[39]>fix)?red:night,(tomorrow[40]>fix)?red:night,(tomorrow[41]>fix)?red:night,(tomorrow[42]>fix)?red:night,
-(tomorrow[43]>fix)?red:night,(tomorrow[44]>fix)?red:night,(tomorrow[45]>fix)?red:night,(tomorrow[46]>fix)?red:night,
-white];
+var barColoursTomorrow = [night,night,night,night,night,night,night,night,night,night,night,night,day,day,day,
+day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,day,night,night,night,night,
+night,night,night,night,night,night,night,night];
 
-new Chart("today", {
+var todaychart = new Chart("today", {
   type: "bar",
   data: {
     labels: xValues,
@@ -162,11 +147,20 @@ new Chart("today", {
     }]
   },
   options: {
-    legend: {display: false},   
+    legend: {display: false}, 
+    scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,   
+		suggestedMax: 100
+            }
+        }]
+    }  
   }
 });
 
-new Chart("tomorrow", {
+var tomorrowchart = new Chart("tomorrow", {
   type: "bar",
   data: {
     labels: xValues,
@@ -177,10 +171,232 @@ new Chart("tomorrow", {
   },
   options: {
     legend: {display: false},  
+    scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,  
+		suggestedMax: 100
+            }
+        }]
+    }
   }
 });
+
+var todaystring = null;
+var tomorrowstring = null;
+var getlasthour = 0;
+
+function gettodaystring()
+{
+	// before 5pm display yesterday and today
+	// after 5pm display today and tomorrow
+
+	var date = new Date();
+	var hour = date.getHours();
+
+	if (hour < 17)
+	{
+		// use yesterday instead of today
+
+		date.setDate(date.getDate() - 1);
+		getlasthour = 1; // means we can get today's 11pm though
+	}
+
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+
+	var value = '' + year + '-';
+
+	if (month < 10) 
+		value = value + '0';
+
+	value = value + month + '-';
+
+	if (day < 10)
+		value = value + '0';
+
+	value = value + day;
+
+	var weekday = date.getDay();
+
+	setdate('date0', weekday, day, month, year);
+	
+	return value;
+}
+
+function gettomorrowstring()
+{
+	// before 5pm display yesterday and today
+	// after 5pm display today and tomorrow
+
+	var date = new Date();
+	var hour = date.getHours();
+
+	if (hour >= 17)
+	{
+		// use tomorrow if we have it, otherwise use today
+
+		date.setDate(date.getDate() + 1);
+	}
+
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+
+	var value = '' + year + '-';
+
+	if (month < 10) 
+		value = value + '0';
+
+	value = value + month + '-';
+
+	if (day < 10)
+		value = value + '0';
+
+	value = value + day;
+
+	var weekday = date.getDay();
+
+	setdate('date1', weekday, day, month, year);
+
+	return value;
+}
+
+
+function setdate(title, weekday, day, month, year)
+{
+	var tag;
+
+	if (weekday == 1)
+		tag = 'Monday';
+	else if (weekday == 2)
+		tag = 'Tuesday';
+	else if (weekday == 3)
+		tag = 'Wednesday';
+	else if (weekday == 4)
+		tag = 'Thursday';
+	else if (weekday == 5)
+		tag = 'Friday';
+	else if (weekday == 6)
+		tag = 'Saturday';
+	else if (weekday == 0)
+		tag = 'Sunday';
+
+	var mon;
+
+	if (month == 1)
+		mon = 'January';
+	else if (month == 2)
+		mon = 'February';
+	else if (month == 3)
+		mon = 'March';
+	else if (month == 4)
+		mon = 'April';
+	else if (month == 5)
+		mon = 'May';
+	else if (month == 6)
+		mon = 'June';
+	else if (month == 7)
+		mon = 'July';
+	else if (month == 8)
+		mon = 'August';
+	else if (month == 9)
+		mon = 'September';
+	else if (month == 10)
+		mon = 'October';
+	else if (month == 11)
+		mon = 'November';
+	else if (month == 12)
+		mon = 'December';
+
+	// set the date in the title
+	document.getElementById(title).innerHTML = tag + ' ' + day + ' ' + mon + ' ' + year;
+}
+
+
+async function setprice(day, index, from, to)
+{
+	// https://api.octopus.energy/v1/products/AGILE-FLEX-22-11-25/electricity-tariffs
+	// /E-1R-AGILE-FLEX-22-11-25-L/standard-unit-rates/?period_from=2023-12-04T15:00Z&period_to=2020-12-04T15:29Z
+
+	if (todaystring == null)
+		todaystring = gettodaystring();
+
+	if (tomorrowstring == null)
+		tomorrowstring = gettomorrowstring();
+
+	const productcode = 'AGILE-FLEX-22-11-25';
+
+  	const url = 'https://api.octopus.energy/v1/products/' + productcode 
+			+ '/electricity-tariffs/E-1R-' + productcode + '-L/standard-unit-rates/?';
+
+
+  	// date format: '2023-12-04T16:00:00Z';
+	var fromdate;
+	var todate;
+
+	if (day == 0) // today
+	{
+		fromdate = todaystring + 'T' + from + 'Z';
+		todate = todaystring + 'T' + to + 'Z';
+	}
+	else // tomorrow
+	{
+		fromdate = tomorrowstring + 'T' + from + 'Z';
+		todate = tomorrowstring + 'T' + to + 'Z';
+	}
+
+	// check for 23pm tomorrow since that isn't available
+	if (getlasthour == 0) 
+		if ((fromdate == '23:00') || (fromdate == '23:30'))
+			return;
+
+  	var octopus = url + 'period_from=' + fromdate + '&period_to=' + todate;
+	var response;
+  	var price;
+
+	await fetch(octopus,
+    		{            
+		        headers: { "Content-Type": "application/json" },            
+		        method: "GET"
+   		 })
+  		.then(data => data.json())
+  		.then((json) => {
+					response = JSON.stringify(json);
+					price = response.substring(response.indexOf('value_inc_vat') + 15, 
+								response.lastIndexOf(',"valid_from'));	
+
+  				});
+
+	if (day == 0) //today
+	{
+		today[index] = price;
+
+		if (price > fix)
+			barColoursToday[index] = red;
+
+		if (price < 0)
+			barColoursToday[index] = green;
+	}
+	else
+	{
+		tomorrow[index] = price;
+
+		if (price > fix)
+			barColoursTomorrow[index] = red;
+
+		if (price < 0)
+			barColoursTomorrow[index] = green;
+	}
+
+	todaychart.update();
+	tomorrowchart.update();
+}
+
+
 
 </script>
 </body>
 </html>
-
