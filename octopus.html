@@ -356,10 +356,15 @@ async function setprice(day, index, from, to)
 								response.lastIndexOf(',"valid_from'));	
 
   				});
-
+	
 	if (price === undefined)
+	{
+		if ((day == 0) && (index == 0))
+			alert('No results from Octopussy... :)');
+			      
 		price = 0;
-
+	}
+	
 	if (day == 0) //today
 	{
 		today[index] = price;
