@@ -55,7 +55,7 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(1, piano1);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol1>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(1,piano1);"><b>+</b></a>
 <td> <b id=star1>||</b>
-<audio id=piano1 onended="if (radio==1) no3.click(); esle if (radio==2) no2.click() else stopped();">
+<audio id=piano1 onended="if (radio==1) no3.click(); else if (radio==2) no2.click() else stopped();">
 <source id=source1 src='https://www.dropbox.com/scl/fi/69tz8zxpye43t7mqqw7gj/Bach-St-John-Passion-01-alto.mp3?rlkey=2fy3nx5j8dn3212cd1tp1heug&dl=0&raw=1'  type="audio/mpeg">
 
 !!! Your browser does not support this audio player !!!</audio>
