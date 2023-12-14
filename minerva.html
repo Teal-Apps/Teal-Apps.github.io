@@ -10,8 +10,8 @@
 
 <style>
    a {text-decoration:none}
-   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:16px; padding-right:16px;
-		padding-top:10px; padding-bottom:10px}
+   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:12px; padding-right:12px;
+		padding-top:8px; padding-bottom:8px}
    audio {width:20em; height:2em}
    iframe {pointer-events:none}
 </style>
@@ -555,7 +555,7 @@ It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPa
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 38;
+var maxinlist = 40;
 
 
 // called by youtube when script finished loading
@@ -682,6 +682,8 @@ function stopall()
   	piano36['pause']();
   	piano37['pause']();
   	piano38['pause']();
+  	piano39['pause']();
+  	piano40['pause']();
 
   	youtube.pauseVideo();
 
@@ -730,6 +732,8 @@ function restartall()
   	piano36.currentTime = 0;
   	piano37.currentTime = 0;
   	piano38.currentTime = 0;
+  	piano39.currentTime = 0;
+  	piano40.currentTime = 0;
 }
 
 
