@@ -541,8 +541,33 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(41, piano41);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol41>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(41,piano41);"><b>+</b></a>
 <td> <b id=star41> </b>
-<audio id=piano41 onended="if (radio>0) no1.click(); else stopped();">
+<audio id=piano41 onended="if (radio>0) no42.click(); else stopped();">
 <source id=source41 src='https://www.dropbox.com/scl/fi/9r29jj95o6t6ipqzr5qw0/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-41-But-the-Jews-Cried-Out-the-More....mp3?rlkey=9jvvydmzklzsxypr8tdhigaxx&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 42
+<td> Chorus
+<td>*<td> If thou let this man go
+<td> <a id=no42 href='#!' onclick="loadvideo(42, '#42 If thou let this man go', 'MW-fRjgIqDE'); piano42['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(42, piano42);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol42>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(42,piano42);"><b>+</b></a>
+<td> <b id=star42> </b>
+<audio id=piano42 onended="if (radio==1) no44.click(); else if (radio==2) no43.click(); else stopped();">
+<source id=source42 src='https://www.dropbox.com/scl/fi/yzm0rsjlyj25loi5x67qd/Bach-St-John-Passion-42-alto.mp3?rlkey=uhoh1mpr5qvq2wecbhuxtln4s&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 43
+<td> Recitativo
+<td><td> And when Pilate heard
+<td> <a id=no43 href='#!' onclick="loadvideo(43, '#43 And when Pilate heard', 'fg4xxbBffo4'); piano43['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(43, piano43);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol43>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(43,piano43);"><b>+</b></a>
+<td> <b id=star43> </b>
+<audio id=piano43 onended="if (radio>0) no1.click(); else stopped();">
+<source id=source43 src='https://www.dropbox.com/scl/fi/n209isv9il06h9onf36i6/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-43-And-When-Pilate-Heard-That-Saying.mp3?rlkey=jkmxrsug9ge76zqhko769y74w&dl=0&raw=1'  type="audio/mpeg"></audio>
+
 
 
 <tr>
@@ -564,7 +589,7 @@ It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPa
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 41;
+var maxinlist = 43;
 
 
 // called by youtube when script finished loading
@@ -695,8 +720,8 @@ function stopall()
   	piano39['pause']();
   	piano40['pause']();
   	piano41['pause']();
-//  	piano42['pause']();
-//  	piano43['pause']();
+  	piano42['pause']();
+  	piano43['pause']();
 //  	piano44['pause']();
 // 	piano45['pause']();
 //  	piano46['pause']();
@@ -773,8 +798,8 @@ function restartall()
   	piano39.currentTime = 0;
   	piano40.currentTime = 0;
   	piano41.currentTime = 0;
-//  	piano42.currentTime = 0;
-//  	piano43.currentTime = 0;
+  	piano42.currentTime = 0;
+  	piano43.currentTime = 0;
 //  	piano44.currentTime = 0;
  // 	piano45.currentTime = 0;
  // 	piano46.currentTime = 0;
