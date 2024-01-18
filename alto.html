@@ -10,8 +10,8 @@
 
 <style>
    a {text-decoration:none}
-   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:16px; padding-right:16px;
-		padding-top:10px; padding-bottom:10px}
+   table, th, td, tr  {border:1px solid black; border-collapse:collapse; padding-left:12px; padding-right:12px;
+		padding-top:8px; padding-bottom:8px}
    audio {width:20em; height:2em}
    iframe {pointer-events:none}
 </style>
@@ -42,7 +42,7 @@ var radio=1;
 	<h3 id=playing>#1 Hail lord and master</h3>
 	<small id=video><a target=_blank href='https://www.youtube.com/watch?v=L7uZFGfIDB4'>https://www.youtube.com/watch?v=L7uZFGfIDB4</a></small><br>
 	<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>
-	<div id=youtube><br><!!! Your browser does not support YouTube player !!!<br>
+	<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>
 	(Try and refresh, sometimes it fails for some reason.)</div> <br>	
 	<small style='color:red'><i>(please <a href=#email>email</a> me if you can't hear the alto part)</i></small><br>
 	<br>
@@ -481,7 +481,7 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(36, piano36);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol36>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(36,piano36);"><b>+</b></a>
 <td> <b id=star36> </b>
-<audio id=piano36 onended="if (radio==1) no1.click(); else if (radio==2) no37.click(); else stopped();">
+<audio id=piano36 onended="if (radio==1) no38.click(); else if (radio==2) no37.click(); else stopped();">
 <source id=source36 src='https://www.dropbox.com/scl/fi/5ed79q9txqslg62zut7e4/Bach-St-John-Passion-36-alto.mp3?rlkey=l9e1btcrqxbvfi1vx51el90ah&dl=0&raw=1'  type="audio/mpeg"></audio>
 
 
@@ -493,12 +493,60 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(37, piano37);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol37>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(37,piano37);"><b>+</b></a>
 <td> <b id=star37> </b>
-<audio id=piano37 onended="if (radio>0) no1.click(); else stopped();">
+<audio id=piano37 onended="if (radio>0) no38.click(); else stopped();">
 <source id=source37 src='https://www.dropbox.com/scl/fi/4dxunz941u542rvth56qv/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-37-Then-Pilate-Saith-to-Them.mp3?rlkey=dksy3hidct4b3da3qwd9wza95&dl=0&raw=1'  type="audio/mpeg"></audio>
 
 
 <tr>
-<td><td><td><td><i>more to come....</i>
+<td> 38
+<td> Chorus
+<td>*<td> We have a sacred law
+<td> <a id=no38 href='#!' onclick="loadvideo(38, '#38 We have a sacred law', '8vUYtBvuIhI'); piano38['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(38, piano38);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol38>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(38,piano38);"><b>+</b></a>
+<td> <b id=star38> </b>
+<audio id=piano38 onended="if (radio==1) no40.click(); else if (radio==2) no39.click(); else stopped();">
+<source id=source38 src='https://www.dropbox.com/scl/fi/09jit9jxhu0lq1ded2gtq/Bach-St-John-Passion-38-alto.mp3?rlkey=r3i1sdyfxhyzaf3lueiqmwgni&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 39
+<td> Recitativo
+<td><td> And when Pilate heard that saying
+<td> <a id=no39 href='#!' onclick="loadvideo(39, '#39 And when Pilate heard that saying', 'm2s_IKBKiZE'); piano39['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(39, piano39);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol39>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(39,piano39);"><b>+</b></a>
+<td> <b id=star39> </b>
+<audio id=piano39 onended="if (radio>0) no40.click(); else stopped();">
+<source id=source39 src='https://www.dropbox.com/scl/fi/ubwryhtwnmo7kt407ceyh/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-39-And-When-Pilate-Heard-That-Saying.mp3?rlkey=mhng3izg67c3g59k5ycp2qb7h&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 40
+<td> Choral
+<td>*<td> Our lord in prison cell confined
+<td> <a id=no40 href='#!' onclick="loadvideo(40, '#40 Our lord in prison cell confined', 'rTR2t4oSJ7A'); piano40['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(40, piano40);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol40>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(40,piano40);"><b>+</b></a>
+<td> <b id=star40> </b>
+<audio id=piano40 onended="if (radio==1) no42.click(); else if (radio==2) no41.click(); else stopped();">
+<source id=source40 src='https://www.dropbox.com/scl/fi/w2srepn5ixbl4fwcfo7gt/Bach-St-John-Passion-40-alto.mp3?rlkey=5cb3eshmstso2fvzsfpew9iqk&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 41
+<td> Recitativo
+<td><td> But the jews cried out
+<td> <a id=no41 href='#!' onclick="loadvideo(41, '#41 But the jews cried out', '8gr9sulpL6E'); piano41['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(41, piano41);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol41>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(41,piano41);"><b>+</b></a>
+<td> <b id=star41> </b>
+<audio id=piano41 onended="if (radio>0) no1.click(); else stopped();">
+<source id=source41 src='https://www.dropbox.com/scl/fi/9r29jj95o6t6ipqzr5qw0/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-41-But-the-Jews-Cried-Out-the-More....mp3?rlkey=9jvvydmzklzsxypr8tdhigaxx&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td><td><td><td><i>English replacements to come....</i>
 
 </table>
 <br>
@@ -516,7 +564,7 @@ It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPa
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 37;
+var maxinlist = 41;
 
 
 // called by youtube when script finished loading
@@ -528,6 +576,7 @@ function onYouTubeIframeAPIReady()
           			height: 315,
 			volume: youtubevol,
           			videoId: 'L7uZFGfIDB4',
+			host: 'https://www.youtube-nocookie.com',
 			//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
           			events: { 'onStateChange': onyoutubechange, 
 				'onReady': onPlayerReady }
@@ -642,7 +691,37 @@ function stopall()
   	piano35['pause']();
   	piano36['pause']();
   	piano37['pause']();
-//  	piano38['pause']();
+  	piano38['pause']();
+  	piano39['pause']();
+  	piano40['pause']();
+  	piano41['pause']();
+//  	piano42['pause']();
+//  	piano43['pause']();
+//  	piano44['pause']();
+// 	piano45['pause']();
+//  	piano46['pause']();
+//  	piano47['pause']();
+//  	piano48['pause']();
+//  	piano49['pause']();
+//  	piano50['pause']();
+//  	piano51['pause']();
+//  	piano52['pause']();
+//  	piano53['pause']();
+//  	piano54['pause']();
+//  	piano55['pause']();
+//  	piano56['pause']();
+//  	piano57['pause']();
+//  	piano58['pause']();
+ // 	piano59['pause']();
+//  	piano60['pause']();
+//  	piano61['pause']();
+//  	piano62['pause']();
+//  	piano63['pause']();
+//  	piano64['pause']();
+//  	piano65['pause']();
+//  	piano66['pause']();
+//  	piano67['pause']();
+//  	piano68['pause']();
 
   	youtube.pauseVideo();
 
@@ -675,7 +754,7 @@ function restartall()
   	piano20.currentTime = 0;
   	piano21.currentTime = 0;
   	piano22.currentTime = 0;
- 	piano23.currentTime = 0;
+  	piano23.currentTime = 0;
   	piano24.currentTime = 0;
   	piano25.currentTime = 0;
   	piano26.currentTime = 0;
@@ -690,7 +769,37 @@ function restartall()
   	piano35.currentTime = 0;
   	piano36.currentTime = 0;
   	piano37.currentTime = 0;
- // 	piano38.currentTime = 0;
+  	piano38.currentTime = 0;
+  	piano39.currentTime = 0;
+  	piano40.currentTime = 0;
+  	piano41.currentTime = 0;
+//  	piano42.currentTime = 0;
+//  	piano43.currentTime = 0;
+//  	piano44.currentTime = 0;
+ // 	piano45.currentTime = 0;
+ // 	piano46.currentTime = 0;
+ // 	piano47.currentTime = 0;
+ // 	piano48.currentTime = 0;
+ // 	piano49.currentTime = 0;
+ // 	piano50.currentTime = 0;
+ // 	piano51.currentTime = 0;
+ // 	piano52.currentTime = 0;
+ // 	piano53.currentTime = 0;
+ // 	piano54.currentTime = 0;
+ // 	piano55.currentTime = 0;
+ // 	piano56.currentTime = 0;
+ // 	piano57.currentTime = 0;
+ // 	piano58.currentTime = 0;
+ // 	piano59.currentTime = 0;
+ // 	piano60.currentTime = 0;
+ // 	piano61.currentTime = 0;
+ // 	piano62.currentTime = 0;
+ // 	piano63.currentTime = 0;
+ // 	piano64.currentTime = 0;
+ // 	piano65.currentTime = 0;
+ // 	piano66.currentTime = 0;
+ // 	piano67.currentTime = 0;
+ // 	piano68.currentTime = 0;
 }
 
 
