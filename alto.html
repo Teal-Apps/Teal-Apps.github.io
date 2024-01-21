@@ -565,8 +565,33 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(43, piano43);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol43>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(43,piano43);"><b>+</b></a>
 <td> <b id=star43> </b>
-<audio id=piano43 onended="if (radio>0) no1.click(); else stopped();">
+<audio id=piano43 onended="if (radio>0) no44.click(); else stopped();">
 <source id=source43 src='https://www.dropbox.com/scl/fi/n209isv9il06h9onf36i6/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-43-And-When-Pilate-Heard-That-Saying.mp3?rlkey=jkmxrsug9ge76zqhko769y74w&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 44
+<td> Chorus
+<td>*<td> Away with him
+<td> <a id=no44 href='#!' onclick="loadvideo(44, '#44 Away with him', 'rjuBtVTYiuU'); piano44['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(44, piano44);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol44>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(44,piano44);"><b>+</b></a>
+<td> <b id=star44> </b>
+<audio id=piano44 onended="if (radio==1) no46.click(); else if (radio==2) no45.click(); else stopped();">
+<source id=source44 src='https://www.dropbox.com/scl/fi/xpqh282phqzj45wgsnin9/Bach-St-John-Passion-44-alto.mp3?rlkey=5iksn1z9zcaswfpfwht0dypkl&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 45
+<td> Recitativo
+<td><td> Pilate sayth unto them
+<td> <a id=no45 href='#!' onclick="loadvideo(45, '#45 Pilate sayth unto them', 'qD9_B0qhgHc'); piano45['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(45, piano45);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol45>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(45,piano45);"><b>+</b></a>
+<td> <b id=star45> </b>
+<audio id=piano45 onended="if (radio>0) no1.click(); else stopped();">
+<source id=source45 src='https://www.dropbox.com/scl/fi/mjk85gopgxq43zk8ztryu/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-45-Pilate-Saith-Unto-Them.mp3?rlkey=ri5nfotvpaik6sa0gubuqa8a4&dl=0&raw=1'  type="audio/mpeg"></audio>
+
 
 
 
@@ -589,7 +614,7 @@ It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPa
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 43;
+var maxinlist = 45;
 
 
 // called by youtube when script finished loading
@@ -722,8 +747,8 @@ function stopall()
   	piano41['pause']();
   	piano42['pause']();
   	piano43['pause']();
-//  	piano44['pause']();
-// 	piano45['pause']();
+  	piano44['pause']();
+ 	piano45['pause']();
 //  	piano46['pause']();
 //  	piano47['pause']();
 //  	piano48['pause']();
@@ -800,8 +825,8 @@ function restartall()
   	piano41.currentTime = 0;
   	piano42.currentTime = 0;
   	piano43.currentTime = 0;
-//  	piano44.currentTime = 0;
- // 	piano45.currentTime = 0;
+  	piano44.currentTime = 0;
+  	piano45.currentTime = 0;
  // 	piano46.currentTime = 0;
  // 	piano47.currentTime = 0;
  // 	piano48.currentTime = 0;
