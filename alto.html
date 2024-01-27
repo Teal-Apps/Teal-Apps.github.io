@@ -685,8 +685,32 @@ var radio=1;
 <td> <a href='#!' onclick="stopall();">pause</a> 
 <td> <a href='#!' onclick="leiser(53, piano53);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol53>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(53,piano53);"><b>+</b></a>
 <td> <b id=star53> </b>
-<audio id=piano53 onended="if (radio>0) no1.click(); else stopped();">
+<audio id=piano53 onended="if (radio>0) no54.click(); else stopped();">
 <source id=source53 src='https://www.dropbox.com/scl/fi/8rmxrq01zxctnfa6et9u6/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-53-And-Then-Did-the-Soldiers.mp3?rlkey=93b9qn9noohkfeius06xhtrc7&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 54
+<td> Chorus
+<td>*<td> Let us not divide it
+<td> <a id=no54 href='#!' onclick="loadvideo(54, '#54 Let us not divide it', 'OoQpf-Uecjc'); piano54['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(54, piano54);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol54>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(54,piano54);"><b>+</b></a>
+<td> <b id=star54> </b>
+<audio id=piano54 onended="if (radio==1) no56.click(); else if (radio==2) no55.click(); else stopped();">
+<source id=source54 src='https://www.dropbox.com/scl/fi/yx23fxagznctooj85eal9/Bach-St-John-Passion-54-alto.mp3?rlkey=8aq5j828m63l32n3ewv558ede&dl=0&raw=1'  type="audio/mpeg"></audio>
+
+
+<tr>
+<td> 55
+<td> Recitativo
+<td><td> So that the scripture
+<td> <a id=no55 href='#!' onclick="loadvideo(55, '#55 So that the scripture', 'OzEhgvS2i2Y'); piano55['play']();">play</a> 
+<td> <a href='#!' onclick="stopall();">pause</a> 
+<td> <a href='#!' onclick="leiser(55, piano55);"><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol55>vol&nbsp;9</i>&nbsp;<a href='#!' onclick="lauter(55,piano55);"><b>+</b></a>
+<td> <b id=star55> </b>
+<audio id=piano55 onended="if (radio>0) no1.click(); else stopped();">
+<source id=source55 src='https://www.dropbox.com/scl/fi/fxljlko0nhbwt2smqz80e/St.-John-Passion-BWV-245-Pt.-2-Sung-in-English-No.-55-So-That-the-Scripture-Might-Be....mp3?rlkey=9v4h0pwbthy9pdcb2fxmwg5xh&dl=0&raw=1'  type="audio/mpeg"></audio>
 
 
 
@@ -711,7 +735,7 @@ It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPa
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
-var maxinlist = 53;
+var maxinlist = 55;
 
 
 // called by youtube when script finished loading
@@ -854,8 +878,8 @@ function stopall()
   	piano51['pause']();
   	piano52['pause']();
   	piano53['pause']();
-//  	piano54['pause']();
-//  	piano55['pause']();
+  	piano54['pause']();
+  	piano55['pause']();
 //  	piano56['pause']();
 //  	piano57['pause']();
 //  	piano58['pause']();
@@ -931,8 +955,8 @@ function restartall()
   	piano51.currentTime = 0;
   	piano52.currentTime = 0;
   	piano53.currentTime = 0;
- // 	piano54.currentTime = 0;
- // 	piano55.currentTime = 0;
+  	piano54.currentTime = 0;
+  	piano55.currentTime = 0;
  // 	piano56.currentTime = 0;
  // 	piano57.currentTime = 0;
  // 	piano58.currentTime = 0;
