@@ -118,6 +118,7 @@ function generatetable()
 		document.getElementById('tbl').innerHTML += generaterow(i);
 	}
 
+	return true; //?
 }
 
 function generatevideocolumn()
@@ -148,7 +149,7 @@ function generatevideocolumn()
 	'<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>' +
 	'(Try and refresh, sometimes it fails for some reason.)</div> <br>' +
 	'<i><small style="color:red"><i>(please <a href=#email>email</a> me if you can\'t hear the alto part)<br>' + 
-	'(clicking \'play\' the first time might take a while to load and start)</small></i><br><br>';
+	'(clicking \'play\' the first time might take a minute to load and start)</small></i><br><br>';
 }
 
 function generaterow(i)
@@ -216,6 +217,8 @@ function onYouTubeIframeAPIReady()
         		});
 
 //	youtube.pauseVideo(); // keeps giving errors in F12
+	
+	return true; //?
 }
 
 
@@ -262,11 +265,14 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 	youtube.mute();
 
 	currentlyplaying = track;
+
+	return true; //?
 }
 
 
 function onPlayerReady(event) 
 {
+	return true; //?
 }
 
 
@@ -282,6 +288,8 @@ function stopped()
 	// called when current part stops playing, so that the shows || then no autoplay
   	// set current to pause sign
   	document.getElementById('star'+currentlyplaying).innerHTML = '||';
+
+	return true; //?
 }
 
 
@@ -362,6 +370,8 @@ function stopall()
 
   	// set current to pause sign
   	document.getElementById('star'+currentlyplaying).innerHTML = '||';
+
+	return true; //?
 }
 
 
@@ -438,6 +448,7 @@ function restartall()
   	piano67.currentTime = 0;
   	piano68.currentTime = 0;
 */
+	return true; //?
 }
 
 
@@ -454,6 +465,8 @@ function leiser(track, pianox)
 		pianox.volume = 1;
 
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
+
+	return true; //?
 }
 
 
@@ -468,6 +481,8 @@ function lauter(track, pianox)
 		pianox.volume = 1;
 
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
+
+	return true; //?
 }
 
 
@@ -484,6 +499,8 @@ function slower(track, pianox)
 
 	// display as %
 	document.getElementById('speed'+track).innerHTML = 'speed&nbsp;&nbsp;' + Math.round(pianox.playbackRate * 100) + '%';
+
+	return true; //?
 }
 
 
@@ -502,6 +519,8 @@ function faster(track, pianox)
 	}
 	else
 		document.getElementById('speed'+track).innerHTML = 'speed&nbsp;&nbsp;' + Math.round(pianox.playbackRate * 100) + '%';
+
+	return true; //?
 }
 
 
