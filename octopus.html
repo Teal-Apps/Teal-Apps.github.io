@@ -331,13 +331,13 @@ async function setprice(day, index, from, to)
 
 	if (day == 0) // today
 	{
-		fromdate = todaystring + 'T' + from + 'Z';
-		todate = todaystring + 'T' + to + 'Z';
+		fromdate = todaystring + 'T' + from; // + 'Z';  // Z was for UTC, nothing should give GMT/BST
+		todate = todaystring + 'T' + to; // + 'Z';
 	}
 	else // tomorrow
 	{
-		fromdate = tomorrowstring + 'T' + from + 'Z';
-		todate = tomorrowstring + 'T' + to + 'Z';
+		fromdate = tomorrowstring + 'T' + from; // + 'Z';
+		todate = tomorrowstring + 'T' + to; // + 'Z';
 	}
 
   	var octopus = url + 'period_from=' + fromdate + '&period_to=' + todate;
