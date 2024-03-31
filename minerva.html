@@ -30,9 +30,6 @@
 var autoplay0 = 'Off';
 var autoplay1 = 'Once';
 var autoplay2 = 'Loop';
-var default0 = '';
-var default1 = '';
-var default2 = 'checked';
 var radio = 2;
 
 const header = []; //note arrays start at 0 but I'm ignoring 0
@@ -125,6 +122,19 @@ function generatetable()
 
 function generatevideocolumn()
 {
+	// check state of autoplay radio
+	var default0 = '';
+	var default1 = '';
+	var default2 = '';
+	
+	if (radio == 0)
+		default0 = 'checked';
+	else if (radio == 1)
+		default1 = 'checked';
+	else if (radio == 2)
+		default2 = 'checked';
+
+
 	// generate video column (defaults to first video)
 	return '<td rowspan=' + (songcount*2) + ' valign=top>' +
 	'Autoplay options:<br>' +
@@ -172,19 +182,23 @@ function generaterow(i)
 
 </table>
 
+
 <br>
 <a name=email></a>
 For problems or comments please email: <a href="mailto:andrea@tealapps.com">andrea@tealapps.com</a> (this will go to Andrea in the alto2's of Minerva Choir).<br>
 It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPad, Safari, but not on IExplorer.<br>
 <br><br><br><br>
+	
 
 <script src="https://www.youtube.com/iframe_api"></script>
+
 
 <script>
 
 var youtube;
 var youtubevol = 0;  // tried with 1 to avoid it showing sound off but you can still hear some of it
 var currentlyplaying = 1; //default to first
+
 
 // called by youtube when script finished loading
 function onYouTubeIframeAPIReady() 
@@ -203,6 +217,8 @@ function onYouTubeIframeAPIReady()
 
 //	youtube.pauseVideo(); // keeps giving errors in F12
 }
+
+
 
 function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 {
@@ -248,9 +264,11 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 	currentlyplaying = track;
 }
 
+
 function onPlayerReady(event) 
 {
 }
+
 
 // this seems to be needed, no idea why....
 function onyoutubechange(event) 
@@ -258,12 +276,14 @@ function onyoutubechange(event)
 	return false;
 }
 
+
 function stopped()
 {
 	// called when current part stops playing, so that the shows || then no autoplay
   	// set current to pause sign
   	document.getElementById('star'+currentlyplaying).innerHTML = '||';
 }
+
 
 function stopall()
 {
@@ -343,6 +363,7 @@ function stopall()
   	// set current to pause sign
   	document.getElementById('star'+currentlyplaying).innerHTML = '||';
 }
+
 
 function restartall()
 {
