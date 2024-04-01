@@ -89,7 +89,7 @@ mp3[12] = 'https://www.dropbox.com/scl/fi/kwp3trhnbzygb4b55hpmf/Whitacre-Go-love
 
 header[13] = 'When David heard';
 title[13] = 'When David heard';
-video[13] = 'AwFAcXDoOiY';
+video[13] = 'vdQYj3woBGI';
 mp3[13] = 'https://www.dropbox.com/scl/fi/yyh7lc2gd5abm7quqmp11/Whitacre-When-David-heard-alto2.mp3?rlkey=ei86cjprr3zjefly3zxpf6axy';
 
 var songcount = title.length-1;
@@ -171,7 +171,7 @@ function generaterow(i)
 
 	// generates one row of music (minus last video column)
 	return '<tr><td> ' + i + ' <td> ' + title[i] +
-	' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' +
+	' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + i + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' +
 	'<td> <a href="#!" onclick="stopall();">pause</a>' + 
 	'<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' +
 	'<td> <b id=star' + i + '>' + state + '</b>' +
