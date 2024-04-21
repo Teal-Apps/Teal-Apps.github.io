@@ -19,32 +19,26 @@
 
 <body style="font-size:100%;font-family:arial,sans-serif">
 
+
 <h2>Minerva - Whitacre - <i>Alto 2</i></h2>
 
 <a href='#!' onClick="window.location.reload();">Reset all</a>
 
 <table><tbody id=tbl>
 
+<script src="./alto_script.html"></script>
+
 <script>
 
-var autoplay0 = 'Off';
-var autoplay1 = 'Once';
-var autoplay2 = 'Loop';
-var radio = 2;
-
-const header = []; //note arrays start at 0 but I'm ignoring 0
-const title = [];
-const video = [];
-const mp3 = [];
-
 header[1] = 'Light & Gold';
+//composer[1] = '';
 title[1] = 'Lux Aurumque';
 video[1] = 'e6HVCqQStRE';
 mp3[1] = 'https://www.dropbox.com/scl/fi/jaosti5djmx3nqztvsdb0/Whitacre-Lux-aurumque-alto2.mp3?rlkey=kxawv1gha6rf0a33ke58cq1p3';
 
 title[2] = 'The seal lullaby';
 video[2] = 'GKrsDN91WgY';
-mp3[2] = 'https://www.dropbox.com/scl/fi/0k7p3h3gnvhlx5518ag8g/Whitacre-The-seal-lullaby-alto2.mp3?rlkey=a121o2mg96fqrzevy0kchs8go';
+mp3[2] = 'https://www.dropbox.com/scl/fi/co6vkygcwp7lxekyru611/Whitacre-The-seal-lullaby-alto.mp3?rlkey=5expkbt3bm22067hf7i7hyc4j';
 
 title[3] = 'A boy and a girl';
 video[3] = 'j_AMI0vRqF8';
@@ -60,7 +54,7 @@ mp3[5] = 'https://www.dropbox.com/scl/fi/lo62k153a62hsgmjoaxph/Whitacre-Hope-fai
 
 title[6] = 'I thank you god';
 video[6] = 'M4D58yXLWro';
-mp3[6] = 'https://www.dropbox.com/scl/fi/18k21msptx61iczur9yua/Whitacre-I-thank-you-god-alto2.mp3?rlkey=8d05u3r0m6iybbco9om6clazx';
+mp3[6] = 'https://www.dropbox.com/scl/fi/igej1uim8lr09xzcsz751/Whitacre-I-thank-you-god-alto-2-low.mp3?rlkey=mvwwm3k5bz05ydd77tn6ly80g';
 
 title[7] = 'Water night';
 video[7] = '1DQQmtNuXUU';
@@ -94,105 +88,18 @@ mp3[13] = 'https://www.dropbox.com/scl/fi/yyh7lc2gd5abm7quqmp11/Whitacre-When-Da
 
 var songcount = title.length-1;
 
-function generatetable()
-{
-	// generate first row plus video column
-	// needs to check if that is a header or not
-	if (header[1] != undefined)
-	{
-		document.getElementById('tbl').innerHTML = '<tr><td colspan=6><b>' + header[1] + '</b>' + generatevideocolumn() 
-								+ generaterow(1);
-	}
-	else
-	{
-		document.getElementById('tbl').innerHTML = generaterow(1) + generatevideocolumn();
-	}
-
-	// generate one row per song for rest (add extra rows for any headers)
-	for (i = 2; i <= songcount; i++)
-	{
-		// check if there is a header for this row, generate an extra row if yes
-		if (header[i] != undefined)
-			document.getElementById('tbl').innerHTML += '<tr><td colspan=6><b>' + header[i] + '</b>';
-
-		document.getElementById('tbl').innerHTML += generaterow(i);
-	}
-
-	return true; //?
-}
-
-function generatevideocolumn()
-{
-	// check state of autoplay radio
-	var default0 = '';
-	var default1 = '';
-	var default2 = '';
-	
-	if (radio == 0)
-		default0 = 'checked';
-	else if (radio == 1)
-		default1 = 'checked';
-	else if (radio == 2)
-		default2 = 'checked';
-
-
-	// generate video column (defaults to first video)
-	return '<td rowspan=' + (songcount*2) + ' valign=top>' +
-	'Autoplay options:<br>' +
-	'<input type=radio name=auto id=off  ' + default0 + ' onclick="radio=0;"><label for=off>'  + autoplay0 + '</label><br>' +
-	'<input type=radio name=auto id=once ' + default1 + ' onclick="radio=1;"><label for=once>' + autoplay1 + '</label><br>' +
-	'<input type=radio name=auto id=loop ' + default2 + ' onclick="radio=2;"><label for=loop>' + autoplay2 + '</label><br>' +
-	'<br><hr>' +
-	'<h3 id=playing> #1 ' + title[1] + '</h3>' +
-	'<small id=video><a target=_blank href="https://www.youtube.com/watch?v=' + video[1] + '">https://www.youtube.com/watch?v=' + video[1] + '</a></small><br>' +
-	'<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>' +
-	'<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>' +
-	'(Try and refresh, sometimes it fails for some reason.)</div> <br>' +
-	'<i><small style="color:red"><i>(please <a href=#email>email</a> me if you can\'t hear the alto part)<br>' + 
-	'(clicking \'play\' the first time might take a minute to load and start)</small></i><br><br>';
-}
-
-function generaterow(i)
-{
-	// work out autoplay option
-	var onended;
-	if (i == songcount)
-		// last song
-		onended = '"if (radio==2) no1.click(); else stopped();"';
-	else
-		onended = '"if (radio>0) no' + (i+1) + '.click(); else stopped();"';
-
-	// display pause for first song by default
-	var state
-	if (i == 1)
-		state = '||';
-	else
-		state = ' ';
-
-	// generates one row of music (minus last video column)
-	return '<tr><td> ' + i + ' <td> ' + title[i] +
-	' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + i + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' +
-	'<td> <a href="#!" onclick="stopall();">pause</a>' + 
-	'<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' +
-	'<td> <b id=star' + i + '>' + state + '</b>' +
-	'<audio id=piano' + i + ' onended=' + onended + '>' +
-	'<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">!!! Your browser does not support this audio player !!!</audio>';
-}
-
 </script>
 
 </table>
 
-
 <br>
 <a name=email></a>
-For problems or comments please email: <a href="mailto:andrea@tealapps.com">andrea@tealapps.com</a> (this will go to Andrea in the alto2's of Minerva Choir).<br>
+If you find mistakes or have problems or comments please email: <a href="mailto:andrea@tealapps.com">andrea@tealapps.com</a> (= Andrea in the alto2's of Minerva Choir).<br>
 It seems to be working on Windows Chrome, MS Edge, Firefox, Android, iPhone, iPad, Safari, but not on IExplorer.<br>
 <br><br><br><br>
 	
 
 <script src="https://www.youtube.com/iframe_api"></script>
-
 
 <script>
 
@@ -204,21 +111,27 @@ var currentlyplaying = 1; //default to first
 // called by youtube when script finished loading
 function onYouTubeIframeAPIReady() 
 {
-	youtube = new YT.Player('youtube', 
-			{
-			width: 420,
-          			height: 315,
-			volume: youtubevol,
-          			videoId: video[1],
-			host: 'https://www.youtube-nocookie.com',
-			//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
-          			events: { 'onStateChange': onyoutubechange, 
-				'onReady': onPlayerReady }
-        		});
+	try {  
+		youtube = new YT.Player('youtube', 
+				{
+				width: 420,
+          				height: 315,
+				volume: youtubevol,
+        	  			videoId: video[1],
+				host: 'https://www.youtube-nocookie.com',
+				//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
+          				events: { 'onStateChange': onyoutubechange, 
+					'onReady': onPlayerReady }
+        			});
 
-//	youtube.pauseVideo(); // keeps giving errors in F12
+		//	youtube.pauseVideo(); // keeps giving errors in F12
 	
-	return true; //?
+		return true; //?
+	}
+	catch (err)
+	{
+	 	return true; //?  just ignore, we don't really need the video
+	}
 }
 
 
@@ -227,10 +140,16 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 {
 	if (track == currentlyplaying)
 	{
-		// just unpause video
-		youtube.playVideo();
-		youtube.setVolume(youtubevol);
-		youtube.mute();
+		try {
+			// just unpause video
+			youtube.playVideo();
+			youtube.setVolume(youtubevol);
+			youtube.mute();
+		}
+		catch (err)
+		{	
+			; // just ignore, we don't really need the video
+		}
 
 		// set current star (now an arrow)
 		document.getElementById('star'+track).innerHTML = '>';
@@ -239,7 +158,14 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 	}		
 
 	stopall(); // pause all others first
-	youtube.pauseVideo(); // including current video
+
+	try {
+		youtube.pauseVideo(); // including current video
+	}
+	catch (err)
+	{
+		; // just ignore
+	}
 
 	// reset all music to start from the beginning
 	restartall();
@@ -254,15 +180,21 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 	// set title above video
 	document.getElementById('playing').innerHTML = title;
 
-//	if (youtubeid == 'xxxxxxxxxxx')
-//		document.getElementById('video').innerHTML = "<i style='color:blue'>I could not find a recording, please email me if you find one (in the same key).</i>"
-//	else
+	if (youtubeid == 'xxxxxxxxxxx')
+		document.getElementById('video').innerHTML = "<i style='color:blue'>I could not find a recording, please email me if you find one (in the same key).</i>"
+	else
 		//display link for video
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 
-	youtube.loadVideoById(youtubeid, startat);
-	youtube.setVolume(youtubevol);
-	youtube.mute();
+	try {
+		youtube.loadVideoById(youtubeid, startat);
+		youtube.setVolume(youtubevol);
+		youtube.mute();
+	}
+	catch (err)
+	{
+		; // just ignore
+	}
 
 	currentlyplaying = track;
 
@@ -295,78 +227,37 @@ function stopped()
 
 function stopall()
 {
-	piano1['pause']();
-  	piano2['pause']();
-  	piano3['pause']();
-  	piano4['pause']();
-  	piano5['pause']();
-  	piano6['pause']();
-  	piano7['pause']();
-  	piano8['pause']();
-  	piano9['pause']();
-  	piano10['pause']();
-  	piano11['pause']();
-  	piano12['pause']();
-  	piano13['pause']();
-/* (we can have too many though, still works)
-  	piano14['pause']();
-  	piano15['pause']();
-  	piano16['pause']();
-  	piano17['pause']();
-  	piano18['pause']();
-  	piano19['pause']();
-  	piano20['pause']();
-  	piano21['pause']();
-  	piano22['pause']();
-  	piano23['pause']();
-  	piano24['pause']();
-  	piano25['pause']();
-  	piano26['pause']();
-  	piano27['pause']();
-  	piano28['pause']();
-  	piano29['pause']();
-  	piano30['pause']();
-  	piano31['pause']();
-  	piano32['pause']();
-  	piano33['pause']();
-  	piano34['pause']();
-  	piano35['pause']();
-  	piano36['pause']();
-  	piano37['pause']();
-  	piano38['pause']();
-  	piano39['pause']();
-  	piano40['pause']();
-  	piano41['pause']();
-  	piano42['pause']();
-  	piano43['pause']();
-  	piano44['pause']();
-  	piano45['pause']();
-  	piano46['pause']();
-  	piano47['pause']();
-  	piano48['pause']();
-  	piano49['pause']();
-  	piano50['pause']();
-  	piano51['pause']();
-  	piano52['pause']();
-  	piano53['pause']();
-  	piano54['pause']();
-  	piano55['pause']();
-  	piano56['pause']();
-  	piano57['pause']();
-  	piano58['pause']();
-  	piano59['pause']();
-  	piano60['pause']();
-  	piano61['pause']();
-  	piano62['pause']();
-  	piano63['pause']();
-  	piano64['pause']();
-  	piano65['pause']();
-  	piano66['pause']();
-  	piano67['pause']();
-  	piano68['pause']();
-*/
+	switch (songcount)
+	{
+		case 20:	piano20['pause']();
+		case 19:	piano19['pause']();	
+		case 18:	piano18['pause']();	
+		case 17:	piano17['pause']();	
+		case 16:	piano16['pause']();	
+		case 15:	piano15['pause']();	
+		case 14:	piano14['pause']();	
+		case 13:	piano13['pause']();	
+		case 12:	piano12['pause']();	
+		case 11:	piano11['pause']();	
+		case 10:	piano10['pause']();	
+		case 9:		piano9['pause']();	
+		case 8:		piano8['pause']();	
+		case 7:		piano7['pause']();	
+		case 6:		piano6['pause']();	
+		case 5:		piano5['pause']();	
+		case 4:		piano4['pause']();	
+		case 3:		piano3['pause']();	
+		case 2:		piano2['pause']();	
+		case 1:		piano1['pause']();	
+	}
 
-  	youtube.pauseVideo();
+	try {
+	  	youtube.pauseVideo();
+	}
+	catch (err)
+	{
+		; //ignore
+	}
 
   	// set current to pause sign
   	document.getElementById('star'+currentlyplaying).innerHTML = '||';
@@ -377,77 +268,30 @@ function stopall()
 
 function restartall()
 {
-  	piano1.currentTime = 0;
-  	piano2.currentTime = 0;
-  	piano3.currentTime = 0;
-  	piano4.currentTime = 0;
-  	piano5.currentTime = 0;
-  	piano6.currentTime = 0;
-  	piano7.currentTime = 0;
-  	piano8.currentTime = 0;
-  	piano9.currentTime = 0;
-  	piano10.currentTime = 0;
-  	piano11.currentTime = 0;
-  	piano12.currentTime = 0;
-  	piano13.currentTime = 0;
+	switch (songcount)
+	{
+		case 20:	piano20.currentTime = 0;
+		case 19:	piano19.currentTime = 0;
+		case 18:	piano18.currentTime = 0;
+		case 17:	piano17.currentTime = 0;
+		case 16:	piano16.currentTime = 0;
+		case 15:	piano15.currentTime = 0;
+		case 14:	piano14.currentTime = 0;
+		case 13:	piano13.currentTime = 0;
+		case 12:	piano12.currentTime = 0;
+		case 11:	piano11.currentTime = 0;
+		case 10:	piano10.currentTime = 0;
+		case 9:		piano9.currentTime = 0;
+		case 8:		piano8.currentTime = 0;
+		case 7:		piano7.currentTime = 0;
+		case 6:		piano6.currentTime = 0;
+		case 5:		piano5.currentTime = 0;
+		case 4:		piano4.currentTime = 0;
+		case 3:		piano3.currentTime = 0;
+		case 2:		piano2.currentTime = 0;
+		case 1:		piano1.currentTime = 0;
+	}
 
-/* (we can have too many though, still works) 
- 	piano14.currentTime = 0;
-  	piano15.currentTime = 0;
-  	piano16.currentTime = 0;
-  	piano17.currentTime = 0;
-  	piano18.currentTime = 0;
-  	piano19.currentTime = 0;
-  	piano20.currentTime = 0;
-  	piano21.currentTime = 0;
-  	piano22.currentTime = 0;
-  	piano23.currentTime = 0;
-  	piano24.currentTime = 0;
-  	piano25.currentTime = 0;
-  	piano26.currentTime = 0;
-  	piano27.currentTime = 0;
-  	piano28.currentTime = 0;
-  	piano29.currentTime = 0;
-  	piano30.currentTime = 0;
-  	piano31.currentTime = 0;
-  	piano32.currentTime = 0;
-  	piano33.currentTime = 0;
-  	piano34.currentTime = 0;
-  	piano35.currentTime = 0;
-  	piano36.currentTime = 0;
-  	piano37.currentTime = 0;
-  	piano38.currentTime = 0;
-  	piano39.currentTime = 0;
-  	piano40.currentTime = 0;
-  	piano41.currentTime = 0;
-  	piano42.currentTime = 0;
-  	piano43.currentTime = 0;
-  	piano44.currentTime = 0;
-  	piano45.currentTime = 0;
-  	piano46.currentTime = 0;
-  	piano47.currentTime = 0;
-  	piano48.currentTime = 0;
-  	piano49.currentTime = 0;
-  	piano50.currentTime = 0;
-  	piano51.currentTime = 0;
-  	piano52.currentTime = 0;
-  	piano53.currentTime = 0;
-  	piano54.currentTime = 0;
-  	piano55.currentTime = 0;
-  	piano56.currentTime = 0;
-  	piano57.currentTime = 0;
-  	piano58.currentTime = 0;
-  	piano59.currentTime = 0;
-  	piano60.currentTime = 0;
-  	piano61.currentTime = 0;
-  	piano62.currentTime = 0;
-  	piano63.currentTime = 0;
-  	piano64.currentTime = 0;
-  	piano65.currentTime = 0;
-  	piano66.currentTime = 0;
-  	piano67.currentTime = 0;
-  	piano68.currentTime = 0;
-*/
 	return true; //?
 }
 
@@ -456,13 +300,7 @@ function leiser(track, pianox)
 {
 	// divide in 0-9 so that it doesn't disturb the display with double-digits
 
-	pianox.volume = pianox.volume - 0.11;
-
-	if (pianox.volume < 0)
-		pianox.volume = 0;
-
-	if (pianox.volume > 1)
-		pianox.volume = 1;
+	pianox.volume = Math.min(Math.max(pianox.volume - 0.11, 0), 1);
 
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
 
@@ -472,13 +310,7 @@ function leiser(track, pianox)
 
 function lauter(track, pianox)
 {
-	pianox.volume = pianox.volume + 0.11;
-
-	if (pianox.volume < 0)
-		pianox.volume = 0;
-
-	if (pianox.volume > 1)
-		pianox.volume = 1;
+	pianox.volume = Math.min(Math.max(pianox.volume + 0.11, 0), 1);
 
 	document.getElementById('vol'+track).innerHTML = 'vol&nbsp;' + Math.round(pianox.volume * 9);
 
@@ -489,14 +321,8 @@ function lauter(track, pianox)
 
 function slower(track, pianox)
 {
-	pianox.playbackRate = pianox.playbackRate - 0.1;
+	pianox.playbackRate = Math.min(Math.max(pianox.playbackRate - 0.1, 0.5), 1);
 	
-	if (pianox.playbackRate < 0.5)
-		pianox.playbackRate = 0.5;
-
-	if (pianox.playbackRate > 1)
-		pianox.playbackRate = 1;
-
 	// display as %
 	document.getElementById('speed'+track).innerHTML = 'speed&nbsp;&nbsp;' + Math.round(pianox.playbackRate * 100) + '%';
 
@@ -507,18 +333,9 @@ function slower(track, pianox)
 
 function faster(track, pianox)
 {
-	pianox.playbackRate = pianox.playbackRate + 0.1;
-	
-	if (pianox.playbackRate < 0.5)
-		pianox.playbackRate = 0.5;
+	pianox.playbackRate = Math.min(Math.max(pianox.playbackRate + 0.1, 0.5), 1);
 
-	if (pianox.playbackRate > 1)
-	{
-		pianox.playbackRate = 1;
-		document.getElementById('speed'+track).innerHTML = 'speed&nbsp;100%';
-	}
-	else
-		document.getElementById('speed'+track).innerHTML = 'speed&nbsp;&nbsp;' + Math.round(pianox.playbackRate * 100) + '%';
+	document.getElementById('speed'+track).innerHTML = 'speed&nbsp;&nbsp;' + Math.round(pianox.playbackRate * 100) + '%';
 
 	return true; //?
 }
