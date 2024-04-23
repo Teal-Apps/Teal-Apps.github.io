@@ -116,14 +116,15 @@ function onYouTubeIframeAPIReady()
 	try {  
 		youtube = new YT.Player('youtube', 
 				{
+				loading: 'lazy',
 				width: 420,
-          				height: 315,
+       				height: 315,
 				volume: youtubevol,
-        	  			videoId: video[1],
+      	  			videoId: video[1],
 				host: 'https://www.youtube-nocookie.com',
-				//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
-          				events: { 'onStateChange': onyoutubechange, 
-					'onReady': onPlayerReady }
+				//playerVars: { 'controls' : 0 }, // removes controls, disabled on style/iframe now
+       				events: { 'onStateChange': onyoutubechange, 
+				'onReady': onPlayerReady }
         			});
 
 		//	youtube.pauseVideo(); // keeps giving errors in F12
