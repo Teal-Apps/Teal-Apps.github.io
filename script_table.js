@@ -11,6 +11,7 @@ const composer = [];
 const title = [];
 const video = [];
 const mp3 = [];
+const mp3a = []; // alternative mp3, eg dropbox keeps stopping
 // add the actual titles in the html
 
 
@@ -114,8 +115,10 @@ function generaterow(i)
 		+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
 		+ '<td> <b id=star' + i + '>' + state + '</b>' 
 		+ '<audio id=piano' + i + ' preload=none onended=' + onended + '>' 
-		+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">!!! Your browser does not support this audio player !!!</audio>';
-
+		+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
+		// add alternative sound files if available
+		+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="' + mp3a[i] + '" type="audio/mpeg">')
+		+ '!!! Your browser does not support this audio player !!! </audio>';
 }
 
 //</script>
