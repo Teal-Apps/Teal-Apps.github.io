@@ -131,6 +131,36 @@ function stopall(track)
 {
 	switch (songcount)
 	{
+		case 50:	if (track != 50) piano50['pause']();	
+		case 49:	if (track != 49) piano49['pause']();	
+		case 48:	if (track != 48) piano48['pause']();	
+		case 47:	if (track != 47) piano47['pause']();	
+		case 46:	if (track != 46) piano46['pause']();	
+		case 45:	if (track != 45) piano45['pause']();	
+		case 44:	if (track != 44) piano44['pause']();	
+		case 43:	if (track != 43) piano43['pause']();	
+		case 42:	if (track != 42) piano42['pause']();	
+		case 41:	if (track != 41) piano41['pause']();	
+		case 40:	if (track != 40) piano40['pause']();	
+		case 39:	if (track != 39) piano39['pause']();	
+		case 38:	if (track != 38) piano38['pause']();	
+		case 37:	if (track != 37) piano37['pause']();	
+		case 36:	if (track != 36) piano36['pause']();	
+		case 35:	if (track != 35) piano35['pause']();	
+		case 34:	if (track != 34) piano34['pause']();	
+		case 33:	if (track != 33) piano33['pause']();	
+		case 32:	if (track != 32) piano32['pause']();	
+		case 31:	if (track != 31) piano31['pause']();	
+		case 30:	if (track != 30) piano30['pause']();	
+		case 29:	if (track != 29) piano29['pause']();	
+		case 28:	if (track != 28) piano28['pause']();	
+		case 27:	if (track != 27) piano27['pause']();	
+		case 26:	if (track != 26) piano26['pause']();	
+		case 25:	if (track != 25) piano25['pause']();	
+		case 24:	if (track != 24) piano24['pause']();	
+		case 23:	if (track != 23) piano23['pause']();	
+		case 22:	if (track != 22) piano22['pause']();	
+		case 21:	if (track != 21) piano21['pause']();	
 		case 20:	if (track != 20) piano20['pause']();
 		case 19:	if (track != 19) piano19['pause']();	
 		case 18:	if (track != 18) piano18['pause']();	
@@ -172,6 +202,36 @@ function restartall(track)
 {
 	switch (songcount)
 	{
+		case 50:	if (track != 50) piano50.currentTime = 0;
+		case 49:	if (track != 49) piano49.currentTime = 0;
+		case 48:	if (track != 48) piano48.currentTime = 0;
+		case 47:	if (track != 47) piano47.currentTime = 0;
+		case 46:	if (track != 46) piano46.currentTime = 0;
+		case 45:	if (track != 45) piano45.currentTime = 0;
+		case 44:	if (track != 44) piano44.currentTime = 0;
+		case 43:	if (track != 43) piano43.currentTime = 0;
+		case 42:	if (track != 42) piano42.currentTime = 0;
+		case 41:	if (track != 41) piano41.currentTime = 0;
+		case 40:	if (track != 40) piano40.currentTime = 0;
+		case 39:	if (track != 39) piano39.currentTime = 0;
+		case 38:	if (track != 38) piano38.currentTime = 0;
+		case 37:	if (track != 37) piano37.currentTime = 0;
+		case 36:	if (track != 36) piano36.currentTime = 0;
+		case 35:	if (track != 35) piano35.currentTime = 0;
+		case 34:	if (track != 34) piano34.currentTime = 0;
+		case 33:	if (track != 33) piano33.currentTime = 0;
+		case 32:	if (track != 32) piano32.currentTime = 0;
+		case 31:	if (track != 31) piano31.currentTime = 0;
+		case 30:	if (track != 30) piano30.currentTime = 0;
+		case 29:	if (track != 19) piano29.currentTime = 0;
+		case 28:	if (track != 28) piano28.currentTime = 0;
+		case 27:	if (track != 27) piano27.currentTime = 0;
+		case 26:	if (track != 26) piano26.currentTime = 0;
+		case 25:	if (track != 25) piano25.currentTime = 0;
+		case 24:	if (track != 24) piano24.currentTime = 0;
+		case 23:	if (track != 23) piano23.currentTime = 0;
+		case 22:	if (track != 22) piano22.currentTime = 0;
+		case 21:	if (track != 21) piano21.currentTime = 0;
 		case 20:	if (track != 20) piano20.currentTime = 0;
 		case 19:	if (track != 19) piano19.currentTime = 0;
 		case 18:	if (track != 18) piano18.currentTime = 0;
