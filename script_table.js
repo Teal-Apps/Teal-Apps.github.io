@@ -7,6 +7,7 @@ var autoplay2 = 'Loop';
 var radio = 2;
 
 const header = []; //note arrays start at 0 but I'm ignoring 0
+const number = []; // to display number if not i
 const composer = [];
 const title = [];
 const video = [];
@@ -64,6 +65,11 @@ function generatevideocolumn()
 	else if (radio == 2)
 		default2 = 'checked';
 
+	vheader = header[1];
+
+	vnumber = number[1];
+	if (vnumber == undefined)
+		vnumber = 1;
 
 	// generate video column (defaults to first video)
 	return '<td rowspan=' + (songcount*2) + ' valign=top>' 
@@ -72,7 +78,7 @@ function generatevideocolumn()
 		+ '<input type=radio name=auto id=once ' + default1 + ' onclick="radio=1;"><label for=once>' + autoplay1 + '</label><br>' 
 		+ '<input type=radio name=auto id=loop ' + default2 + ' onclick="radio=2;"><label for=loop>' + autoplay2 + '</label><br>' 
 		+ '<br><hr>' 
-		+ '<h3 id=playing> #1 ' + title[1] + '</h3>' 
+		+ '<h3 id=playing> #' + vnumber + ' ' + title[1] + '</h3>' 
 		+ '<small id=video><a target=_blank href="https://www.youtube.com/watch?v=' + video[1] + '">https://www.youtube.com/watch?v=' + video[1] + '</a></small><br>' 
 		+ '<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>' 
 		+ '<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>' 
@@ -102,15 +108,18 @@ function generaterow(i)
 		state = ' ';
 
 	var vcomposer = composer[i];
-
 	if (vcomposer == undefined)
 		vcomposer = '';
 
+	var vnumber = number[i];
+	if (vnumber == undefined)
+		vnumber = i;
+
 	// generates one row of music (minus last video column)
-	return '<tr><td> ' + i 
+	return '<tr><td> ' + vnumber 
 		+ ' <td> ' + vcomposer 
 		+ ' <td> ' + title[i] 
-		+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' 
+		+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' 
 		+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
 		+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
 		+ '<td> <b id=star' + i + '>' + state + '</b>' 
