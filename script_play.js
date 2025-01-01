@@ -254,6 +254,9 @@ function restartall(track)
 		case 1:		if (track != 1) piano1.currentTime = 0;
 	}
 
+	// set lyrics to blank
+	document.getElementById('lyrics').innerHTML = ' <br> ';	
+
 	return true; //?
 }
 
@@ -301,5 +304,28 @@ function faster(track, pianox)
 
 	return true; //?
 }
+
+
+
+// new to try and add lyrics
+
+function addlyrics(audio, track)
+{
+	if (track != currentlyplaying)
+		return;
+
+    	var time = audio.currentTime; // time in sec (float)
+
+	for (i=1; i < lyrics[track].length; i++)
+		if (time < lyrics[track][i][0]) // [0] is time
+		{
+			document.getElementById('lyrics').innerHTML = lyrics[track][i-1][1]; // [1] is lyrics
+			return;
+		}
+
+	document.getElementById('lyrics').innerHTML = ' <br> ';
+}
+
+
 
 //</script>

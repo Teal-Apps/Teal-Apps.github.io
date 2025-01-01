@@ -13,6 +13,7 @@ const title = [];
 const video = [];
 const mp3 = [];
 const mp3a = []; // alternative mp3, eg dropbox keeps stopping
+const lyrics = [];
 // add the actual titles in the html
 
 
@@ -83,8 +84,9 @@ function generatevideocolumn()
 		+ '<small>(this is embedded from YouTube and covered by YouTube licence)</small><br>' 
 		+ '<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>' 
 		+ '(Try and refresh, sometimes it fails for some reason.)</div> <br>' 
+		+ '<br><div id=lyrics> <br> </div> <br><br>'
 		+ '<i><small style="color:red"><i>(please <a href=#email>email</a> me if you can\'t hear the alto part)<br>' 
-		+ '(clicking \'play\' the first time might take a minute to load and start)</small></i><br><br>';
+		+ '(clicking \'play\' the first time might take a minute to load and start)</small></i><br><br></div>';
 }
 
 
@@ -115,6 +117,12 @@ function generaterow(i)
 	if (vnumber == undefined)
 		vnumber = i;
 
+	// add bit for lyrics if defined
+	var ontimeupdate = ' ontimeupdate="addlyrics(this, ' + i + ')"';
+	if (lyrics[i] == undefined)
+		ontimeupdate = '';
+		
+
 	// generates one row of music (minus last video column)
 	return '<tr><td> ' + vnumber 
 		+ ' <td> ' + vcomposer 
@@ -123,7 +131,7 @@ function generaterow(i)
 		+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
 		+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
 		+ '<td> <b id=star' + i + '>' + state + '</b>' 
-		+ '<audio id=piano' + i + ' preload=none onended=' + onended + '>' 
+		+ '<audio id=piano' + i + ' preload=none onended=' + onended + ontimeupdate + '>' 
 		+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
 		// add alternative sound files if available
 		+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="' + mp3a[i] + '" type="audio/mpeg">')
