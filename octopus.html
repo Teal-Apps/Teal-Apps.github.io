@@ -319,7 +319,8 @@ async function setprice(day, index, from, to)
 	if (tomorrowstring == null)
 		tomorrowstring = gettomorrowstring();
 
-	const productcode = 'AGILE-FLEX-22-11-25';
+	// was: const productcode = 'AGILE-FLEX-22-11-25';
+	const productcode = 'AGILE-23-12-06'; // find in tariff plus eg here: https://agile.octopushome.net/dashboard
 
   	const url = 'https://api.octopus.energy/v1/products/' + productcode 
 			+ '/electricity-tariffs/E-1R-' + productcode + '-L/standard-unit-rates/?';
