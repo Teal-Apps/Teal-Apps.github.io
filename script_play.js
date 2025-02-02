@@ -290,7 +290,7 @@ function forward10s(track, pianox)
 		return;
 
 	pianox.currentTime += 10;
-	youtube.seekTo(pianox.currenttime * 1000);
+	youtube.seekTo(pianox.currenttime);
 }
 
 
@@ -301,7 +301,7 @@ function back10s(track, pianox)
 		return;
 
 	pianox.currentTime -= 10;
-	youtube.seekTo(pianox.currenttime * 1000);
+	youtube.seekTo(pianox.currenttime);
 }
 
 
