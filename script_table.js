@@ -57,7 +57,6 @@ function generatevideocolumn()
 	var default0 = '';
 	var default1 = '';
 	var default2 = '';
-//	var songcount = title.length-1;
 	
 	if (radio == 0)
 		default0 = 'checked';
@@ -94,7 +93,6 @@ function generaterow(i)
 {
 	// work out autoplay option
 	var onended;
-//	var songcount = title.length-1;
 
 	if (i == songcount)
 		// last song
@@ -127,15 +125,22 @@ function generaterow(i)
 	return '<tr><td> ' + vnumber 
 		+ ' <td> ' + vcomposer 
 		+ ' <td> ' + title[i] 
-		+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' 
-		+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
-		+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
-		+ '<td> <b id=star' + i + '>' + state + '</b>' 
-		+ '<audio id=piano' + i + ' preload=none onended=' + onended + ontimeupdate + '>' 
-		+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
+		// play column
+			+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' 
+		// pause column
+			+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
+		// vol column (leave out now)
+		//	+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
+		// skip column
+			+ '<td> <a href="#!" onclick=\'back10s(' + i + ', piano' + i + ');\'>&lt;&lt;</a>&nbsp;&nbsp;&nbsp;<a href="#!" onclick=\'forward10s(' + i + ', piano' + i + ');\'>&gt;&gt;</a>' 
+		// playing now column
+			+ '<td> <b id=star' + i + '>' + state + '</b>' 
+		// invisible audio column
+			+ '<audio id=piano' + i + ' preload=none onended=' + onended + ontimeupdate + '>' 
+			+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
 		// add alternative sound files if available
-		+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="' + mp3a[i] + '" type="audio/mpeg">')
-		+ '!!! Your browser does not support this audio player !!! </audio>';
+			+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="' + mp3a[i] + '" type="audio/mpeg">')
+			+ '!!! Your browser does not support this audio player !!! </audio>';
 }
 
 //</script>
