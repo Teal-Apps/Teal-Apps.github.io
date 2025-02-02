@@ -284,6 +284,28 @@ function lauter(track, pianox)
 
 
 
+function forward10s(track, pianox)
+{
+	if (track != currentlyplaying)
+		return;
+
+	pianox.currentTime += 10;
+	youtube.seekTo(pianox.currenttime * 1000);
+}
+
+
+
+function back10s(track, pianox)
+{
+	if (track != currentlyplaying)
+		return;
+
+	pianox.currentTime -= 10;
+	youtube.seekTo(pianox.currenttime * 1000);
+}
+
+
+
 function slower(track, pianox)
 {
 	pianox.playbackRate = Math.min(Math.max(pianox.playbackRate - 0.1, 0.5), 1);
@@ -320,6 +342,7 @@ function addlyrics(audio, track)
 		if (time < lyrics[track][i][0]) // [0] is time
 		{
 			document.getElementById('lyrics').innerHTML = lyrics[track][i-1][1]; // [1] is lyrics
+									// + '<br>' + lyrics[track][i][1]; // display next line too (actually, this looks too busy)
 			return;
 		}
 
