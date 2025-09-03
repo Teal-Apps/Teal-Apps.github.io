@@ -131,6 +131,26 @@ function stopall(track)
 {
 	switch (songcount)
 	{
+		case 70:	if (track != 70) piano70['pause']();	
+		case 69:	if (track != 69) piano69['pause']();	
+		case 68:	if (track != 68) piano68['pause']();	
+		case 67:	if (track != 67) piano67['pause']();	
+		case 66:	if (track != 66) piano66['pause']();	
+		case 65:	if (track != 65) piano65['pause']();	
+		case 64:	if (track != 64) piano64['pause']();	
+		case 63:	if (track != 63) piano63['pause']();	
+		case 62:	if (track != 62) piano62['pause']();	
+		case 61:	if (track != 61) piano61['pause']();	
+		case 60:	if (track != 60) piano60['pause']();	
+		case 59:	if (track != 59) piano59['pause']();	
+		case 58:	if (track != 58) piano58['pause']();	
+		case 57:	if (track != 57) piano57['pause']();	
+		case 56:	if (track != 56) piano56['pause']();	
+		case 55:	if (track != 55) piano55['pause']();	
+		case 54:	if (track != 54) piano54['pause']();	
+		case 53:	if (track != 53) piano53['pause']();	
+		case 52:	if (track != 52) piano52['pause']();	
+		case 51:	if (track != 51) piano51['pause']();	
 		case 50:	if (track != 50) piano50['pause']();	
 		case 49:	if (track != 49) piano49['pause']();	
 		case 48:	if (track != 48) piano48['pause']();	
@@ -202,6 +222,26 @@ function restartall(track)
 {
 	switch (songcount)
 	{
+		case 70:	if (track != 70) piano70.currentTime = 0;
+		case 69:	if (track != 68) piano69.currentTime = 0;
+		case 68:	if (track != 68) piano68.currentTime = 0;
+		case 67:	if (track != 67) piano67.currentTime = 0;
+		case 66:	if (track != 66) piano66.currentTime = 0;
+		case 65:	if (track != 65) piano65.currentTime = 0;
+		case 64:	if (track != 64) piano64.currentTime = 0;
+		case 63:	if (track != 63) piano63.currentTime = 0;
+		case 62:	if (track != 62) piano62.currentTime = 0;
+		case 61:	if (track != 61) piano61.currentTime = 0;
+		case 60:	if (track != 60) piano60.currentTime = 0;
+		case 59:	if (track != 59) piano59.currentTime = 0;
+		case 58:	if (track != 58) piano58.currentTime = 0;
+		case 57:	if (track != 57) piano57.currentTime = 0;
+		case 56:	if (track != 56) piano56.currentTime = 0;
+		case 55:	if (track != 55) piano55.currentTime = 0;
+		case 54:	if (track != 54) piano54.currentTime = 0;
+		case 53:	if (track != 53) piano53.currentTime = 0;
+		case 52:	if (track != 52) piano52.currentTime = 0;
+		case 51:	if (track != 51) piano51.currentTime = 0;
 		case 50:	if (track != 50) piano50.currentTime = 0;
 		case 49:	if (track != 49) piano49.currentTime = 0;
 		case 48:	if (track != 48) piano48.currentTime = 0;
@@ -352,3 +392,4 @@ function addlyrics(audio, track)
 
 
 //</script>
+
