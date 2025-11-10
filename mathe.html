@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Mathe</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    #questionBox {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      white-space: pre-line;
+    }
+    #answerInput {
+      font-size: 1.2em;
+      padding: 0.5em;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 0.5em;
+    }
+    #inputHint {
+      font-size: 1em;
+      margin-bottom: 1.5em;
+      color: #555;
+    }
+    #feedback {
+      margin-top: 1.5em;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+    button {
+      margin-top: 1em;
+      font-size: 1.1em;
+      padding: 0.4em 1em;
+    }
+    #progressBar {
+      margin-top: 1em;
+    }
+    .notch {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      border-radius: 4px;
+    }
+    .label {
+      display: inline-block;
+      width: 140px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Übungsfragen</h1>
+  <div id="questionBox"></div>
+  <input type="text" id="answerInput" placeholder="Deine Antwort hier">
+  <div id="inputHint">Für x² tippe x^2, für 1/2 tippe ½ usw.</div>
+  <button id="actionButton" onclick="handleAction()">Antwort prüfen</button>
+  <div id="feedback"></div>
+  <div id="progressBar"></div>
+
+<br><br><br><br><br><br><button onclick='resetProgress()'><small>Alles löschen<br>und von vorne anfangen?</small></button>
+
+
+  <script>
+    const questions = [
+  [1, 'x + 3x', '4x', 'x bedeutet 1x, also 1x + 3x = 4x'],
+  [1, '-x + 4x', '3x', '-x bedeutet -1x, also -1x + 4x = 3x'],
+  [1, 'x - 5x', '-4x', 'x bedeutet 1x, also 1x - 5x = -4x'],
+  [1, '2x - x', 'x', 'x bedeutet 1x, also 2x - 1x = x'],
+  [1, 'x - 2x', '-x', 'x bedeutet 1x, also 1x - 2x = -1x = -x'],
+  [1, 'x * 4x', '4x^2', 'x bedeutet 1x, also 1x * 4x = 4x²'],
+  [1, '-x * 3x', '-3x^2', '-x bedeutet -1x, also -1x * 3x = -3x²'],
+  [1, '5x - x', '4x', 'x bedeutet 1x, also 5x - 1x = 4x'],
+  [1, '7x + 3x', '10x', 'Addiere die Koeffizienten: 7 + 3 = 10'],
+  [1, '5x - 9x', '-4x', 'Addiere die Koeffizienten: 5 - 9 = -4'],
+  [1, '-5x + 12x', '7x', 'Addiere die Koeffizienten: -5 + 12 = 7'],
+  [1, '4x * 6x', '24x^2', 'Multipliziere die Koeffizienten: 4 * 6 = 24, x * x = x²'],
+  [1, '-x + x', '0', '-x bedeutet -1x, also -1x + 1x = 0'],
+  [1, '-3x * 5x', '-15x^2', 'Multipliziere: -3 * 5 = -15, x * x = x²'],
+  [1, '10x - 10x', '0', 'Gegensätzliche Terme heben sich auf: 10x - 10x = 0'],
+  [1, 'x * (-x)', '-x^2', 'x bedeutet 1x, -x bedeutet -1x, also 1x * -1x = -x²'],
+  [1, '8x * (-2x)', '-16x^2', 'Multipliziere: 8 * -2 = -16, x * x = x²'],
+  [1, 'x + x', '2x', 'x bedeutet 1x, also 1x + 1x = 2x'],
+  [1, '0x + 13x', '13x', '0x hat keinen Einfluss, bleibt 13x'],
+  [1, '5x + 5x', '10x', 'Addiere: 5 + 5 = 10'],
+  [1, '-x * (-x)', 'x^2', '-x bedeutet -1x, also -1x * -1x = x²'],
+  [1, 'x + x', '2x', 'x bedeutet 1x, also 1x + 1x = 2x'],
+  [1, '-7x * (-3x)', '21x^2', 'Negativ * Negativ = Positiv: -7 * -3 = 21, x * x = x²'],
+  [1, 'x * x', 'x^2', 'x bedeutet 1x, also 1x * 1x = x²'],
+  [1, '6x - 2x', '4x', 'Addiere: 6 - 2 = 4'],
+  [1, '9x * 0x', '0', 'Alles mal 0 ergibt 0'],
+  [1, '11x + 14x', '25x', 'Addiere: 11 + 14 = 25'],
+  [1, '-25x + 25x', '0', 'Gegensätzliche Terme heben sich auf'],
+  [1, 'x - x', '0', 'x bedeutet 1x, also 1x - 1x = 0'],
+  [1, '-x * x', '-x^2', '-x bedeutet -1x, also -1x * 1x = -x²'],
+  [1, '3x * 7x', '21x^2', 'Multipliziere: 3 * 7 = 21, x * x = x²'],
+  [1, '12x + 8x', '20x', 'Addiere: 12 + 8 = 20'],
+  [1, 'x + 5x', '6x', 'x bedeutet 1x, also 1x + 5x = 6x'],
+  [1, 'x - 4x', '-3x', 'x bedeutet 1x, also 1x - 4x = -3x'],
+  [1, '-x + 2x', 'x', '-x bedeutet -1x, also -1x + 2x = 1x = x'],
+  [1, '7x - 3x', '4x', 'Subtrahiere: 7 - 3 = 4'],
+  [1, '-6x + 9x', '3x', 'Addiere: -6 + 9 = 3'],
+  [1, 'x * 6x', '6x^2', 'x bedeutet 1x, also 1x * 6x = 6x²'],
+  [1, '-x * 4x', '-4x^2', '-x bedeutet -1x, also -1x * 4x = -4x²'],
+  [1, 'x * (-x)', '-x^2', 'x bedeutet 1x, -x bedeutet -1x, also 1x * -1x = -x²'],
+  [1, 'x * (-5x)', '-5x^2', 'x bedeutet 1x, also 1x * -5x = -5x²'],
+  [1, 'x * 0x', '0', 'Alles mal 0 ergibt 0'],
+  [1, '14x - 9x', '5x', 'Addiere: 14 - 9 = 5'],
+  [1, 'x + (-x)', '0', 'Gegensätzliche Terme heben sich auf: 1x - 1x = 0'],
+  [1, 'x * x', 'x^2', 'x bedeutet 1x, also 1x * 1x = x²'],
+  [1, 'x + 0x', 'x', '0x hat keinen Einfluss, bleibt x'],
+  [1, 'x - (-x)', '2x', 'Minus minus ergibt plus: 1x + 1x = 2x'],
+  [1, 'x * -x', '-x^2', 'x bedeutet 1x, -1x ist -x, also 1x * -1x = -x²'],
+  [1, 'x + 25x', '26x', 'x bedeutet 1x, also 1x + 25x = 26x'],
+  [1, 'x - 25x', '-24x', 'x bedeutet 1x, also 1x - 25x = -24x'],
+  [1, '-x * (-25x)', '25x^2', '-x bedeutet -1x, also -1x * -25x = 25x²'],
+
+  [2, 'x² + 3x - 5 + 2x² - x + 7', '3x² + 2x + 2', 'x² + 2x² = 3x², 3x - x = 2x, -5 + 7 = 2'],
+  [2, '4x - 2x + 6 - x² + 3x² - 8', '2x + 2x² - 2', '4x - 2x + 3x - x = 2x, -x² + 3x² = 2x², 6 - 8 = -2'],
+  [2, '7x² - 3x + 12 + x² - 2x - 7', '8x² - 5x + 5', '7x² + x² = 8x², -3x - 2x = -5x, 12 - 7 = 5'],
+  [2, 'x + 5x + 9 - 4x² + 2x² - 3', '6x - 2x² + 6', 'x + 5x = 6x, -4x² + 2x² = -2x², 9 - 3 = 6'],
+  [2, '2x² + 3x - 10 + x² + x + 5', '3x² + 4x - 5', '2x² + x² = 3x², 3x + x = 4x, -10 + 5 = -5'],
+  [2, 'a + 3b + 7 - 2a + 5b - 4', '-a + 8b + 3', 'a - 2a = -a, 3b + 5b = 8b, 7 - 4 = 3'],
+  [2, 'ab + 2a + 9 - ab + 3a - 6', '5a + 3', 'ab - ab = 0, 2a + 3a = 5a, 9 - 6 = 3'],
+  [2, '4b - b + 10 + a - 3a - 5', '-2a + 3b + 5', '4b - b = 3b, a - 3a = -2a, 10 - 5 = 5'],
+  [2, '2ab + 5 + ab - 3ab + 7', '0ab + 12', '2ab + ab - 3ab = 0ab, 5 + 7 = 12'],
+  [2, 'a + b + ab + 6 - a - b - ab', '6', 'All variables cancel out: a - a = 0, b - b = 0, ab - ab = 0'],
+  [2, 'x² + x + 5 + 2x² - 3x - 2', '3x² - 2x + 3', 'x² + 2x² = 3x², x - 3x = -2x, 5 - 2 = 3'],
+  [2, '3x² - x + 4 + x² + x - 9', '4x² - 5', '3x² + x² = 4x², -x + x = 0, 4 - 9 = -5'],
+  [2, 'x² + x + 1 + x² + x + 1', '2x² + 2x + 2', 'x² + x² = 2x², x + x = 2x, 1 + 1 = 2'],
+  [2, 'a + b + ab + 1 + 2a + 3b + 4ab + 5', '3a + 4b + 5ab + 6', 'a + 2a = 3a, b + 3b = 4b, ab + 4ab = 5ab, 1 + 5 = 6'],
+  [2, 'x² - x + 10 - x² + x - 10', '0', 'x² - x² = 0, -x + x = 0, 10 - 10 = 0'],
+  [2, '5x + 3x - 2x² + x² + 8 - 3', '8x - x² + 5', '5x + 3x = 8x, -2x² + x² = -x², 8 - 3 = 5'],
+  [2, '2a + 4b + 6 + 3a - b - 1', '5a + 3b + 5', '2a + 3a = 5a, 4b - b = 3b, 6 - 1 = 5'],
+  [2, 'ab + ab + ab + 10 - ab - ab', 'ab + 10', 'ab + ab + ab - ab - ab = ab, constant = 10'],
+  [2, 'x² + x + 1 + x² + x + 1 + x² + x + 1', '3x² + 3x + 3', 'Sum each type: x² = 3x², x = 3x, constant = 3'],
+  [2, 'a + b + ab + 1 + a + b + ab + 1', '2a + 2b + 2ab + 2', 'a + a = 2a, b + b = 2b, ab + ab = 2ab, 1 + 1 = 2'],
+  [2, '3x² + 5x - 7 + x² - 2x + 4', '4x² + 3x - 3', '3x² + x² = 4x², 5x - 2x = 3x, -7 + 4 = -3'],
+  [2, 'x² + x + 6 + 2x² + 3x + 9', '3x² + 4x + 15', 'x² + 2x² = 3x², x + 3x = 4x, 6 + 9 = 15'],
+  [2, '4x - 3x + 12 - x² + 2x² - 5', 'x + x² + 7', '4x - 3x = x, -x² + 2x² = x², 12 - 5 = 7'],
+  [2, 'x² + 2x + 3 + x² + x + 2', '2x² + 3x + 5', 'x² + x² = 2x², 2x + x = 3x, 3 + 2 = 5'],
+  [2, '5x² - 4x + 10 + x² + 2x - 3', '6x² - 2x + 7', '5x² + x² = 6x², -4x + 2x = -2x, 10 - 3 = 7'],
+  [2, 'a + 2b + 3ab + 4 + 5a + 6b', '6a + 8b + 3ab + 4', 'a + 5a = 6a, 2b + 6b = 8b, ab = 3ab, constant = 4'],
+  [2, 'ab + ab + ab + 10 - ab - ab', 'ab + 10', 'ab + ab + ab - ab - ab = ab, constant = 10'],
+  [2, '3a + 4b + 5ab + 6 + 2a + b', '5a + 5b + 5ab + 6', '3a + 2a = 5a, 4b + b = 5b, ab = 5ab, constant = 6'],
+  [2, 'x² + x + 1 + x² + x + 1 + x² + x + 1', '3x² + 3x + 3', 'x² = 3x², x = 3x, constant = 3'],
+  [2, '2x² + 3x + 4 + x² + x + 5', '3x² + 4x + 9', '2x² + x² = 3x², 3x + x = 4x, 4 + 5 = 9'],
+  [2, 'a + b + ab + 1 + a + b + ab + 1', '2a + 2b + 2ab + 2', 'a + a = 2a, b + b = 2b, ab + ab = 2ab, 1 + 1 = 2'],
+  [2, 'x² - x + 10 - x² + x - 10', '0', 'x² - x² = 0, -x + x = 0, 10 - 10 = 0'],
+  [2, '5x + 3x - 2x² + x² + 8 - 3', '8x - x² + 5', '5x + 3x = 8x, -2x² + x² = -x², 8 - 3 = 5'],
+  [2, '2a + 4b + 6 + 3a - b - 1', '5a + 3b + 5', '2a + 3a = 5a, 4b - b = 3b, 6 - 1 = 5'],
+  [2, 'x² + 2x + 3 + x² + x + 2', '2x² + 3x + 5', 'x² + x² = 2x², 2x + x = 3x, 3 + 2 = 5'],
+  [2, '3a + 2b + ab + 1 + 4a + 3b + 2ab + 5', '7a + 5b + 3ab + 6', '3a + 4a = 7a, 2b + 3b = 5b, ab + 2ab = 3ab, 1 + 5 = 6'],
+  [2, 'x² + x + 1 + x² + x + 1', '2x² + 2x + 2', 'x² + x² = 2x², x + x = 2x, 1 + 1 = 2'],
+  [2, 'a + b + ab + 1 + 2a + 3b + 4ab + 5', '3a + 4b + 5ab + 6', 'a + 2a = 3a, b + 3b = 4b, ab + 4ab = 5ab, 1 + 5 = 6']
+
+];
+
+
+    questions.sort((a, b) => a[0] - b[0]);
+
+    let currentDifficulty = 1;
+    let correctStreak = getStreak(currentDifficulty);
+    let highScore = getHighScore(currentDifficulty);
+    let questionIndex = 0;
+    let isAnswerSubmitted = false;
+
+    function formatMath(text) {
+      return text
+        .replace(/\s*\^2\s*/g, '²')
+        .replace(/\s*\^3\s*/g, '³')
+        .replace(/\b1\/2\b/, '½');
+    }
+
+    function loadQuestion() {
+      const difficultyQuestions = questions.filter(q => q[0] === currentDifficulty);
+      if (difficultyQuestions.length === 0) {
+        document.getElementById("questionBox").innerText = "Alle Fragen fertig!";
+        document.getElementById("answerInput").style.display = "none";
+        document.getElementById("actionButton").style.display = "none";
+        document.getElementById("progressBar").style.display = "none";
+        return;
+      }
+
+      highScore = getHighScore(currentDifficulty);
+      correctStreak = getStreak(currentDifficulty);
+      updateProgressBar();
+
+      const [diff, q] = difficultyQuestions[questionIndex];
+      document.getElementById("questionBox").innerText = `Schwierigkeitsgrad ${diff}:\n\n${formatMath(q)}`;
+      document.getElementById("answerInput").value = "";
+      document.getElementById("answerInput").disabled = false;
+      document.getElementById("feedback").innerHTML = "";
+      document.getElementById("actionButton").innerText = "Antwort prüfen";
+    }
+
+function resetProgress() {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(difficulty => {
+    localStorage.setItem(`streak_${difficulty}`, 0);
+    localStorage.setItem(`high_${difficulty}`, 0);
+  });
+  alert("Fortschritt wurde zurückgesetzt.");
+  location.reload(); // Optional: reload to reflect reset
+}
+
+
+function normalizeAnswer(str) {
+  return str
+    .toLowerCase()
+    .replace(/[\u00B2]/g, '^2')         // convert ² to ^2
+    .replace(/[\u00B3]/g, '^3')         // convert ³ to ^3
+    .replace(/\s*([+\-*/:])\s*/g, '$1') // remove spaces around operators
+    .replace(/\s+(?=x|a|b)/g, '')       // remove space before variables
+    .replace(/\s+/g, '');               // remove all other spaces
+}
+
+
+    function submitAnswer() {
+      const difficultyQuestions = questions.filter(q => q[0] === currentDifficulty);
+      const [diff, , correctAnswer, explanation] = difficultyQuestions[questionIndex];
+      const userAnswer = document.getElementById("answerInput").value;
+
+      const normalizedUser = normalizeAnswer(userAnswer);
+      const normalizedCorrect = normalizeAnswer(correctAnswer);
+
+      let resultText = "";
+      if (normalizedUser === normalizedCorrect) {
+        correctStreak++;
+        setStreak(diff, correctStreak);
+        if (correctStreak > highScore) {
+          highScore = correctStreak;
+          setHighScore(diff, highScore);
+        }
+        resultText = `✅ Richtig!\n\n<span class="label">Deine Antwort:</span> ${formatMath(userAnswer)}\n<span class="label">Korrekte Antwort:</span> ${formatMath(correctAnswer)}\n\nErklärung:\n${explanation}`;
+        if (correctStreak >= 10) {
+          currentDifficulty++;
+          correctStreak = 0;
+          setStreak(diff, 0);
+          questionIndex = 0;
+        } else {
+          questionIndex = (questionIndex + 1) % difficultyQuestions.length;
+        }
+      } else {
+        correctStreak = 0;
+        setStreak(diff, 0);
+        resultText = `❌ Falsch.\n\n<span class="label">Deine Antwort:</span> ${formatMath(userAnswer)}\n<span class="label">Korrekte Antwort:</span> ${formatMath(correctAnswer)}\n\nErklärung:\n${explanation}`;
+        questionIndex = (questionIndex + 1) % difficultyQuestions.length;
+      }
+
+      document.getElementById("feedback").innerHTML = resultText;
+      updateProgressBar();
+      document.getElementById("answerInput").disabled = true;
+      document.getElementById("actionButton").innerText = "Nächste Frage";
+    }
+
+    function handleAction() {
+      if (!isAnswerSubmitted) {
+        submitAnswer();
+        isAnswerSubmitted = true;
+      } else {
+        isAnswerSubmitted = false;
+        loadQuestion();
+      }
+    }
+
+    function updateProgressBar() {
+      const total = 10;
+      const bar = document.getElementById("progressBar");
+      bar.innerHTML = "";
+
+      for (let i = 0; i < total; i++) {
+        const notch = document.createElement("span");
+        notch.className = "notch";
+        notch.style.backgroundColor =
+          i < correctStreak ? "green" :
+          i < highScore ? "#ccffcc" : "lightgrey";
+        bar.appendChild(notch);
+      }
+    }
+
+    function setStreak(difficulty, value) {
+      localStorage.setItem(`streak_${difficulty}`, value);
+    }
+
+    function getStreak(difficulty) {
+      return parseInt(localStorage.getItem(`streak_${difficulty}`)) || 0;
+    }
+
+    function setHighScore(difficulty, value) {
+      localStorage.setItem(`high_${difficulty}`, value);
+    }
+
+    function getHighScore(difficulty) {
+      return parseInt(localStorage.getItem(`high_${difficulty}`)) || 0;
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
+
