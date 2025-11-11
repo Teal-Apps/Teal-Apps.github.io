@@ -207,10 +207,9 @@
   [3, 'vereinfache: x + (3x - 2,5) + 1,5x - 0,5x + 1', '5x - 1,5', 'x + 3x + 1,5x - 0,5x = 5x, -2,5 + 1 = -1,5'],
   [3, 'vereinfache: 2x² - (3,5 + x²) + 1,5x² + 4,5', '2,5x² + 1', '2x² - x² + 1,5x² = 2,5x², -3,5 + 4,5 = 1'],
   [3, 'vereinfache: a + (2,5a - 1,5) + 1,5a + 1,5', '5a', 'a + 2,5a + 1,5a = 5a; -1,5 + 1,5 = 0'],
-
   [3, 'vereinfache: x² - (2,5x - 1,5) + 1,5x² - 0,5x + 3', '2,5x² - 3x + 4,5', 'x² + 1,5x² = 2,5x², -2,5x - 0,5x = -3x, +1,5 + 3 = 4,5'],
   [3, 'vereinfache: x² - (1,5x + 2,5) + 2x² + 0,5x + 3', '3x² - x + 0,5', 'x² + 2x² = 3x², -1,5x + 0,5x = -x, -2,5 + 3 = 0,5'],
-  [3, 'vereinfache: a - (2,5a - 1,5) + 1,5a + 2', '1a + 3,5', 'a - 2,5a + 1,5a = 0a + 1a, -(-1,5) + 2 = 3,5'],
+  [3, 'vereinfache: a - (2,5a - 1,5) + 1,5a + 2', '3,5', 'a - 2,5a + 1,5a = 0a = 0; -(-1,5) + 2 = 1,5 + 2 = 3,5'],
   [3, 'vereinfache: ab + (1,5ab - 2,5) - ab + 3,5', '1,5ab + 1', 'ab - ab = 0, +1,5ab = 1,5ab, -2,5 + 3,5 = 1'] /*,
 
   [4, '3x + 2x(2x + 5) - x', '4x² + 12x', 'Erst rechne: 2x(2x + 5) = 4x² + 10x, dann kombiniere alle: 3x + 4x² + 10x - x'],
@@ -274,33 +273,39 @@
     let currentDifficulty = parseInt(localStorage.getItem("currentDifficulty")) || 1;
     let correctStreak = getStreak(currentDifficulty);
     let highScore = getHighScore(currentDifficulty);
-    let questionIndex = 0;
     const initialQuestions = questions.filter(q => q[0] === currentDifficulty);
-    questionIndex = Math.floor(Math.random() * initialQuestions.length);
+    let questionIndex = Math.floor(Math.random() * initialQuestions.length);
     let isAnswerSubmitted = false;
 
-    function formatMath(text) {
+    function formatMath(text) 
+    {
       return text
         .replace(/\s*\^2\s*/g, '²')
         .replace(/\s*\^3\s*/g, '³')
         .replace(/\b1\/2\b/, '½');
     }
 
-    function loadQuestion() {
+    function loadQuestion() 
+    {
       const difficultyQuestions = questions.filter(q => q[0] === currentDifficulty);
-      if (difficultyQuestions.length === 0) {
+
+      if (difficultyQuestions.length === 0) 
+      {
         document.getElementById("questionBox").innerText = "Alle Fragen fertig!";
         document.getElementById("answerInput").style.display = "none";
         document.getElementById("actionButton").style.display = "none";
         document.getElementById("progressBar").style.display = "none";
+
         return;
       }
 
       highScore = getHighScore(currentDifficulty);
       correctStreak = getStreak(currentDifficulty);
+
       updateProgressBar();
 
       const [diff, q] = difficultyQuestions[questionIndex];
+
       document.getElementById("questionBox").innerText = `Schwierigkeitsgrad ${diff}:\n\n${formatMath(q)}`;
       document.getElementById("answerInput").value = "";
       document.getElementById("answerInput").disabled = false;
@@ -308,29 +313,34 @@
       document.getElementById("actionButton").innerText = "Antwort prüfen";
     }
 
-function resetProgress() {
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(difficulty => {
-    localStorage.setItem(`streak_${difficulty}`, 0);
-    localStorage.setItem(`high_${difficulty}`, 0);
-  });
-  alert("Fortschritt wurde zurückgesetzt.");
-  localStorage.setItem("currentDifficulty", 1);
-  location.reload(); // Optional: reload to reflect reset
-}
+  function resetProgress() 
+  {
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(difficulty => {
+	    localStorage.setItem(`streak_${difficulty}`, 0);
+	    localStorage.setItem(`high_${difficulty}`, 0);
+    });
+
+    alert("Fortschritt wurde zurückgesetzt.");
+
+    localStorage.setItem("currentDifficulty", 1);
+    location.reload(); // Optional: reload to reflect reset
+  }
 
 
-function normalizeAnswer(str) {
-  return str
+  function normalizeAnswer(str) 
+  {
+    return str
     .toLowerCase()
     .replace(/[\u00B2]/g, '^2')         // convert ² to ^2
     .replace(/[\u00B3]/g, '^3')         // convert ³ to ^3
     .replace(/\s*([+\-*/:])\s*/g, '$1') // remove spaces around operators
     .replace(/\s+(?=x|a|b)/g, '')       // remove space before variables
     .replace(/\s+/g, '');               // remove all other spaces
-}
+  }
 
 
-    function submitAnswer() {
+  function submitAnswer() 
+  {
       const difficultyQuestions = questions.filter(q => q[0] === currentDifficulty);
       const [diff, , correctAnswer, explanation] = difficultyQuestions[questionIndex];
       const userAnswer = document.getElementById("answerInput").value;
@@ -339,53 +349,77 @@ function normalizeAnswer(str) {
       const normalizedCorrect = normalizeAnswer(correctAnswer);
 
       let resultText = "";
-      if (normalizedUser === normalizedCorrect) {
+
+      if (normalizedUser === normalizedCorrect) 
+      {
         correctStreak++;
         setStreak(diff, correctStreak);
-        if (correctStreak > highScore) {
+
+        if (correctStreak > highScore) 
+ 	{
           highScore = correctStreak;
           setHighScore(diff, highScore);
         }
+
         resultText = `✅ Richtig!\n\n<span class="label">Deine Antwort:</span> ${formatMath(userAnswer)}\n<span class="label">Korrekte Antwort:</span> ${formatMath(correctAnswer)}\n\nErklärung:\n${explanation}`;
-        if (correctStreak >= 10) {
+
+        if (correctStreak >= 10) 
+        {
           currentDifficulty++;
-	 localStorage.setItem("currentDifficulty", currentDifficulty);
+	  localStorage.setItem("currentDifficulty", currentDifficulty);
           correctStreak = 0;
           setStreak(diff, 0);
-//          questionIndex = 0;
-	    questionIndex = Math.floor(Math.random() * difficultyQuestions.length); //start with random number Q
-        } else {
+          questionIndex = Math.floor(Math.random() * difficultyQuestions.length); //start with random number Q
+        } 
+        else 
+        {
           questionIndex = (questionIndex + 1) % difficultyQuestions.length;
         }
-      } else {
+      } 
+      else // wrong answer
+      {
         correctStreak = 0;
         setStreak(diff, 0);
+
         resultText = `❌ Falsch.\n\n<span class="label">Deine Antwort:</span> ${formatMath(userAnswer)}\n<span class="label">Korrekte Antwort:</span> ${formatMath(correctAnswer)}\n\nErklärung:\n${explanation}`;
+
         questionIndex = (questionIndex + 1) % difficultyQuestions.length;
       }
 
       document.getElementById("feedback").innerHTML = resultText;
+
       updateProgressBar();
+
       document.getElementById("answerInput").disabled = true;
       document.getElementById("actionButton").innerText = "Nächste Frage";
     }
 
-    function handleAction() {
-      if (!isAnswerSubmitted) {
+
+    // toggle check answer and next question (I think)
+	
+    function handleAction() 
+    {
+      if (!isAnswerSubmitted) 
+      {
         submitAnswer();
         isAnswerSubmitted = true;
-      } else {
+      } 
+      else 
+      {
         isAnswerSubmitted = false;
         loadQuestion();
       }
     }
 
-    function updateProgressBar() {
+
+    function updateProgressBar() 
+    {
       const total = 10;
       const bar = document.getElementById("progressBar");
       bar.innerHTML = "";
 
-      for (let i = 0; i < total; i++) {
+      for (let i = 0; i < total; i++) 
+      {
         const notch = document.createElement("span");
         notch.className = "notch";
         notch.style.backgroundColor =
@@ -395,23 +429,35 @@ function normalizeAnswer(str) {
       }
     }
 
-    function setStreak(difficulty, value) {
+
+    function setStreak(difficulty, value) 
+    {
       localStorage.setItem(`streak_${difficulty}`, value);
     }
 
-    function getStreak(difficulty) {
+
+    function getStreak(difficulty) 
+    {
       return parseInt(localStorage.getItem(`streak_${difficulty}`)) || 0;
     }
 
-    function setHighScore(difficulty, value) {
+
+    function setHighScore(difficulty, value) 
+    {
       localStorage.setItem(`high_${difficulty}`, value);
     }
 
-    function getHighScore(difficulty) {
+
+    function getHighScore(difficulty) 
+    {
       return parseInt(localStorage.getItem(`high_${difficulty}`)) || 0;
     }
 
+
+    // start here
+
     loadQuestion();
+
   </script>
 </body>
 </html>
