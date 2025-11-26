@@ -53,7 +53,7 @@
   <div id="questionBox"></div>
   = <input type="text" id="answerInput" placeholder="Deine Antwort hier">
   <div id="inputHint">Für x² tippe x^2, für ½ tippe 1/2 usw. Mal ist *.<br>
-<i>Und sortiere die Antwort nach x², x, Zahl oder a², a, b, ab, Zahl, das Programm kann das nur in dieser Reihenfolge. :)</i> </div>
+<i>Und sortiere die Antwort nach x², x, xy, y², y, Zahl oder a², a, ab, b², b, Zahl, das Programm kann das nur in dieser Reihenfolge. :)</i> </div>
   <button id="actionButton" onclick="handleAction()">Antwort prüfen</button>
   <div id="feedback"></div>
   <div id="progressBar"></div>
@@ -142,16 +142,16 @@
   [2, 'vereinfache: 3x² + 5x - 2x', '3x² + 3x', 'x²-Terme und x-Terme getrennt zusammenfassen: 3x² bleibt, 5x - 2x = 3x'],
   [2, 'vereinfache: ab + ab + ab + 10 - ab - ab', 'ab + 10', 'ab + ab + ab - ab - ab = ab, Konstante = 10'],
   [2, 'vereinfache: 2x² + 3x + 4 + x² + x + 5', '3x² + 4x + 9', '2x² + x² = 3x², 3x + x = 4x, 4 + 5 = 9'],
-  [2, 'vereinfache: a + b + ab + 1 + a + b + ab + 1', '2a + 2b + 2ab + 2', 'a + a = 2a, b + b = 2b, ab + ab = 2ab, 1 + 1 = 2'],
+  [2, 'vereinfache: a + b + ab + 1 + a + b + ab + 1', '2a + 2ab + 2b + 2', 'a + a = 2a, b + b = 2b, ab + ab = 2ab, 1 + 1 = 2'],
   [2, 'vereinfache: 5x + 3x - 2x² + x² + 8 - 3', '-x² + 8x + 5', '5x + 3x = 8x, -2x² + x² = -1x² = -x², 8 - 3 = 5'],
   [2, 'vereinfache: 3x + 5x - 2x', '6x', 'Alle x-Terme zusammenfassen: 3x + 5x - 2x = 6x'],
   [2, 'vereinfache: 5b + 2b - 5 + 3 - 4b', '3b - 2', 'Alle b-Terme zusammenfassen: 5b + 2b - 4b = 3b; plus Konstanten -5 + 3 = -2'],
   [2, 'vereinfache: 2a + 4b + 6 + 3a - b - 1', '5a + 3b + 5', '2a + 3a = 5a, 4b - b = 3b, 6 - 1 = 5'],
   [2, 'vereinfache: 5b + 2a - b + 6', '2a + 4b + 6', 'b-Terme: 5b - b = 4b, a und Zahl bleiben'],
   [2, 'vereinfache: x² + 2x + 3 + x² + x + 2', '2x² + 3x + 5', 'x² + x² = 2x², 2x + x = 3x, 3 + 2 = 5'],
-  [2, 'vereinfache: 3a + 2b + ab + 1 + 4a + 3b + 2ab + 5', '7a + 5b + 3ab + 6', '3a + 4a = 7a, 2b + 3b = 5b, ab + 2ab = 3ab, 1 + 5 = 6'],
+  [2, 'vereinfache: 3a + 2b + ab + 1 + 4a + 3b + 2ab + 5', '7a + 3ab + 5b + 6', '3a + 4a = 7a, 2b + 3b = 5b, ab + 2ab = 3ab, 1 + 5 = 6'],
   [2, 'vereinfache: x² + x + 1 + x² + x + 1', '2x² + 2x + 2', 'x² + x² = 2x², x + x = 2x, 1 + 1 = 2'],
-  [2, 'vereinfache: a + b + ab + 1 + 2a + 3b + 4ab + 5', '3a + 4b + 5ab + 6', 'a + 2a = 3a, b + 3b = 4b, ab + 4ab = 5ab, 1 + 5 = 6'],
+  [2, 'vereinfache: a + b + ab + 1 + 2a + 3b + 4ab + 5', '3a + 5ab + 4b + 6', 'a + 2a = 3a, b + 3b = 4b, ab + 4ab = 5ab, 1 + 5 = 6'],
   [2, 'vereinfache: 2x² + 5x + 7 + x² + 3x + 4', '3x² + 8x + 11', '2x² + x² = 3x², 5x + 3x = 8x, 7 + 4 = 11'],
   [2, 'vereinfache: x² + 4x + 3x + 2', 'x² + 7x + 2', 'x-Terme: 4x + 3x = 7x, x² und Zahl bleiben'],
   [2, 'vereinfache: x² + x + 6 + 2x² + 3x + 9', '3x² + 4x + 15', 'x² + 2x² = 3x², x + 3x = 4x, 6 + 9 = 15'],
@@ -163,8 +163,8 @@
   [2, 'vereinfache: 8a - 2a - a', '5a', 'Alle a-Terme zusammenfassen: 8a - 2a - a = 5a'],
   [2, 'vereinfache: 7a - 3b + 2a - 4', '9a - 3b - 4', 'a-Terme: 7a + 2a = 9a, b und Zahl bleiben'],
   [2, 'vereinfache: 5x² - 4x + 10 + x² + 2x - 3', '6x² - 2x + 7', '5x² + x² = 6x², -4x + 2x = -2x, 10 - 3 = 7'],
-  [2, 'vereinfache: a + 2b + 3ab + 4 + 5a + 6b', '6a + 8b + 3ab + 4', 'a + 5a = 6a, 2b + 6b = 8b, ab bleibt, Konstante = 4'],
-  [2, 'vereinfache: 3a + 4b + 5ab + 6 + 2a + b', '5a + 5b + 5ab + 6', '3a + 2a = 5a, 4b + b = 5b, ab bleibt, Konstante = 6'],
+  [2, 'vereinfache: a + 2b + 3ab + 4 + 5a + 6b', '6a + 3ab + 8b + 4', 'a + 5a = 6a, 2b + 6b = 8b, ab bleibt, Konstante = 4'],
+  [2, 'vereinfache: 3a + 4b + 5ab + 6 + 2a + b', '5a + 5ab + 5b + 6', '3a + 2a = 5a, 4b + b = 5b, ab bleibt, Konstante = 6'],
   [2, 'vereinfache: 4a - 2b + 3a + 7', '7a - 2b + 7', 'a-Terme: 4a + 3a = 7a, b und Zahl bleiben'],
 
   [3, 'vereinfache: (2x² + 1,5x) + 3x² - 0,5x + 4', '5x² + x + 4', '2x² + 3x² = 5x², 1,5x - 0,5x = x, Konstante = 4'],
@@ -269,9 +269,58 @@
   [4, '4a + 3a(2b + a) - 2a', '3a^2 + 2a + 6ab', 'Multipliziere: 3a(2b + a) = 6ab + 3a^2, dann je alle a^2-, a- und ab-Terme zusammenfassen'],
   [4, '2x + 3x(3x + 2) - x', '9x² + 7x', 'Multipliziere: 3x(3x + 2) = 9x² + 6x, dann je alle x^2- und x-Terme zusammenfassen'],
   [4, '4a - 2a(2a - 3) + 3a', '-4a² + 13a', 'Multipliziere: -2a(2a - 3) = -4a² + 6a, dann je alle a^2 und a-Terme zusammenfassen'],
-  [4, 'x + 4x(2x + 1) - 2x', '8x² + 3x', 'Multipliziere: 4x(2x + 1) = 8x² + 4x, dann je alle x-Terme zusammenfassen']
-];
+  [4, 'x + 4x(2x + 1) - 2x', '8x² + 3x', 'Multipliziere: 4x(2x + 1) = 8x² + 4x, dann je alle x-Terme zusammenfassen'],
 
+[5, '(4a + 5b)*(-10b - 12)', '-48a - 40ab - 50b^2 - 60b', 'Nimm alles mit allem mal: -40ab - 48a - 50b^2 - 60b, dann fasse eigentlich alles zusammen, aber es gibt nichts, was man zusammenfassen kann, also sortiere nur für das Programm.'],
+[5, '(-4a + 7b)*(3a - 2b)', '-12a² + 29ab - 14b²', 'Multipliziere beide Klammern aus: -12a^2 + 8ab + 21ab -14b^2 und fasse ähnliche Terme zusammen'],
+[5, '(2x + 3)(x - 7)', '2x² - 11x - 21', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 2x^2 - 14x + 3x - 21, und fasse ähnliche Terme zusammen (also hier x)'],
+[5, '(6x - 5y)*(-3x - 2y)', '-18x² + 3xy + 10y²', 'Multipliziere beide Klammern aus: -18x² - 12xy + 15xy + 10y² und fasse ähnliche Terme zusammen (also hier xy)'],
+[5, '(7x + 3)(x - 5)', '7x² - 32x - 15', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus: 7x² - 35x + 3x - 15 und fasse ähnliche Terme zusammen (also hier x)'],
+[5, '(2a + 3b)*(4a + 5b)', '8a² + 22ab + 15b²', 'Multipliziere beide Klammern aus: 8a^2 + 10ab + 12ab + 15b^2 und fasse ähnliche Terme zusammen (also <i>ab</i> hier)'],
+[5, '(a - 7b)*(3a + 2b)', '3a² - 19ab - 14b²', 'Multipliziere beide Klammern aus: 3a^2 + 2ab - 21ab - 14b^2 und fasse ähnliche Terme zusammen (also <i>ab</i> hier)'],
+[5, '(7x - 2y)*(-x + 3y)', '-7x² + 23xy - 6y²', 'Multipliziere alles mit allem: -7x^2 + 21xy + 2xy - 6y^2, und fasse ähnliche Terme zusammen (also xy hier)'],
+[5, '(-5a - 3b)*(-2a + 4b)', '10a² - 14ab - 12b²', 'Multipliziere alles mit allem: 10a^2 - 20ab + 6ab - 12b^2, und fasse ähnliche Terme zusammen (also <i>ab</i> hier)'],
+[5, '(5x + 2y)*(x - 4y)', '5x² -18xy - 8y²', 'Multipliziere beide Klammern aus: 5x^2 - 20xy + 2 xy - 8y^2 und fasse ähnliche Terme zusammen (also xy hier)'],
+[5, '(-6 + 5y)(4y - 2)', '20y² - 34y + 12', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: -24y + 12 + 20y^2 - 10y, und fasse ähnliche Terme zusammen (also hier y)'],
+[5, '(-7a - 3b)*(-5a - 2b)', '35a² + 29ab + 6b²', 'Multipliziere beide Klammern aus: 35a² + 14ab + 15ab + 6b² und fasse ähnliche Terme zusammen (also hier nur ab)'],
+[5, '(8x + 4)*(2x - 7)', '16x² - 48x - 28', 'Multipliziere beide Klammern aus: 16x² - 56x + 8x - 28 und fasse ähnliche Terme zusammen (also hier nur x)'],
+[5, '(6a - 4b)(-3a - 2b)', '-18a² + 8b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus: -18a² - 12ab + 12ab + 8b² und fasse ähnliche Terme zusammen (also hier ab: -12ab + 12ab = 0ab = 0, kann man also weglassen)'],
+[5, '(-x - y)(-2x + 3y)', '2x² - xy - 3y²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus: 2x² - 3xy + 2xy - 3y² und fasse ähnliche Terme zusammen (also xy hier)'],
+[5, '(5x - 6y)*(-2x + 3y)', '-10x² + 27xy - 18y²', 'Multipliziere beide Klammern aus: -10x² + 15xy + 12xy - 18y² und fasse ähnliche Terme zusammen (also hier xy)'],
+[5, '(-3a + 5)*(4a - 2)', '-12a² + 26a - 10', 'Multipliziere beide Klammern aus: -12a² + 6a + 20a - 10 und fasse ähnliche Terme zusammen (also hier a)'],
+[5, '(8b - 4)(2b - 9)', '16b² - 80b + 36', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 16b^2 - 72b - 8b + 36, und fasse ähnliche Terme zusammen (also b hier)'],
+[5, '(-x - y)(-x - y)', 'x² + 2xy + y²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: x^2 + xy + xy + y^2, und fasse ähnliche Terme zusammen (also 1xy + 1xy)'],
+[5, '(-9a + 4b)*(2a - 7b)', '-18a² + 71ab - 28b²', 'Multipliziere beide Klammern aus: -18a² + 63ab + 8ab - 28b² und fasse ähnliche Terme zusammen (also hier ab)'],
+[5, '(3a - 4b)*(2a + b)', '6a² - 5ab - 4b²', 'Multipliziere beide Klammern aus: 6a^2 + 3ab - 8ab - 4b^2 und fasse ähnliche Terme zusammen (also hier ab)'],
+[5, '(7x + y)*(2x + 3y)', '14x² + 23xy + 3y²', 'Multipliziere beide Klammern aus: 14x^2 + 21xy + 2xy + 3y^2 und fasse ähnliche Terme zusammen'],
+[5, '(4a + 6b)(a - 2b)', '4a² - 2ab - 12b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 4a^2 - 8ab + 6ab - 12b^2, und fasse ähnliche Terme zusammen (also hier ab)'],
+[5, '(-3a + 4b)*(2a + 5b)', '-6a² -7 ab + 20b²', 'Multipliziere alles mit allem: -6a^2 - 15ab + 8ab + 20b^2, und fasse ähnliche Terme zusammen'],
+[5, '(2x - 5y)(3x + 4y)', '6x² - 7xy - 20y²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 6x^2 + 8xy - 15xy - 20y^2, und fasse ähnliche Terme zusammen'],
+[5, '(3a - 5b)(-4a - 2b)', '-12a² + 14ab + 10b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: -12a^2 - 6ab + 20ab + 10b^2, und fasse ähnliche Terme zusammen'],
+[5, '(4x + 6)*(3x - 2)', '12x² + 10x - 12', 'Multipliziere alles mit allem: 12x^2 - 8x + 18x - 12, und fasse ähnliche Terme zusammen (also nur x hier)'],
+[5, '(8a + 3b)(2a + 5b)', '16a² + 46ab + 15b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 16a^2 + 40ab + 6ab + 15b^2, und fasse ähnliche Terme zusammen'],
+[5, '(-2a + 7)*(5a - 3)', '-10a² + 41a - 21', 'Multipliziere alles mit allem: -10a^2 + 6a + 35a - 21, und fasse ähnliche Terme zusammen (also hier a)'],
+[5, '(x + 9y)(5x - 2y)', '5x² + 43xy - 18y²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 5x^2 - 2xy + 45xy - 18y^2, und fasse ähnliche Terme zusammen'],
+[5, '(-5 + 4y)(2y - 9)', '8y² - 46y + 45', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus: -10y + 45 + 8y² - 36y und fasse ähnliche Terme zusammen (also hier y)'],
+[5, '(9b - 2)(3b + 5)', '27b² + 39b - 10', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus: 27b² + 45b - 6b - 10 und fasse ähnliche Terme zusammen'],
+[5, '(3a - 2b)(7a + b)', '21a² - 11ab - 2b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere alles mit allem: 21a^2 + 3ab - 14ab - 2b^2, und fasse ähnliche Terme zusammen'] /*,
+
+=40
+
+
+  [5, '(-7a - 8b)*(-2a + 3b)', '14a² - 21ab + 16ab - 24b² = 14a² - 5ab - 24b²', 'Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(10x + 3)*(4x - 9)', '40x² - 90x + 12x - 27 = 40x² - 78x - 27', 'Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(-5a + 6)(7a - 4)', '-35a² + 20a + 42a - 24 = -35a² + 62a - 24', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(12b - 7)(5b + 2)', '60b² + 24b - 35b - 14 = 60b² - 11b - 14', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(-x - 3y)(-4x + 2y)', '4x² - 2xy + 12xy - 6y² = 4x² + 10xy - 6y²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(8a - 5b)(-6a - 3b)', '-48a² - 24ab + 30ab + 15b² = -48a² + 6ab + 15b²', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(9x + 2)(x - 11)', '9x² - 99x + 2x - 22 = 9x² - 97x - 22', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+  [5, '(-8 + 7y)(3y - 5)', '-24y + 40 + 21y² - 35y = 21y² - 59y + 40', 'Wenn 2 Klammern zusammenkommen (...)(...), dann heisst das Mal, also (...)*(...). Multipliziere beide Klammern aus und fasse ähnliche Terme zusammen'],
+
+[6, '(2/5 - 0,2y)(5x + 10y)'
+
+*/
+];
 
     questions.sort((a, b) => a[0] - b[0]);
 
