@@ -122,7 +122,7 @@ const xValues = ["0:00","0:30","1:00","1:30","2:00","2:30","3:00","3:30","4:00",
 "20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30"];
 
   
-var fix = 26.31; // this is the variable price we would have paid 
+var fix = 28.16; // this is the variable price we would have paid 
 var night = "midnightblue";
 var day = "steelblue";
 var red = "orangered";
@@ -320,7 +320,9 @@ async function setprice(day, index, from, to)
 		tomorrowstring = gettomorrowstring();
 
 	// was: const productcode = 'AGILE-FLEX-22-11-25';
-	const productcode = 'AGILE-23-12-06'; // find in tariff plus eg here: https://agile.octopushome.net/dashboard
+    // was: AGILE-23-12-06
+		
+	const productcode = 'AGILE-24-10-01'; // find in tariff plus eg here: https://agile.octopushome.net/dashboard
 
   	const url = 'https://api.octopus.energy/v1/products/' + productcode 
 			+ '/electricity-tariffs/E-1R-' + productcode + '-L/standard-unit-rates/?';
