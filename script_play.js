@@ -85,7 +85,8 @@ function loadvideo(track, title, youtubeid, audiopath, startat)
 		document.getElementById('video').innerHTML = "<a target=_blank href='https://www.youtube.com/watch?v=" + youtubeid + "'>https://www.youtube.com/watch?v=" + youtubeid + "</a>";
 
 	try {
-		youtube.loadVideoById(youtubeid, startat);
+		youtube.loadVideoById(youtubeid);
+		youtube.seekTo(startat);
 		youtube.setVolume(youtubevol);
 		youtube.mute();
 	}
