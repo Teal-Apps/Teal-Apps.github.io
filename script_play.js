@@ -36,7 +36,9 @@ function onYouTubeIframeAPIReady()
 
 function loadvideo(track, title, youtubeid, audiopath, startat)
 {
-alert(startat);
+	if (startat == undefined)
+		startat = 0;
+
 	if (track == currentlyplaying)
 	{
 		try {
@@ -87,7 +89,6 @@ alert(startat);
 
 	try {
 		youtube.loadVideoById(youtubeid);
-alert(startat);
 		youtube.seekTo(startat, true);
 		youtube.setVolume(youtubevol);
 		youtube.mute();
