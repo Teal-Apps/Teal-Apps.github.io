@@ -145,9 +145,8 @@ function generaterow(i)
 	if (vnumber == undefined)
 		vnumber = i;
 
-	var videotime = 0; 
-	if (videotime[i] != undefined)
-		videotime = videotime[i];
+	if (videotime[i] == undefined)
+		videotime[i] = 0;
 
 	// add bit for lyrics if defined
 	var ontimeupdate = ' ontimeupdate="addlyrics(this, ' + i + ')"';
@@ -161,7 +160,7 @@ function generaterow(i)
 		+ ' <td> ' + title[i] 
 
 		// play column
-			+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '", "' + videotime + '"); piano' + i + '["play"]();\'>play</a>' 
+			+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '", "' + videotime[i] + '"); piano' + i + '["play"]();\'>play</a>' 
 		// pause column
 			+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
 		// vol column (leave out now)
