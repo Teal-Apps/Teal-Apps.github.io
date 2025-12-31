@@ -34,7 +34,7 @@ function onYouTubeIframeAPIReady()
 
 
 
-function loadvideo(track, title, youtubeid, audiopath, startat = 0)
+function loadvideo(track, title, youtubeid, audiopath, startat)
 {
 	if (track == currentlyplaying)
 	{
