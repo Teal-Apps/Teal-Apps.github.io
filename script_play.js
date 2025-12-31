@@ -86,7 +86,7 @@ function loadvideo(track, title, youtubeid, audiopath, startat)
 
 	try {
 		youtube.loadVideoById(youtubeid);
-		youtube.seekTo(startat);
+		youtube.seekTo(startat, true);
 		youtube.setVolume(youtubevol);
 		youtube.mute();
 	}
@@ -331,7 +331,7 @@ function forward10s(track, pianox)
 		return;
 
 	pianox.currentTime += 10;
-	youtube.seekTo(pianox.currentTime + videotime[track]);
+	youtube.seekTo(pianox.currentTime + videotime[track], true);
 }
 
 
@@ -342,7 +342,7 @@ function back10s(track, pianox)
 		return;
 
 	pianox.currentTime -= 10;
-	youtube.seekTo(pianox.currentTime + videotime[track]);
+	youtube.seekTo(pianox.currentTime + videotime[track], true);
 }
 
 
