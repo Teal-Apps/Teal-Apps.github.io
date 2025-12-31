@@ -4,13 +4,19 @@
 var autoplay0 = 'Off';
 var autoplay1 = 'Once';
 var autoplay2 = 'Loop';
-var radio = 2;
+var radio = 1;
+
+var soloY = 'Yes'; //1
+var soloN = 'No'; //0
+var soloradio = 1;
 
 const header = []; //note arrays start at 0 but I'm ignoring 0
 const number = []; // to display number if not i
 const composer = [];
 const title = [];
+const skip = []; // '*' if choir is not singing, to be skipped by autoplay
 const video = [];
+const videotime = []; // sec to start video on
 const mp3 = [];
 const mp3a = []; // alternative mp3, eg dropbox keeps stopping
 const lyrics = [];
@@ -65,6 +71,14 @@ function generatevideocolumn()
 	else if (radio == 2)
 		default2 = 'checked';
 
+	var defaultsoloY = '';
+	var defaultsoloN = '';
+
+	if (soloradio == 1)
+		defaultsoloY = 'checked';
+	else if (soloradio == 0)
+		defaultsoloN = 'checked';
+
 	vheader = header[1];
 
 	vnumber = number[1];
@@ -73,10 +87,12 @@ function generatevideocolumn()
 
 	// generate video column (defaults to first video)
 	return '<td rowspan=' + (songcount*2) + ' valign=top>' 
-		+ 'Autoplay options:<br>' 
-		+ '<input type=radio name=auto id=off  ' + default0 + ' onclick="radio=0;"><label for=off>'  + autoplay0 + '</label><br>' 
-		+ '<input type=radio name=auto id=once ' + default1 + ' onclick="radio=1;"><label for=once>' + autoplay1 + '</label><br>' 
-		+ '<input type=radio name=auto id=loop ' + default2 + ' onclick="radio=2;"><label for=loop>' + autoplay2 + '</label><br>' 
+		+ '<table class=autotable><tr><td>Autoplay options:</td><td>Include solos:</td></tr>' 
+		+ '<tr><td><input type=radio name=auto id=off  ' + default0 + ' onclick="radio=0;"><label for=off>'  + autoplay0 + '</label></td>'
+		+   '<td><input type=radio name=solos id=soloY ' + defaultsoloY + ' onClick="soloradio=1;"><label for=soloY>' + soloY + '</label></td></tr>' 
+		+ '<tr><td><input type=radio name=auto id=once ' + default1 + ' onclick="radio=1;"><label for=once>' + autoplay1 + '</label></td>' 
+		+   '<td><input type=radio name=solos id=soloN ' + defaultsoloN + ' onClick="soloradio=0;"><label for=soloN>' + soloN + '</label></td></tr>' 
+		+ '<tr><td><input type=radio name=auto id=loop ' + default2 + ' onclick="radio=2;"><label for=loop>' + autoplay2 + '</label></td><td></td></tr></table>' 
 		+ '<br><hr>' 
 		+ '<h3 id=playing> #' + vnumber + ' ' + title[1] + '</h3>' 
 		+ '<small id=video><a target=_blank href="https://www.youtube.com/watch?v=' + video[1] + '">https://www.youtube.com/watch?v=' + video[1] + '</a></small><br>' 
@@ -91,14 +107,28 @@ function generatevideocolumn()
 
 function generaterow(i)
 {
-	// work out autoplay option
+	// work out autoplay options
 	var onended;
+
+	// first find next non-skip song
+	var next = i + 1;
+
+	while ((next > songcount) || (skip[next] == '*')) // skip this one (note this will hang if all songs are skipped!) TODO
+	{
+		next++;
+
+		if (next > songcount)
+			next = 1;  // go back to beginning
+	}
+
+	// next should now point to the next non-skip song
+	// TODO: note that this will not do 'once' but loop if the last song is skipped!
 
 	if (i == songcount)
 		// last song
-		onended = '"if (radio==2) no1.click(); else stopped();"';
+		onended = '"if (radio==2) if (soloradio==1) no1.click(); else no' + next + '.click(); else stopped();"';
 	else
-		onended = '"if (radio>0) no' + (i+1) + '.click(); else stopped();"';
+		onended = '"if (radio>0) if (soloradio==1) no' + (i+1) + '.click(); else no' + next + '.click(); else stopped();"';
 
 	// display pause for first song by default
 	var state
@@ -115,6 +145,10 @@ function generaterow(i)
 	if (vnumber == undefined)
 		vnumber = i;
 
+	var videotime = 0; 
+	if (videotime[i] != undefined)
+		videotime = videotime[i];
+
 	// add bit for lyrics if defined
 	var ontimeupdate = ' ontimeupdate="addlyrics(this, ' + i + ')"';
 	if (lyrics[i] == undefined)
@@ -125,13 +159,14 @@ function generaterow(i)
 	return '<tr><td> ' + vnumber 
 		+ ' <td> ' + vcomposer 
 		+ ' <td> ' + title[i] 
+
 		// play column
-			+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '"); piano' + i + '["play"]();\'>play</a>' 
+			+ ' <td> <a id=no' + i + ' href="#!" onclick=\'loadvideo(' + i + ', "#' + vnumber + ' ' + title[i] + '", "' + video[i] + '", "' + videotime + '"); piano' + i + '["play"]();\'>play</a>' 
 		// pause column
 			+ '<td> <a href="#!" onclick="stopall();">pause</a>' 
 		// vol column (leave out now)
 		//	+ '<td> <a href="#!" onclick=\'leiser(' + i + ', piano' + i + ');\'><b>&ndash;&#8288;</b></a>&nbsp;<i id=vol' + i + '>vol&nbsp;9</i>&nbsp;<a href="#!" onclick=\'lauter(' + i + ', piano' + i + ');\'><b>+</b></a>' 
-		// skip column
+		// skip forw/back column
 			+ '<td> <a href="#!" onclick=\'back10s(' + i + ', piano' + i + ');\'>&lt;&lt;</a>&nbsp;&nbsp;&nbsp;<a href="#!" onclick=\'forward10s(' + i + ', piano' + i + ');\'>&gt;&gt;</a>' 
 		// playing now column
 			+ '<td> <b id=star' + i + '>' + state + '</b>' 

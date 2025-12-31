@@ -13,12 +13,12 @@ function onYouTubeIframeAPIReady()
 				{
 				loading: 'lazy',
 				width: 420,
-          				height: 315,
+          			height: 315,
 				volume: youtubevol,
-        	  			videoId: video[1],
+        	  		videoId: video[1],
 				host: 'https://www.youtube-nocookie.com',
 				//playerVars: { 'controls' : 0 },	// removes controls, disabled on style/iframe now
-          				events: { 'onStateChange': onyoutubechange, 
+          			events: { 'onStateChange': onyoutubechange, 
 					'onReady': onPlayerReady }
         			});
 
@@ -68,7 +68,7 @@ function loadvideo(track, title, youtubeid, audiopath, startat = 0)
 	// reset all other music to start from the beginning
 	restartall(track);
 	
-	// remove all 'currently playing' stars
+	// remove all 'currently playing' stars (now arrows)
 	for (i=1; i<=songcount; i++)
 		document.getElementById('star'+i).innerHTML = '';
 	
@@ -330,7 +330,7 @@ function forward10s(track, pianox)
 		return;
 
 	pianox.currentTime += 10;
-	youtube.seekTo(pianox.currentTime);
+	youtube.seekTo(pianox.currentTime + videotime[track]);
 }
 
 
@@ -341,7 +341,7 @@ function back10s(track, pianox)
 		return;
 
 	pianox.currentTime -= 10;
-	youtube.seekTo(pianox.currentTime);
+	youtube.seekTo(pianox.currentTime + videotime[track]);
 }
 
 
