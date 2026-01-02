@@ -89,8 +89,6 @@ function loadvideo(track, title, youtubeid, startat)
 
 	try {
 		youtube.loadVideoById({videoId:youtubeid, startSeconds:startat});
-		// was: youtube.loadVideoById(youtubeid);
-		// was: youtube.seekTo(startat, true);
 		youtube.setVolume(youtubevol);
 		youtube.mute();
 	}
