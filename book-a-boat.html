@@ -58,6 +58,42 @@
     loadBookings();
 
     const form = document.getElementById('bookingForm');
+
+    ///
+    <script>
+const FORM_POST_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/formResponse";
+
+const ENTRY_DATE = "entry.2097693443";
+const ENTRY_BOAT = "entry.1166974657";
+const ENTRY_NAME = "entry.839337160";
+/*
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const boat = form.boat.value;
+  const date = form.date.value; // yyyy-mm-dd
+  const name = form.name.value;
+
+  // Convert yyyy-mm-dd → dd/mm/yyyy
+  const [yyyy, mm, dd] = date.split("-");
+  const formatted = `${dd}/${mm}/${yyyy}`;
+
+  const formData = new FormData();
+  formData.append(ENTRY_DATE, formatted);
+  formData.append(ENTRY_BOAT, boat);
+  formData.append(ENTRY_NAME, name);
+
+  await fetch(FORM_POST_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
+  document.getElementById('result').innerText =
+    `Booking submitted for ${boat} on ${formatted}.`;
+});
+*/
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const boat = form.boat.value;
@@ -72,8 +108,8 @@
       }
 
       // Add new booking by opening a pre-filled Google Form submission link
-      const formURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/formResponse'; //'https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/viewform?usp=publish-editor';
-      const params = `entry.78212220=${encodeURIComponent(date)}&entry.217108205=${encodeURIComponent(boat)}&entry.1101278703=${encodeURIComponent(name)}`;
+      const formURL = FORM_POST_URL;
+      const params = `entry.2097693443=${encodeURIComponent(date)}&entry.1166974657=${encodeURIComponent(boat)}&entry.839337160=${encodeURIComponent(name)}`;
 
       window.open(`${formURL}?${params}`, '_blank');
 
