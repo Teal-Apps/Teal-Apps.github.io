@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boat Booking</title>
+</head>
+<body>
+  <h2>Reserve a Boat</h2>
+  <form id="bookingForm">
+    <label for="boat">Select a boat:</label>
+    <select id="boat" name="boat">
+      <option>Sea Kayak #1</option>
+      <option>Sea Kayak #2</option>
+      <option>Canoe #1</option>
+      <option>Canoe #2</option>
+      <option>Rubber Boat #1</option>
+      <!-- Add all 50 boats -->
+    </select>
+    <br><br>
+
+    <label for="date">Select a date:</label>
+    <input type="date" id="date" name="date" required>
+    <br><br>
+
+    <label for="name">Your name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+
+    <button type="submit">Book</button>
+  </form>
+
+  <div id="result" style="margin-top:15px;font-weight:bold;"></div>
+
+  <h3>Current Bookings</h3>
+  <!-- Google Calendar Embed -->
+  <iframe src="https://calendar.google.com/calendar/embed?src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com&ctz=GMT"
+          style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Tabletop.js/1.5.1/tabletop.min.js"></script>
+  <script>
+    const SHEET_ID = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSlX7g3U9NyWUY0LmRfIiB06itdY36yvrX5WWuRAk_osvwV38mH2KwxO-Qp_bRG8XG_mv8q5XmNE-52/pubhtml';
+    let bookings = [];
+
+    // Load existing bookings
+    function loadBookings() {
+      Tabletop.init({
+        key: SHEET_ID,
+        simpleSheet: true,
+        callback: function(data, tabletop) {
+          bookings = data.map(row => ({
+            date: row.Date,
+            boat: row.Boat
+          }));
+        }
+      });
+    }
+
+    loadBookings();
+
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const boat = form.boat.value;
+      const date = form.date.value;
+      const name = form.name.value;
+
+      // Check for double booking
+      const exists = bookings.some(b => b.boat === boat && b.date === date);
+      if (exists) {
+        document.getElementById('result').innerText = `${boat} is already booked on ${date}`;
+        return;
+      }
+
+      // Add new booking by opening a pre-filled Google Form submission link
+      const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/viewform?usp=publish-editor';
+      const params = `entry.1234567890=${encodeURIComponent(date)}&entry.0987654321=${encodeURIComponent(boat)}&entry.1122334455=${encodeURIComponent(name)}`;
+      window.open(`${formURL}?${params}`, '_blank');
+
+      document.getElementById('result').innerText = `Booking submitted for ${boat} on ${date}. Refresh calendar to check.`;
+    });
+  </script>
+</body>
+</html>
