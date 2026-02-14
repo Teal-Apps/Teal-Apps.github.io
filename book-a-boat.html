@@ -72,8 +72,9 @@
       }
 
       // Add new booking by opening a pre-filled Google Form submission link
-      const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/viewform?usp=publish-editor';
-      const params = `entry.1234567890=${encodeURIComponent(date)}&entry.0987654321=${encodeURIComponent(boat)}&entry.1122334455=${encodeURIComponent(name)}`;
+      const formURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/formResponse'; //'https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/viewform?usp=publish-editor';
+      const params = `entry.78212220=${encodeURIComponent(date)}&entry.217108205=${encodeURIComponent(boat)}&entry.1101278703=${encodeURIComponent(name)}`;
+
       window.open(`${formURL}?${params}`, '_blank');
 
       document.getElementById('result').innerText = `Booking submitted for ${boat} on ${date}. Refresh calendar to check.`;
