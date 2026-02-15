@@ -5,6 +5,7 @@
 </head>
 <body>
   <h2>Reserve a Boat</h2>
+  version 2
   <form id="bookingForm">
 
         <label for="date">Select a date:</label>
@@ -66,7 +67,7 @@
     <script>
 const FORM_POST_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLScTzZaPcA6_hdgXWSokw5K-QLW0uXoL2425cIKflPNG6TQq9w/formResponse";
-
+   
 const ENTRY_DATE = "entry.2097693443";
 const ENTRY_BOAT = "entry.1166974657";
 const ENTRY_NAME = "entry.839337160";
@@ -79,7 +80,7 @@ form.addEventListener('submit', async e => {
   const name = form.name.value;
 
   // Convert yyyy-mm-dd → dd/mm/yyyy
-  const [yyyy, mm, dd] = date.split("-");
+  const [dd, mm, yyyy] = date.split("-");
   const formatted = `${dd}/${mm}/${yyyy}`;
 
   const formData = new FormData();
