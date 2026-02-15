@@ -5,7 +5,7 @@
 </head>
 <body>
   <h2>Reserve a Boat</h2>
-  version 2
+  version 3
   <form id="bookingForm">
 
         <label for="date">Select a date:</label>
@@ -80,7 +80,7 @@ form.addEventListener('submit', async e => {
   const name = form.name.value;
 
   // Convert yyyy-mm-dd → dd/mm/yyyy
-  const [dd, mm, yyyy] = date.split("-");
+  const [dd, mm, yyyy] = date.split("/");
   const formatted = `${dd}/${mm}/${yyyy}`;
 
   const formData = new FormData();
