@@ -70,7 +70,7 @@ const FORM_POST_URL =
 const ENTRY_DATE = "entry.2097693443";
 const ENTRY_BOAT = "entry.1166974657";
 const ENTRY_NAME = "entry.839337160";
-/*
+
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -96,7 +96,7 @@ form.addEventListener('submit', async e => {
   document.getElementById('result').innerText =
     `Booking submitted for ${boat} on ${formatted}.`;
 });
-*/
+/* old
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const boat = form.boat.value;
@@ -117,7 +117,7 @@ form.addEventListener('submit', async e => {
       window.open(`${formURL}?${params}`, '_blank');
 
       document.getElementById('result').innerText = `Booking submitted for ${boat} on ${date}. Refresh calendar to check.`;
-    });
+    });*/
   </script>
 </body>
 </html>
