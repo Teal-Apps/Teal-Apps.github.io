@@ -173,7 +173,7 @@ function generaterow(i)
 			+ '<audio id=piano' + i + ' preload=none onended=' + onended + ontimeupdate + '>' 
 			+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
 		// add alternative sound files if available
-			+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="' + mp3a[i] + '" type="audio/mpeg">')
+			+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="https://github.com/Teal-Apps/mar26/raw/refs/heads/main' + mp3a[i].substring(1) + '" type="audio/mpeg">')
 			+ '!!! Your browser does not support this audio player !!! </audio>';
 }
 
