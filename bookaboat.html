@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      //grid-template-rows: auto 1fr;
+      grid-template-rows: 400px 1fr;
+
+      height: 100vh;
+    }
+
+    /* Top-left: booking form */
+    #form-area {
+      padding: 0;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #form-area iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Top-right: today calendar */
+    #today-calendar {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    #today-calendar iframe {
+      width: 100%;
+      height: 260px; /* small enough to force DAY view */
+      border: none;
+    }
+
+    /* Bottom: agenda view */
+    #agenda-area {
+      grid-column: span 2;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    #agenda-area iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Mobile layout */
+    @media (max-width: 800px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+      }
+      #agenda-area {
+        grid-column: span 1;
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP LEFT: BOOKING FORM (WORKING WEBAPP) -->
+  <div id="form-area">
+    <iframe 
+      src="https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec">
+    </iframe>
+  </div>
+
+  <!-- TOP RIGHT: TODAY VIEW -->
+  <div id="today-calendar">
+    <h3>Today’s Reservations</h3>
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?mode=DAY&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com&ctz=GMT">
+    </iframe>
+  </div>
+
+  <!-- BOTTOM: AGENDA VIEW -->
+  <div id="agenda-area">
+    <h3>Upcoming Reservations</h3>
+    <iframe id="calendar"
+      src="https://calendar.google.com/calendar/embed?mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com&ctz=GMT">
+    </iframe>
+  </div>
+
+<script>
+// for refreshing calendar
+window.addEventListener("message", (event) => {
+  if (event.data === "refreshCalendar") {
+    const agenda = document.getElementById("calendar");
+
+    // Force refresh by adding a dummy parameter
+    const url = new URL(agenda.src);
+    url.searchParams.set("refresh", Date.now());
+
+    agenda.src = url.toString();
+  }
+});
+
+<script>
+window.addEventListener("message", (event) => {
+  console.log("MESSAGE RECEIVED:", event.data);
+});
+</script>
+
+
+</script>
+
+</body>
+</html>
+
+
