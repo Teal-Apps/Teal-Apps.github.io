@@ -4,22 +4,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      //grid-template-rows: auto 1fr;
-      grid-template-rows: 400px 1fr;
-
+      font-family: Arial, sans-serif;
       height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* calendar | form */
     }
 
-    /* Top-left: booking form */
-    #form-area {
-      padding: 0;
+    #calendar-area {
       border-right: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
+      position: relative;
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    #calendar-area iframe {
+      width: 100%;
+      height: calc(100% - 55px); /* room for heading */
+      border: none;
+    }
+
+    #form-area {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
     #form-area iframe {
@@ -28,41 +39,21 @@
       border: none;
     }
 
-    /* Top-right: today calendar */
-    #today-calendar {
-      border-bottom: 1px solid #ccc;
-      padding: 10px;
+    /* for loading text */
+    .wait {
+      font-size: 22px;
+      font-weight: 900;
+      color: #d2d2d2;
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    #today-calendar iframe {
-      width: 100%;
-      height: 260px; /* small enough to force DAY view */
-      border: none;
-    }
-
-    /* Bottom: agenda view */
-    #agenda-area {
-      grid-column: span 2;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    #agenda-area iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Mobile layout */
+    /* Mobile layout: stack vertically */
     @media (max-width: 800px) {
       body {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        height: auto;
-      }
-      #agenda-area {
-        grid-column: span 1;
-        height: 400px;
+        grid-template-rows: 50vh 50vh;
       }
     }
   </style>
@@ -70,53 +61,37 @@
 
 <body>
 
-  <!-- TOP LEFT: BOOKING FORM (WORKING WEBAPP) -->
+  <div id="calendar-area">
+    <h2> Existing Reservations [<a href="#!" onClick="window.location.reload();">refresh</a>]</h2>
+    <!-- iframe inserted by script -->
+  </div>
+
+
   <div id="form-area">
+<div class=wait><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading, please wait...</div>
+
     <iframe 
       src="https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec">
     </iframe>
   </div>
 
-  <!-- TOP RIGHT: TODAY VIEW -->
-  <div id="today-calendar">
-    <h3>Today’s Reservations</h3>
-    <iframe 
-      src="https://calendar.google.com/calendar/embed?mode=DAY&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com&ctz=GMT">
-    </iframe>
-  </div>
+  <script>
+    // script to put date in calendar, otherwise today's all-day events won't show	
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = String(today.getMonth() + 1).padStart(2, "0");
+    const d = String(today.getDate()).padStart(2, "0");
+    const dateStr = `${y}${m}${d}`;
 
-  <!-- BOTTOM: AGENDA VIEW -->
-  <div id="agenda-area">
-    <h3>Upcoming Reservations</h3>
-    <iframe id="calendar"
-      src="https://calendar.google.com/calendar/embed?mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com&ctz=GMT">
-    </iframe>
-  </div>
+    const url =
+      `https://calendar.google.com/calendar/embed?mode=AGENDA` +
+      `&showTitle=0&showNav=1&showDate=0&showPrint=1&showTabs=0&showCalendars=0&showTz=0` +
+      `&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com` +
+      `&ctz=GMT&dates=${dateStr}/${dateStr}`;
 
-<script>
-// for refreshing calendar
-window.addEventListener("message", (event) => {
-  if (event.data === "refreshCalendar") {
-    const agenda = document.getElementById("calendar");
-
-    // Force refresh by adding a dummy parameter
-    const url = new URL(agenda.src);
-    url.searchParams.set("refresh", Date.now());
-
-    agenda.src = url.toString();
-  }
-});
-
-<script>
-window.addEventListener("message", (event) => {
-  console.log("MESSAGE RECEIVED:", event.data);
-});
-</script>
-
-
-</script>
+    document.getElementById("calendar-area").innerHTML +=
+      `<iframe src="${url}" style="border:0" width="100%" height="100%"></iframe>`;
+  </script>
 
 </body>
 </html>
-
-
