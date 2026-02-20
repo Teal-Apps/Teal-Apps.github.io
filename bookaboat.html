@@ -7,7 +7,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      height: 100vh;
+      height: 100dvh;
       display: grid;
       grid-template-columns: 1fr 1fr; /* calendar | form */
     }
@@ -15,7 +15,7 @@
     #calendar-area {
       border-right: 1px solid #ccc;
       position: relative;
-      height: 100vh;
+      height: 100dvh;
       box-sizing: border-box;
       padding: 20px;
     }
@@ -28,7 +28,7 @@
 
     #form-area {
       position: relative;
-      height: 100vh;
+      height: 100dvh;
       overflow: hidden;
       box-sizing: border-box;
     }
@@ -94,16 +94,9 @@
 
     // script to load form, adds a date to stop iphones from caching and blocking it
     document.getElementById("form-area").innerHTML +=
-	`<iframe src=https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + ` sandbox="allow-scripts allow-forms allow-same-origin"</iframe>`;
+	`<iframe src="https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation"</iframe>`;
 
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
