@@ -65,18 +65,15 @@
 
   <div id="calendar-area">
     <h2> Existing Reservations [<a href="#!" onClick="window.location.reload();">refresh</a>]</h2>
-    <!-- iframe inserted by script -->
+    <!-- calendar iframe inserted by script -->
   </div>
 
 
   <div id="form-area">
 <div class=wait><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading, please wait...</div>
-
-    <iframe 
-      sandbox="allow-scripts allow-forms allow-same-origin"
-      src="https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec">
-    </iframe>
+    <!-- form iframe inserted by script --> 
   </div>
+
 
   <script>
     // script to put date in calendar, otherwise today's all-day events won't show	
@@ -94,10 +91,16 @@
 
     document.getElementById("calendar-area").innerHTML +=
       `<iframe src="${url}" style="border:0" width="100%" height="100%"></iframe>`;
+
+    // script to load form, adds a date to stop iphones from caching and blocking it
+    document.getElementById("form-area").innerHTML +=
+	`<iframe src=https://script.google.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + ` sandbox="allow-scripts allow-forms allow-same-origin"</iframe>`;
+
   </script>
 
 </body>
 </html>
+
 
 
 
