@@ -125,10 +125,12 @@ function stopped()
 	return true; //?
 }
 
+
 function stopall()
 {
 	stopall(0); // stop including curent one
 }
+
 
 function stopall(track)
 {
@@ -392,6 +394,16 @@ function addlyrics(audio, track)
 	document.getElementById('lyrics').innerHTML = ' <br> ';
 }
 
+
+// general hack to reset the youtube time if the window regains focus since youtube now stops on losing focus
+
+document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+	// page no longer hidden, set video time to same as the piano time (plus the offset if there is one, needs testing)
+	youtube.seekTo(pianox.currentTime + videotime[currentlyplaying], true);
+    }
+
+});
 
 
 //</script>
