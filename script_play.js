@@ -393,9 +393,7 @@ function addlyrics(audio, track)
 
 	document.getElementById('lyrics').innerHTML = ' <br> ';
 }
-
-
-// general hack to reset the youtube time if the window regains focus since youtube now stops on losing focus
+/*
 
 document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
@@ -404,6 +402,22 @@ document.addEventListener("visibilitychange", () => {
     }
 
 });
+*/
+
+
+
+// general hack to reset the youtube time if the window regains focus since youtube now stops on losing focus
+
+var firstload = true; // to stop it from calling it on first loading
+window.addEventListener("focus", () => {
+	// page is refocussed, set video time to same as the piano time (plus the offset if there is one, needs testing)
+	if (firstload == true)
+		firstload = false;
+	else
+		youtube.seekTo(pianox.currentTime + videotime[currentlyplaying], true);
+    });
+
+
 
 
 //</script>
