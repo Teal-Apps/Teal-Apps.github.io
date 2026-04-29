@@ -35,7 +35,7 @@
 
     #form-area iframe {
       width: 100%;
-      height: 100%;
+      height: 60%;
       border: none;
     }
 
@@ -65,21 +65,33 @@
 
   <div id="calendar-area">
     <h2> Existing Reservations [<a href="#!" onClick="window.location.reload();">refresh</a>]</h2>
-    <!-- calendar iframe inserted by script -->
+    <!-- calendar src inserted by script -->
+    <iframe id=calendar-iframe style="border:0" width="100%" height="100%"></iframe>
   </div>
 
 	
+
+
   <div id="form-area">
     <div id="loading" class=wait><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											Loading, please wait...</div>
-	  	If the reservation form doesn't load please <a href="https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec">click here</a>.
-    <!-- form iframe inserted by script --> 
+											Loading, please wait...  	</div>
+
+    <!-- form iframe src inserted by script --> 
+    <iframe id="form-iframe"></iframe>
+
+    <div style="font-size: 14px; color: #555;">
+    <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the reservation form doesn't load, please <a href="https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec">click here<a/>.</i>
+</div>
+
+
   </div>
+   
 
   <script>
-//      <button onclick="window.location.href='https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec'">
+//    <button onclick="window.location.href='https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec'">
 //      If the reservation form doesn't load please click here. </button>
-	  
+
+  
     // script to put date in calendar, otherwise today's all-day events won't show	
     const today = new Date();
     const y = today.getFullYear();
@@ -93,29 +105,29 @@
       `&src=7888597ea008764c4f3531adced47949ff3d101d18e22c38d62308457f9b6a5a@group.calendar.google.com` +
       `&ctz=GMT&dates=${dateStr}/${dateStr}`;
 
-    document.getElementById("calendar-area").innerHTML +=
-      `<iframe src="${url}" style="border:0" width="100%" height="100%"></iframe>`;
+    document.getElementById("calendar-iframe").src = url;
 
     // script to load form, adds a date to stop iphones from caching and blocking it  // doesn't seem to actually fix it...
-    document.getElementById("form-area").innerHTML +=
-	`<iframe id="formframe" src="https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `"</iframe>`;
+    document.getElementById("form-iframe").src =
+	"https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=" + Date.now();
 
 	// iphone still didn't work, so add extra link in case it doesn't, it works directly from the google webapp
-	const formframe = document.getElementById("formframe");
-	const loading = document.getElementById("loading");
-    const onfailure = document.getElementById("onfailure");
+	// this didn't work either since it thinks it was successful
+	//const formframe = document.getElementById("form-iframe");
+	//const loading = document.getElementById("loading");
+    //const onfailure = document.getElementById("onfailure");
 	
 	// If it loads successfully
-	formframe.onload = () => {
-      loading.style.display = "none";
-      onfailure.style.display = "none";
-    };
+	//formframe.onload = () => {
+      //loading.style.display = "none";
+      //onfailure.style.display = "none";
+    //};
 
     // If it fails (Safari, blocked, etc.)
-    formframe.onerror = () => {
-      loading.style.display = "none";
-      onfailure.display = "block";
-    };
+    //formframe.onerror = () => {
+      //loading.style.display = "none";
+      //onfailure.display = "block";
+    //};
 	
   </script>
 
