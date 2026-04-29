@@ -70,20 +70,15 @@
 
 	
   <div id="form-area">
-    <div id="loading" class=wait><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading, please wait...</div>
+    <div id="loading" class=wait><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											Loading, please wait...</div>
+	  	If the reservation form doesn't load please <a href="https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec">click here</a>.
     <!-- form iframe inserted by script --> 
-    <div id="onfailure" style="display:none; margin-top:10px;">
-      <button onclick="window.location.href='https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec'">
-      Click here to reserve a boat
-    </button>
-	If the reservation form doesn't load please <a href="https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec">click here</a>.
-  </div>
   </div>
 
-      <button onclick="window.location.href='https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec'">
-      If the reservation form doesn't load please click here.
-	  </button>
   <script>
+//      <button onclick="window.location.href='https://script.google.com/macros/s/AKfycbxm6_PcIzpfikgZOmZGEzl-2kOY4G001rcs4wSXZneGoMAGw2XHjRwbKkaAimqurId8hg/exec'">
+//      If the reservation form doesn't load please click here. </button>
 	  
     // script to put date in calendar, otherwise today's all-day events won't show	
     const today = new Date();
@@ -102,8 +97,8 @@
       `<iframe src="${url}" style="border:0" width="100%" height="100%"></iframe>`;
 
     // script to load form, adds a date to stop iphones from caching and blocking it  // doesn't seem to actually fix it...
-    document.getElementById("form-area").innerHTML =
-	`<div id="form-area"><iframe id="formframe" src="https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `"</iframe></div>`;
+    document.getElementById("form-area").innerHTML +=
+	`<iframe id="formframe" src="https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `"</iframe>`;
 
 	// iphone still didn't work, so add extra link in case it doesn't, it works directly from the google webapp
 	const formframe = document.getElementById("formframe");
