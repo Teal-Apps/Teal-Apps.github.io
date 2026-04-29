@@ -102,8 +102,8 @@
       `<iframe src="${url}" style="border:0" width="100%" height="100%"></iframe>`;
 
     // script to load form, adds a date to stop iphones from caching and blocking it  // doesn't seem to actually fix it...
-    document.getElementById("form-area").innerHTML +=
-	`<iframe id="formframe" src="https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `"</iframe>`;
+    document.getElementById("form-area").innerHTML =
+	`<div id="form-area"><iframe id="formframe" src="https://script.googleusercontent.com/macros/s/AKfycbx1o8NhhlWvmaAgOX-iw99WKrqp0-cquU6WoHiTv_CXwcI7aWcQvhUTUDX7QJSDEnCKfQ/exec?t=` + Date.now() + `"</iframe></div>`;
 
 	// iphone still didn't work, so add extra link in case it doesn't, it works directly from the google webapp
 	const formframe = document.getElementById("formframe");
