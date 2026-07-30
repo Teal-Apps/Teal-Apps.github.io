@@ -171,9 +171,9 @@ function generaterow(i)
 			+ '<td> <b id=star' + i + '>' + state + '</b>' 
 		// invisible audio column
 			+ '<audio id=piano' + i + ' preload=none onended=' + onended + ontimeupdate + '>' 
-			+ '<source id=source' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
 		// add alternative sound files if available
-			+ ((mp3a[i] == undefined)? ' ' : '<source id=source' + i + ' src="https://raw.githubusercontent.com/Teal-Apps/' + mp3a[i] + '" type="audio/mpeg">')
+			+ ((mp3a[i] == undefined)? ' ' : '<source id=sourceG' + i + ' src="https://raw.githubusercontent.com/Teal-Apps/' + mp3a[i] + '" type="audio/mpeg">')
+			+ '<source id=sourceD' + i + ' src="' + mp3[i] + '&dl=0&raw=1" type="audio/mpeg">'
 			+ '!!! Your browser does not support this audio player !!! </audio>';
 }
 
@@ -181,7 +181,6 @@ function generaterow(i)
 
 
 
-jugendweihe = 16/5
 
 
 
