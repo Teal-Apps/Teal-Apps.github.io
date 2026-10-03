@@ -100,7 +100,7 @@ function generatevideocolumn()
 		+ '<div id=youtube><br>!!! Your browser does not support YouTube player !!!<br>' 
 		+ '(Try and refresh, sometimes it fails for some reason.)</div> <br>' 
 		+ '<br><div id=lyrics> <br> </div> <br><br>'
-		+ '<i><small style="color:red"><i>(please <a href=#email>email</a> me if you can\'t hear the alto part)<br>' 
+		+ '<i><small style="color:red"><i>(please <a href=#email>email</a> me if you can\'t hear the voice part)<br>' 
 		+ '(clicking \'play\' the first time might take a minute to load and start)</small></i><br><br></div>';
 }
 
